@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lbJ-de-RcU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up View Controller-->
+        <scene sceneID="GV9-Tt-prG">
+            <objects>
+                <viewController id="lbJ-de-RcU" customClass="SignUpViewController" customModule="ATaleIos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z6l-XD-a4J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVm-TQ-xST">
+                                <rect key="frame" x="47" y="293" width="280" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="ZK3-LZ-iMC"/>
+                                    <constraint firstAttribute="height" constant="80" id="zZb-5F-3ub"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="80"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jx2-l5-1nc">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="K18-uC-2La"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="-141" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Connect with Facebook" image="facebookLogo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jx2-l5-1nc" firstAttribute="leading" secondItem="dxs-At-Uvx" secondAttribute="leading" id="21U-9q-JQM"/>
+                            <constraint firstItem="vVm-TQ-xST" firstAttribute="centerX" secondItem="dxs-At-Uvx" secondAttribute="centerX" constant="-0.5" id="ERO-WU-hfl"/>
+                            <constraint firstItem="vVm-TQ-xST" firstAttribute="centerY" secondItem="dxs-At-Uvx" secondAttribute="centerY" constant="-10.5" id="G4L-SP-BDw"/>
+                            <constraint firstItem="dxs-At-Uvx" firstAttribute="bottom" secondItem="jx2-l5-1nc" secondAttribute="bottom" id="R5l-Vm-NvR"/>
+                            <constraint firstItem="dxs-At-Uvx" firstAttribute="trailing" secondItem="jx2-l5-1nc" secondAttribute="trailing" id="Wqq-9i-d5S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dxs-At-Uvx"/>
+                    </view>
+                    <connections>
+                        <outlet property="connectToFacebookButton" destination="jx2-l5-1nc" id="DwR-Qg-ELE"/>
+                        <outlet property="titleLabel" destination="vVm-TQ-xST" id="1Cm-4I-I90"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ke1-2D-pJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-65" y="114"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="facebookLogo" width="44" height="44"/>
+    </resources>
+</document>
