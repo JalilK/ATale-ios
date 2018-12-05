@@ -1,6 +1,0 @@
-framework module Pods_ATaleIosTests {
-  umbrella header "Pods-ATaleIosTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
