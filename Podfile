@@ -10,7 +10,6 @@ pod 'RxCocoa',    '~> 4.0'
   # Pods for ATaleIos
 
   target 'ATaleIosTests' do
-    inherit! :search_paths
     # Pods for testing
 pod 'RxBlocking', '~> 4.0'
 pod 'RxTest',     '~> 4.0'
