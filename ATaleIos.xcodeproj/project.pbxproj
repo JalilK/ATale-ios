@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1381D928A23B87ABA9F45852 /* Pods_ATaleIosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34165484DBAD7578D495C36 /* Pods_ATaleIosTests.framework */; };
 		AD319869D8D53DB2065044C9 /* Pods_ATaleIos_ATaleIosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C6B073C08441370C846127 /* Pods_ATaleIos_ATaleIosTests.framework */; };
+		B12CF89C21B7672000CC5932 /* FacebookLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12CF89B21B7672000CC5932 /* FacebookLoginService.swift */; };
 		B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E98521AB14BE00DB467F /* AppDelegate.swift */; };
 		B1D8E98D21AB14C000DB467F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D8E98C21AB14C000DB467F /* Assets.xcassets */; };
 		B1D8E99021AB14C000DB467F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D8E98E21AB14C000DB467F /* LaunchScreen.storyboard */; };
@@ -39,6 +40,7 @@
 		80D289FF172CD232CB2B9A46 /* Pods-ATaleIosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATaleIosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATaleIosTests/Pods-ATaleIosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		95C6B073C08441370C846127 /* Pods_ATaleIos_ATaleIosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATaleIos_ATaleIosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A34165484DBAD7578D495C36 /* Pods_ATaleIosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATaleIosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B12CF89B21B7672000CC5932 /* FacebookLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginService.swift; sourceTree = "<group>"; };
 		B1D8E98221AB14BE00DB467F /* ATaleIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATaleIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D8E98521AB14BE00DB467F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D8E98C21AB14C000DB467F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B12CF89A21B7670800CC5932 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B12CF89B21B7672000CC5932 /* FacebookLoginService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		B1D8E97921AB14BE00DB467F = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 		B1D8E98421AB14BE00DB467F /* ATaleIos */ = {
 			isa = PBXGroup;
 			children = (
+				B12CF89A21B7670800CC5932 /* Services */,
 				B1D8E9A821AB15AE00DB467F /* Extensions */,
 				B1D8E9A521AB14CC00DB467F /* SignUp */,
 				B1D8E98521AB14BE00DB467F /* AppDelegate.swift */,
@@ -271,6 +282,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos/Pods-ATaleIos-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
@@ -278,6 +294,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -339,6 +360,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos-ATaleIosTests/Pods-ATaleIos-ATaleIosTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
@@ -348,6 +374,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
@@ -367,6 +398,7 @@
 			files = (
 				B1D8E9AC21AB179600DB467F /* SignUpViewController.swift in Sources */,
 				B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */,
+				B12CF89C21B7672000CC5932 /* FacebookLoginService.swift in Sources */,
 				B1D8E9AE21AB179F00DB467F /* SignUpViewModel.swift in Sources */,
 				B1D8E9AA21AB15CC00DB467F /* UIColor+Extensions.swift in Sources */,
 			);
