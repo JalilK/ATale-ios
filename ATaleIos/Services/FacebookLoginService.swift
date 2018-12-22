@@ -11,10 +11,10 @@ import FacebookLogin
 import FacebookCore
 import RxSwift
 
-class FacebookLoginService {
-    private let loginManager: LoginManager = LoginManager()
+final class FacebookLoginService {
+    private static let loginManager: LoginManager = LoginManager()
 
-    func login(with readPermissions: [ReadPermission] = [.publicProfile]) -> Observable<AccessToken> {
+    static func login(with readPermissions: [ReadPermission] = [.publicProfile]) -> Observable<AccessToken> {
         return Observable<AccessToken>.create { observer in
             self.loginManager.logIn(readPermissions: readPermissions, viewController: nil) { result in
                 switch result {

@@ -1,4 +1,7 @@
 PODS:
+  - Action (3.9.1):
+    - RxCocoa (~> 4.3)
+    - RxSwift (~> 4.3)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -26,6 +29,7 @@ PODS:
     - RxSwift (~> 4.0)
 
 DEPENDENCIES:
+  - Action
   - FacebookLogin
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
@@ -34,6 +38,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Action
     - Bolts
     - FacebookCore
     - FacebookLogin
@@ -45,6 +50,7 @@ SPEC REPOS:
     - RxTest
 
 SPEC CHECKSUMS:
+  Action: 2f461c203c480b17aa99b3bb166e4329ecff6908
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FacebookCore: 74288d0add931d361b1596beae787ab72c438249
   FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
@@ -55,6 +61,6 @@ SPEC CHECKSUMS:
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   RxTest: ea97a208826906f3904c0debdd09575ebcbfe216
 
-PODFILE CHECKSUM: db0149022822deeee628a158a5f16b7f5b3d9177
+PODFILE CHECKSUM: a003d0e9ca7f9be0c1d9377a729c726a6a8b817d
 
 COCOAPODS: 1.5.3
