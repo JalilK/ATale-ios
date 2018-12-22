@@ -18,6 +18,15 @@ class SignUpViewModel {
         Driver.just(getAttirbutedTitleString())
     }()
 
+    lazy var loginSuccessDriver: Driver<UIViewController> = {
+        facebookButtonAction.executionObservables
+            .flatMap { $0 }
+            .map { _ in
+                 return UIStoryboard(name: "HomeScreenViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController()
+            }
+            .asDriver(onErrorJustReturn: UIViewController())
+    }()
+
     let facebookButtonAction: Action<Void, AccessToken> = Action<Void, AccessToken> {
         return FacebookLoginService.login()
     }

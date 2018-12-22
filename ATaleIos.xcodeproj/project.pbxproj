@@ -18,6 +18,13 @@
 		B1D8E9AC21AB179600DB467F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E9AB21AB179600DB467F /* SignUpViewController.swift */; };
 		B1D8E9AE21AB179F00DB467F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E9AD21AB179F00DB467F /* SignUpViewModel.swift */; };
 		B1D8E9B321AB216500DB467F /* SignUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E9B221AB216500DB467F /* SignUpViewModelTests.swift */; };
+		B1FCB2DB21CEBE230078906D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2DA21CEBE230078906D /* HomeViewController.swift */; };
+		B1FCB2DD21CEBE370078906D /* HomeScreenViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FCB2DC21CEBE370078906D /* HomeScreenViewController.storyboard */; };
+		B1FCB2DF21CEBE420078906D /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2DE21CEBE420078906D /* HomeScreenViewModel.swift */; };
+		B1FCB2E221CEBEDE0078906D /* HomeNavigationBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2E121CEBEDE0078906D /* HomeNavigationBarViewModel.swift */; };
+		B1FCB2E421CEBF080078906D /* HomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2E321CEBF080078906D /* HomeNavigationBar.swift */; };
+		B1FCB2E621CEBF6D0078906D /* HomeNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FCB2E521CEBF6D0078906D /* HomeNavigationBar.xib */; };
+		B1FCB2E821CEF2AC0078906D /* Reactive+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2E721CEF2AC0078906D /* Reactive+UIViewController.swift */; };
 		F010735F04FAE78883A04C11 /* Pods_ATaleIos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205776FE92350BBCF2DC18F2 /* Pods_ATaleIos.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +61,13 @@
 		B1D8E9AD21AB179F00DB467F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		B1D8E9B121AB216500DB467F /* ATaleIosTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ATaleIosTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B1D8E9B221AB216500DB467F /* SignUpViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelTests.swift; sourceTree = "<group>"; };
+		B1FCB2DA21CEBE230078906D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B1FCB2DC21CEBE370078906D /* HomeScreenViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreenViewController.storyboard; sourceTree = "<group>"; };
+		B1FCB2DE21CEBE420078906D /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		B1FCB2E121CEBEDE0078906D /* HomeNavigationBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBarViewModel.swift; sourceTree = "<group>"; };
+		B1FCB2E321CEBF080078906D /* HomeNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBar.swift; sourceTree = "<group>"; };
+		B1FCB2E521CEBF6D0078906D /* HomeNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeNavigationBar.xib; sourceTree = "<group>"; };
+		B1FCB2E721CEF2AC0078906D /* Reactive+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIViewController.swift"; sourceTree = "<group>"; };
 		E1E7563AC8C84809ECB57424 /* Pods-ATaleIos-ATaleIosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATaleIos-ATaleIosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATaleIos-ATaleIosTests/Pods-ATaleIos-ATaleIosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +146,8 @@
 		B1D8E98421AB14BE00DB467F /* ATaleIos */ = {
 			isa = PBXGroup;
 			children = (
+				B1FCB2E021CEBEC20078906D /* HomeNavigationBar */,
+				B1FCB2D921CEBE100078906D /* Home */,
 				B12CF89A21B7670800CC5932 /* Services */,
 				B1D8E9A821AB15AE00DB467F /* Extensions */,
 				B1D8E9A521AB14CC00DB467F /* SignUp */,
@@ -167,8 +183,29 @@
 			isa = PBXGroup;
 			children = (
 				B1D8E9A921AB15CC00DB467F /* UIColor+Extensions.swift */,
+				B1FCB2E721CEF2AC0078906D /* Reactive+UIViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B1FCB2D921CEBE100078906D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B1FCB2DA21CEBE230078906D /* HomeViewController.swift */,
+				B1FCB2DC21CEBE370078906D /* HomeScreenViewController.storyboard */,
+				B1FCB2DE21CEBE420078906D /* HomeScreenViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B1FCB2E021CEBEC20078906D /* HomeNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				B1FCB2E121CEBEDE0078906D /* HomeNavigationBarViewModel.swift */,
+				B1FCB2E321CEBF080078906D /* HomeNavigationBar.swift */,
+				B1FCB2E521CEBF6D0078906D /* HomeNavigationBar.xib */,
+			);
+			path = HomeNavigationBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +296,8 @@
 			files = (
 				B1D8E99021AB14C000DB467F /* LaunchScreen.storyboard in Resources */,
 				B1D8E9A721AB14E900DB467F /* SignUp.storyboard in Resources */,
+				B1FCB2E621CEBF6D0078906D /* HomeNavigationBar.xib in Resources */,
+				B1FCB2DD21CEBE370078906D /* HomeScreenViewController.storyboard in Resources */,
 				B1D8E98D21AB14C000DB467F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,9 +441,14 @@
 			files = (
 				B1D8E9AC21AB179600DB467F /* SignUpViewController.swift in Sources */,
 				B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */,
+				B1FCB2E221CEBEDE0078906D /* HomeNavigationBarViewModel.swift in Sources */,
+				B1FCB2E421CEBF080078906D /* HomeNavigationBar.swift in Sources */,
+				B1FCB2DF21CEBE420078906D /* HomeScreenViewModel.swift in Sources */,
+				B1FCB2E821CEF2AC0078906D /* Reactive+UIViewController.swift in Sources */,
 				B12CF89C21B7672000CC5932 /* FacebookLoginService.swift in Sources */,
 				B1D8E9AE21AB179F00DB467F /* SignUpViewModel.swift in Sources */,
 				B1D8E9AA21AB15CC00DB467F /* UIColor+Extensions.swift in Sources */,
+				B1FCB2DB21CEBE230078906D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

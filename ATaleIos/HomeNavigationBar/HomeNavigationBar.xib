@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeNavigationBar" customModule="ATaleIos" customModuleProvider="target">
+            <connections>
+                <outlet property="activeButton" destination="rnh-vI-ihI" id="hbS-sC-oeP"/>
+                <outlet property="completedButton" destination="rW1-WV-kSQ" id="Hbs-FH-dZA"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="BgV-vM-ZKK"/>
+                <outlet property="newTaleButton" destination="rDs-ED-uja" id="FtK-cW-6xA"/>
+                <outlet property="selectionIndicatorView" destination="zhl-Oz-guJ" id="qm0-TC-bw1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnh-vI-ihI">
+                    <rect key="frame" x="16" y="5" width="108.5" height="34"/>
+                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                    <state key="normal" title="Active"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW1-WV-kSQ">
+                    <rect key="frame" x="124.5" y="5" width="108" height="34"/>
+                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                    <state key="normal" title="Completed"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDs-ED-uja">
+                    <rect key="frame" x="250.5" y="5" width="108.5" height="34"/>
+                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                    <state key="normal" title="+ New Tale"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhl-Oz-guJ">
+                    <rect key="frame" x="0.0" y="42" width="108.5" height="2"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="g00-NK-kUL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rW1-WV-kSQ" firstAttribute="leading" secondItem="rnh-vI-ihI" secondAttribute="trailing" id="5dg-K1-vYN"/>
+                <constraint firstItem="rnh-vI-ihI" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="R2c-FA-xCl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rDs-ED-uja" secondAttribute="trailing" constant="16" id="TeP-be-zfH"/>
+                <constraint firstItem="rnh-vI-ihI" firstAttribute="width" secondItem="rW1-WV-kSQ" secondAttribute="width" id="Tvr-Pi-4A3"/>
+                <constraint firstItem="rW1-WV-kSQ" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ac6-GY-VB5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zhl-Oz-guJ" secondAttribute="bottom" id="amn-3h-MHL"/>
+                <constraint firstItem="zhl-Oz-guJ" firstAttribute="width" secondItem="rDs-ED-uja" secondAttribute="width" id="beu-wP-Ezv"/>
+                <constraint firstItem="rDs-ED-uja" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="eSm-l3-rYc"/>
+                <constraint firstItem="rW1-WV-kSQ" firstAttribute="width" secondItem="rDs-ED-uja" secondAttribute="width" id="fTv-NJ-q6R"/>
+                <constraint firstItem="zhl-Oz-guJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ljI-7o-P7a"/>
+                <constraint firstItem="rDs-ED-uja" firstAttribute="leading" secondItem="rW1-WV-kSQ" secondAttribute="trailing" constant="18" id="vVr-Qv-IYa"/>
+                <constraint firstItem="rnh-vI-ihI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zMT-0m-g6Z"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-15.199999999999999" y="-45.877061469265371"/>
+        </view>
+    </objects>
+</document>

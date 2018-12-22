@@ -35,6 +35,10 @@ class SignUpViewController: UIViewController {
             .drive(titleLabel.rx.attributedText)
             .disposed(by: disposeBag)
 
+        viewModel.loginSuccessDriver
+            .drive(rx.presentViewController)
+            .disposed(by: disposeBag)
+
         connectToFacebookButton.rx.bind(to: viewModel.facebookButtonAction) { _ in return }
     }
 }
