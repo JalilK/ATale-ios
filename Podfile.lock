@@ -8,6 +8,7 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - Differentiator (3.1.0)
   - FacebookCore (0.5.0):
     - Bolts (~> 1.9)
     - FBSDKCoreKit (~> 4.37)
@@ -24,6 +25,10 @@ PODS:
     - RxSwift (~> 4.0)
   - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
   - RxTest (4.3.1):
     - RxSwift (~> 4.0)
@@ -33,6 +38,7 @@ DEPENDENCIES:
   - FacebookLogin
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
+  - RxDataSources (~> 3.0)
   - RxSwift (~> 4.0)
   - RxTest (~> 4.0)
 
@@ -40,27 +46,31 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Action
     - Bolts
+    - Differentiator
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
     - RxBlocking
     - RxCocoa
+    - RxDataSources
     - RxSwift
     - RxTest
 
 SPEC CHECKSUMS:
   Action: 2f461c203c480b17aa99b3bb166e4329ecff6908
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   FacebookCore: 74288d0add931d361b1596beae787ab72c438249
   FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
   FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
   FBSDKLoginKit: 4621c690d9dd8628031a4791497062183ea34b0d
   RxBlocking: 64c051285261ca2339481e91b5f70eb06b03660a
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   RxTest: ea97a208826906f3904c0debdd09575ebcbfe216
 
-PODFILE CHECKSUM: a003d0e9ca7f9be0c1d9377a729c726a6a8b817d
+PODFILE CHECKSUM: 12211ee05ab51b3f6e167f875b33c8323d28039e
 
 COCOAPODS: 1.5.3

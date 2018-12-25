@@ -7,8 +7,17 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
 class HomeScreenViewModel {
     let homeNavigationBarViewModel = HomeNavigationBarViewModel()
+
+    private let homeCellViewModels = [HomePendingViewModel()]
+
+    lazy var homeCellViewModelsObservable: Observable<[HomePendingViewModel]> = {
+        Observable.just(homeCellViewModels)
+    }()
 
     // Mark: - HomeNavigationBar Observables
     

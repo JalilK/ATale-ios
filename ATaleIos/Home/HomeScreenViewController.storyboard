@@ -32,9 +32,12 @@ Let’s get started.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-oH-vmi">
-                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-oH-vmi">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="Vfm-gY-kPU"/>
+                                </constraints>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,7 +51,7 @@ Let’s get started.</string>
                             <constraint firstItem="eUh-rm-3Ve" firstAttribute="leading" secondItem="vmE-x8-uHP" secondAttribute="leading" constant="16" id="lWs-zY-Hxt"/>
                             <constraint firstItem="7kI-61-DDf" firstAttribute="leading" secondItem="vmE-x8-uHP" secondAttribute="leading" id="oSP-QY-VAz"/>
                             <constraint firstItem="vmE-x8-uHP" firstAttribute="trailing" secondItem="eUh-rm-3Ve" secondAttribute="trailing" constant="16" id="u6C-5i-VVY"/>
-                            <constraint firstItem="QBu-oH-vmi" firstAttribute="top" secondItem="7kI-61-DDf" secondAttribute="bottom" constant="8" id="vZp-cT-Grh"/>
+                            <constraint firstItem="QBu-oH-vmi" firstAttribute="top" secondItem="7kI-61-DDf" secondAttribute="bottom" constant="16" id="vZp-cT-Grh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vmE-x8-uHP"/>
                     </view>

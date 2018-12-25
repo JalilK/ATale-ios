@@ -25,6 +25,15 @@
 		B1FCB2E421CEBF080078906D /* HomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2E321CEBF080078906D /* HomeNavigationBar.swift */; };
 		B1FCB2E621CEBF6D0078906D /* HomeNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FCB2E521CEBF6D0078906D /* HomeNavigationBar.xib */; };
 		B1FCB2E821CEF2AC0078906D /* Reactive+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2E721CEF2AC0078906D /* Reactive+UIViewController.swift */; };
+		B1FCB2EB21CF05BB0078906D /* PendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2E921CF05BB0078906D /* PendingTableViewCell.swift */; };
+		B1FCB2EC21CF05BB0078906D /* PendingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FCB2EA21CF05BB0078906D /* PendingTableViewCell.xib */; };
+		B1FCB2F021CF06D60078906D /* PendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2EE21CF06D60078906D /* PendingCollectionViewCell.swift */; };
+		B1FCB2F121CF06D60078906D /* PendingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FCB2EF21CF06D60078906D /* PendingCollectionViewCell.xib */; };
+		B1FCB2F321CF0B640078906D /* PendingCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2F221CF0B640078906D /* PendingCollectionCellViewModel.swift */; };
+		B1FCB2F721CF2E880078906D /* HomeCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2F621CF2E880078906D /* HomeCellViewModelType.swift */; };
+		B1FCB2F921CF328E0078906D /* HomePendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2F821CF328E0078906D /* HomePendingViewModel.swift */; };
+		B1FCB2FB21D01ADD0078906D /* PendingTaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2FA21D01ADD0078906D /* PendingTaleModel.swift */; };
+		B1FCB2FD21D066350078906D /* Reactive+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2FC21D066350078906D /* Reactive+UIView.swift */; };
 		F010735F04FAE78883A04C11 /* Pods_ATaleIos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205776FE92350BBCF2DC18F2 /* Pods_ATaleIos.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +77,15 @@
 		B1FCB2E321CEBF080078906D /* HomeNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBar.swift; sourceTree = "<group>"; };
 		B1FCB2E521CEBF6D0078906D /* HomeNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeNavigationBar.xib; sourceTree = "<group>"; };
 		B1FCB2E721CEF2AC0078906D /* Reactive+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIViewController.swift"; sourceTree = "<group>"; };
+		B1FCB2E921CF05BB0078906D /* PendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingTableViewCell.swift; sourceTree = "<group>"; };
+		B1FCB2EA21CF05BB0078906D /* PendingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PendingTableViewCell.xib; sourceTree = "<group>"; };
+		B1FCB2EE21CF06D60078906D /* PendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1FCB2EF21CF06D60078906D /* PendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PendingCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1FCB2F221CF0B640078906D /* PendingCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		B1FCB2F621CF2E880078906D /* HomeCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModelType.swift; sourceTree = "<group>"; };
+		B1FCB2F821CF328E0078906D /* HomePendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePendingViewModel.swift; sourceTree = "<group>"; };
+		B1FCB2FA21D01ADD0078906D /* PendingTaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingTaleModel.swift; sourceTree = "<group>"; };
+		B1FCB2FC21D066350078906D /* Reactive+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIView.swift"; sourceTree = "<group>"; };
 		E1E7563AC8C84809ECB57424 /* Pods-ATaleIos-ATaleIosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATaleIos-ATaleIosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATaleIos-ATaleIosTests/Pods-ATaleIos-ATaleIosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +202,7 @@
 			children = (
 				B1D8E9A921AB15CC00DB467F /* UIColor+Extensions.swift */,
 				B1FCB2E721CEF2AC0078906D /* Reactive+UIViewController.swift */,
+				B1FCB2FC21D066350078906D /* Reactive+UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,9 +210,12 @@
 		B1FCB2D921CEBE100078906D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B1FCB2ED21CF05BD0078906D /* PendingTableViewCell */,
 				B1FCB2DA21CEBE230078906D /* HomeViewController.swift */,
 				B1FCB2DC21CEBE370078906D /* HomeScreenViewController.storyboard */,
 				B1FCB2DE21CEBE420078906D /* HomeScreenViewModel.swift */,
+				B1FCB2F621CF2E880078906D /* HomeCellViewModelType.swift */,
+				B1FCB2F821CF328E0078906D /* HomePendingViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -206,6 +228,19 @@
 				B1FCB2E521CEBF6D0078906D /* HomeNavigationBar.xib */,
 			);
 			path = HomeNavigationBar;
+			sourceTree = "<group>";
+		};
+		B1FCB2ED21CF05BD0078906D /* PendingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B1FCB2E921CF05BB0078906D /* PendingTableViewCell.swift */,
+				B1FCB2EA21CF05BB0078906D /* PendingTableViewCell.xib */,
+				B1FCB2EE21CF06D60078906D /* PendingCollectionViewCell.swift */,
+				B1FCB2EF21CF06D60078906D /* PendingCollectionViewCell.xib */,
+				B1FCB2F221CF0B640078906D /* PendingCollectionCellViewModel.swift */,
+				B1FCB2FA21D01ADD0078906D /* PendingTaleModel.swift */,
+			);
+			path = PendingTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,7 +330,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1D8E99021AB14C000DB467F /* LaunchScreen.storyboard in Resources */,
+				B1FCB2EC21CF05BB0078906D /* PendingTableViewCell.xib in Resources */,
 				B1D8E9A721AB14E900DB467F /* SignUp.storyboard in Resources */,
+				B1FCB2F121CF06D60078906D /* PendingCollectionViewCell.xib in Resources */,
 				B1FCB2E621CEBF6D0078906D /* HomeNavigationBar.xib in Resources */,
 				B1FCB2DD21CEBE370078906D /* HomeScreenViewController.storyboard in Resources */,
 				B1D8E98D21AB14C000DB467F /* Assets.xcassets in Resources */,
@@ -323,11 +360,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos/Pods-ATaleIos-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -336,11 +375,13 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,11 +444,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos-ATaleIosTests/Pods-ATaleIos-ATaleIosTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
@@ -418,11 +461,13 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
@@ -439,15 +484,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1FCB2F321CF0B640078906D /* PendingCollectionCellViewModel.swift in Sources */,
+				B1FCB2F721CF2E880078906D /* HomeCellViewModelType.swift in Sources */,
 				B1D8E9AC21AB179600DB467F /* SignUpViewController.swift in Sources */,
 				B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */,
+				B1FCB2F021CF06D60078906D /* PendingCollectionViewCell.swift in Sources */,
+				B1FCB2EB21CF05BB0078906D /* PendingTableViewCell.swift in Sources */,
 				B1FCB2E221CEBEDE0078906D /* HomeNavigationBarViewModel.swift in Sources */,
 				B1FCB2E421CEBF080078906D /* HomeNavigationBar.swift in Sources */,
 				B1FCB2DF21CEBE420078906D /* HomeScreenViewModel.swift in Sources */,
 				B1FCB2E821CEF2AC0078906D /* Reactive+UIViewController.swift in Sources */,
 				B12CF89C21B7672000CC5932 /* FacebookLoginService.swift in Sources */,
+				B1FCB2F921CF328E0078906D /* HomePendingViewModel.swift in Sources */,
 				B1D8E9AE21AB179F00DB467F /* SignUpViewModel.swift in Sources */,
+				B1FCB2FB21D01ADD0078906D /* PendingTaleModel.swift in Sources */,
 				B1D8E9AA21AB15CC00DB467F /* UIColor+Extensions.swift in Sources */,
+				B1FCB2FD21D066350078906D /* Reactive+UIView.swift in Sources */,
 				B1FCB2DB21CEBE230078906D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
