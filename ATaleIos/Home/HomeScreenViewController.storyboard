@@ -32,32 +32,29 @@ Let’s get started.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-oH-vmi">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KfE-Io-rNc">
                                 <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="Vfm-gY-kPU"/>
-                                </constraints>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QBu-oH-vmi" firstAttribute="leading" secondItem="vmE-x8-uHP" secondAttribute="leading" id="6kI-ak-Ph4"/>
-                            <constraint firstItem="vmE-x8-uHP" firstAttribute="trailing" secondItem="QBu-oH-vmi" secondAttribute="trailing" id="86a-hk-d8S"/>
                             <constraint firstItem="vmE-x8-uHP" firstAttribute="trailing" secondItem="7kI-61-DDf" secondAttribute="trailing" id="F9p-wF-ZKl"/>
                             <constraint firstItem="7kI-61-DDf" firstAttribute="top" secondItem="vmE-x8-uHP" secondAttribute="top" id="GaQ-uB-6o5"/>
-                            <constraint firstItem="vmE-x8-uHP" firstAttribute="bottom" secondItem="QBu-oH-vmi" secondAttribute="bottom" id="eex-Yz-1O1"/>
+                            <constraint firstItem="KfE-Io-rNc" firstAttribute="top" secondItem="7kI-61-DDf" secondAttribute="bottom" constant="16" id="JX5-Ah-qVB"/>
+                            <constraint firstItem="KfE-Io-rNc" firstAttribute="leading" secondItem="vmE-x8-uHP" secondAttribute="leading" id="ciw-Pf-44z"/>
+                            <constraint firstItem="vmE-x8-uHP" firstAttribute="bottom" secondItem="KfE-Io-rNc" secondAttribute="bottom" id="fi1-RX-JUs"/>
                             <constraint firstItem="eUh-rm-3Ve" firstAttribute="centerY" secondItem="vmE-x8-uHP" secondAttribute="centerY" id="kaj-nz-d2g"/>
+                            <constraint firstItem="vmE-x8-uHP" firstAttribute="trailing" secondItem="KfE-Io-rNc" secondAttribute="trailing" id="ksZ-zZ-1uL"/>
                             <constraint firstItem="eUh-rm-3Ve" firstAttribute="leading" secondItem="vmE-x8-uHP" secondAttribute="leading" constant="16" id="lWs-zY-Hxt"/>
                             <constraint firstItem="7kI-61-DDf" firstAttribute="leading" secondItem="vmE-x8-uHP" secondAttribute="leading" id="oSP-QY-VAz"/>
                             <constraint firstItem="vmE-x8-uHP" firstAttribute="trailing" secondItem="eUh-rm-3Ve" secondAttribute="trailing" constant="16" id="u6C-5i-VVY"/>
-                            <constraint firstItem="QBu-oH-vmi" firstAttribute="top" secondItem="7kI-61-DDf" secondAttribute="bottom" constant="16" id="vZp-cT-Grh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vmE-x8-uHP"/>
                     </view>
                     <connections>
                         <outlet property="homeNavigationBar" destination="7kI-61-DDf" id="s6Y-dF-mpu"/>
-                        <outlet property="tableView" destination="QBu-oH-vmi" id="qCF-q7-cUq"/>
+                        <outlet property="tableView" destination="KfE-Io-rNc" id="b6d-Z7-VI5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoG-zY-3CR" userLabel="First Responder" sceneMemberID="firstResponder"/>

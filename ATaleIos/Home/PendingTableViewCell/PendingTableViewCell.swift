@@ -12,8 +12,6 @@ import RxCocoa
 
 class PendingTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var pendingLabelContainerView: UIView!
-    @IBOutlet weak var spacerView: UIView!
 
     var disposeBag = DisposeBag()
 
@@ -40,9 +38,6 @@ class PendingTableViewCell: UITableViewCell {
     }
 
     private func setupViews() {
-        spacerView.backgroundColor = UIColor.aTaleGray
-        pendingLabelContainerView.backgroundColor = UIColor.cream
-
         collectionView.backgroundColor = UIColor.cream
         collectionView.register(UINib(nibName: "PendingCollectionViewHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PendingCollectionViewHeader")
         collectionView.register(UINib(nibName: "PendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PendingCollectionViewCell")

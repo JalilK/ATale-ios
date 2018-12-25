@@ -12,17 +12,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PendingTableViewCell" id="KGk-i7-Jjw" customClass="PendingTableViewCell" customModule="ATaleIos" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="376"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="375.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="271.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="whY-GT-jhM">
-                        <rect key="frame" x="0.0" y="90" width="320" height="285"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="272"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="285" id="7qr-Mt-gWi"/>
+                            <constraint firstAttribute="height" constant="272" id="7qr-Mt-gWi"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="9UW-wP-SJQ">
                             <size key="itemSize" width="240" height="272"/>
@@ -31,60 +31,17 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3KU-vX-Hg0">
-                        <rect key="frame" x="0.0" y="15" width="320" height="75"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U67-Qc-NS3">
-                                <rect key="frame" x="16" y="24" width="89.5" height="33"/>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzG-Cx-P7s">
-                                <rect key="frame" x="16" y="69" width="75" height="4"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="VwU-tV-ld6"/>
-                                    <constraint firstAttribute="height" constant="4" id="v1X-6i-vx7"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="U67-Qc-NS3" firstAttribute="leading" secondItem="QZc-mh-Ffc" secondAttribute="leading" constant="16" id="26e-cp-IJZ"/>
-                            <constraint firstAttribute="height" constant="75" id="Vpj-0s-2jZ"/>
-                            <constraint firstItem="yzG-Cx-P7s" firstAttribute="leading" secondItem="QZc-mh-Ffc" secondAttribute="leading" constant="16" id="WCJ-G9-gcG"/>
-                            <constraint firstItem="U67-Qc-NS3" firstAttribute="top" secondItem="QZc-mh-Ffc" secondAttribute="top" constant="24" id="dGx-Ju-wjA"/>
-                            <constraint firstItem="yzG-Cx-P7s" firstAttribute="top" secondItem="U67-Qc-NS3" secondAttribute="bottom" constant="12" id="ekb-yQ-GEb"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="QZc-mh-Ffc"/>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqh-dT-5kw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="16"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="ps4-ps-NHa"/>
-                        </constraints>
-                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="3KU-vX-Hg0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3DR-l4-4bP"/>
-                    <constraint firstAttribute="trailing" secondItem="3KU-vX-Hg0" secondAttribute="trailing" id="93F-vw-f0v"/>
-                    <constraint firstAttribute="trailing" secondItem="jqh-dT-5kw" secondAttribute="trailing" id="Fkp-kS-owU"/>
                     <constraint firstAttribute="bottom" secondItem="whY-GT-jhM" secondAttribute="bottom" constant="-0.5" id="Kc4-we-3vv"/>
-                    <constraint firstItem="jqh-dT-5kw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="iBo-QR-vtu"/>
-                    <constraint firstItem="jqh-dT-5kw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jDv-51-POA"/>
                     <constraint firstItem="whY-GT-jhM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="l0a-cL-MJN"/>
-                    <constraint firstItem="whY-GT-jhM" firstAttribute="top" secondItem="3KU-vX-Hg0" secondAttribute="bottom" id="szS-pE-gd6"/>
-                    <constraint firstItem="3KU-vX-Hg0" firstAttribute="top" secondItem="jqh-dT-5kw" secondAttribute="bottom" constant="-1" id="uAm-zk-KFz"/>
                     <constraint firstAttribute="trailing" secondItem="whY-GT-jhM" secondAttribute="trailing" id="uM7-lX-pHd"/>
+                    <constraint firstItem="whY-GT-jhM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yO5-VT-VZJ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionView" destination="whY-GT-jhM" id="4rf-b7-19O"/>
-                <outlet property="pendingLabelContainerView" destination="3KU-vX-Hg0" id="wqY-jJ-46e"/>
-                <outlet property="spacerView" destination="jqh-dT-5kw" id="olS-g1-FlN"/>
             </connections>
             <point key="canvasLocation" x="52.799999999999997" y="48.575712143928037"/>
         </tableViewCell>

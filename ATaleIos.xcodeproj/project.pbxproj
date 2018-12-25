@@ -34,6 +34,12 @@
 		B1FCB2F921CF328E0078906D /* HomePendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2F821CF328E0078906D /* HomePendingViewModel.swift */; };
 		B1FCB2FB21D01ADD0078906D /* PendingTaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2FA21D01ADD0078906D /* PendingTaleModel.swift */; };
 		B1FCB2FD21D066350078906D /* Reactive+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB2FC21D066350078906D /* Reactive+UIView.swift */; };
+		B1FCB30921D1DB5B0078906D /* TurnTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB30721D1DB5B0078906D /* TurnTableViewCell.swift */; };
+		B1FCB30A21D1DB5B0078906D /* TurnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FCB30821D1DB5B0078906D /* TurnTableViewCell.xib */; };
+		B1FCB30C21D1DEB80078906D /* TurnTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB30B21D1DEB80078906D /* TurnTableViewCellViewModel.swift */; };
+		B1FCB30E21D1DF610078906D /* TaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB30D21D1DF610078906D /* TaleModel.swift */; };
+		B1FCB31421D1FF7B0078906D /* HomeSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB31321D1FF7B0078906D /* HomeSectionHeaderCell.swift */; };
+		B1FCB31621D1FF8F0078906D /* HomeSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FCB31521D1FF8F0078906D /* HomeSectionHeaderCell.xib */; };
 		F010735F04FAE78883A04C11 /* Pods_ATaleIos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205776FE92350BBCF2DC18F2 /* Pods_ATaleIos.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +92,12 @@
 		B1FCB2F821CF328E0078906D /* HomePendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePendingViewModel.swift; sourceTree = "<group>"; };
 		B1FCB2FA21D01ADD0078906D /* PendingTaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingTaleModel.swift; sourceTree = "<group>"; };
 		B1FCB2FC21D066350078906D /* Reactive+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIView.swift"; sourceTree = "<group>"; };
+		B1FCB30721D1DB5B0078906D /* TurnTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTableViewCell.swift; sourceTree = "<group>"; };
+		B1FCB30821D1DB5B0078906D /* TurnTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TurnTableViewCell.xib; sourceTree = "<group>"; };
+		B1FCB30B21D1DEB80078906D /* TurnTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		B1FCB30D21D1DF610078906D /* TaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaleModel.swift; sourceTree = "<group>"; };
+		B1FCB31321D1FF7B0078906D /* HomeSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionHeaderCell.swift; sourceTree = "<group>"; };
+		B1FCB31521D1FF8F0078906D /* HomeSectionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSectionHeaderCell.xib; sourceTree = "<group>"; };
 		E1E7563AC8C84809ECB57424 /* Pods-ATaleIos-ATaleIosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATaleIos-ATaleIosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATaleIos-ATaleIosTests/Pods-ATaleIos-ATaleIosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,12 +222,15 @@
 		B1FCB2D921CEBE100078906D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B1FCB30621D1DB3D0078906D /* TurnTableViewCell */,
 				B1FCB2ED21CF05BD0078906D /* PendingTableViewCell */,
 				B1FCB2DA21CEBE230078906D /* HomeViewController.swift */,
 				B1FCB2DC21CEBE370078906D /* HomeScreenViewController.storyboard */,
 				B1FCB2DE21CEBE420078906D /* HomeScreenViewModel.swift */,
 				B1FCB2F621CF2E880078906D /* HomeCellViewModelType.swift */,
 				B1FCB2F821CF328E0078906D /* HomePendingViewModel.swift */,
+				B1FCB31321D1FF7B0078906D /* HomeSectionHeaderCell.swift */,
+				B1FCB31521D1FF8F0078906D /* HomeSectionHeaderCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -241,6 +256,17 @@
 				B1FCB2FA21D01ADD0078906D /* PendingTaleModel.swift */,
 			);
 			path = PendingTableViewCell;
+			sourceTree = "<group>";
+		};
+		B1FCB30621D1DB3D0078906D /* TurnTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B1FCB30721D1DB5B0078906D /* TurnTableViewCell.swift */,
+				B1FCB30821D1DB5B0078906D /* TurnTableViewCell.xib */,
+				B1FCB30B21D1DEB80078906D /* TurnTableViewCellViewModel.swift */,
+				B1FCB30D21D1DF610078906D /* TaleModel.swift */,
+			);
+			path = TurnTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +357,8 @@
 			files = (
 				B1D8E99021AB14C000DB467F /* LaunchScreen.storyboard in Resources */,
 				B1FCB2EC21CF05BB0078906D /* PendingTableViewCell.xib in Resources */,
+				B1FCB30A21D1DB5B0078906D /* TurnTableViewCell.xib in Resources */,
+				B1FCB31621D1FF8F0078906D /* HomeSectionHeaderCell.xib in Resources */,
 				B1D8E9A721AB14E900DB467F /* SignUp.storyboard in Resources */,
 				B1FCB2F121CF06D60078906D /* PendingCollectionViewCell.xib in Resources */,
 				B1FCB2E621CEBF6D0078906D /* HomeNavigationBar.xib in Resources */,
@@ -485,9 +513,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1FCB2F321CF0B640078906D /* PendingCollectionCellViewModel.swift in Sources */,
+				B1FCB30E21D1DF610078906D /* TaleModel.swift in Sources */,
 				B1FCB2F721CF2E880078906D /* HomeCellViewModelType.swift in Sources */,
 				B1D8E9AC21AB179600DB467F /* SignUpViewController.swift in Sources */,
 				B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */,
+				B1FCB30921D1DB5B0078906D /* TurnTableViewCell.swift in Sources */,
 				B1FCB2F021CF06D60078906D /* PendingCollectionViewCell.swift in Sources */,
 				B1FCB2EB21CF05BB0078906D /* PendingTableViewCell.swift in Sources */,
 				B1FCB2E221CEBEDE0078906D /* HomeNavigationBarViewModel.swift in Sources */,
@@ -497,6 +527,8 @@
 				B12CF89C21B7672000CC5932 /* FacebookLoginService.swift in Sources */,
 				B1FCB2F921CF328E0078906D /* HomePendingViewModel.swift in Sources */,
 				B1D8E9AE21AB179F00DB467F /* SignUpViewModel.swift in Sources */,
+				B1FCB31421D1FF7B0078906D /* HomeSectionHeaderCell.swift in Sources */,
+				B1FCB30C21D1DEB80078906D /* TurnTableViewCellViewModel.swift in Sources */,
 				B1FCB2FB21D01ADD0078906D /* PendingTaleModel.swift in Sources */,
 				B1D8E9AA21AB15CC00DB467F /* UIColor+Extensions.swift in Sources */,
 				B1FCB2FD21D066350078906D /* Reactive+UIView.swift in Sources */,
