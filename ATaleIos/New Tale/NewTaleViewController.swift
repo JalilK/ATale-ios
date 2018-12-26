@@ -25,6 +25,10 @@ class NewTaleViewController: UIViewController {
     }
 
     private func setupViews() {
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.backgroundColor: UIColor.cream,
+            NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 16)!
+        ]
         selectedColorView.backgroundColor = UIColor.darkTeal
     }
 

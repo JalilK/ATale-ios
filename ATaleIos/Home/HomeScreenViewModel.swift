@@ -42,7 +42,10 @@ class HomeScreenViewModel {
     }()
     lazy var newTaleDriver: Driver<UIViewController> = {
         homeNavigationBarViewModel.newFableButtonPublishRelay.map {
-            UIStoryboard(name: "NewTaleViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController()
+            let vc = (UIStoryboard(name: "NewTaleViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController())
+            vc.title = "New Tale"
+
+            return vc
         }
         .asDriver(onErrorJustReturn: UIViewController())
     }()

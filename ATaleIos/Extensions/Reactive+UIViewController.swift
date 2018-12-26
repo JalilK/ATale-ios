@@ -16,4 +16,10 @@ extension Reactive where Base: UIViewController {
             parent.present(viewController, animated: true, completion: nil)
         }
     }
+
+    var pushToNavigationController: Binder<UIViewController> {
+        return Binder(self.base) { parent, viewController in
+            parent.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
 }

@@ -23,6 +23,16 @@ class HomeViewController: UIViewController {
         setupBindings()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+
     private func setupViews() {
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
         tableView.backgroundColor = UIColor.cream
@@ -41,7 +51,7 @@ class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
 
         viewModel.newTaleDriver
-            .drive(rx.presentViewController)
+            .drive(rx.pushToNavigationController)
             .disposed(by: disposeBag)
     }
 }
