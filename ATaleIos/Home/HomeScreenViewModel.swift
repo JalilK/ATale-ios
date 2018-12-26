@@ -40,6 +40,12 @@ class HomeScreenViewModel {
     lazy var homeCellViewModelsObservable: Observable<[HomeSectionModel]> = {
         Observable.just(sections)
     }()
+    lazy var newTaleDriver: Driver<UIViewController> = {
+        homeNavigationBarViewModel.newFableButtonPublishRelay.map {
+            UIStoryboard(name: "NewTaleViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController()
+        }
+        .asDriver(onErrorJustReturn: UIViewController())
+    }()
 
     init() {
         setupDataSource()

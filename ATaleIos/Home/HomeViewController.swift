@@ -34,7 +34,15 @@ class HomeViewController: UIViewController {
     }
 
     private func setupBindings() {
-        viewModel.homeCellViewModelsObservable.bind(to: tableView.rx.items(dataSource: viewModel.dataSource)).disposed(by: disposeBag)
+        homeNavigationBar.bind(viewModel: viewModel.homeNavigationBarViewModel)
+
+        viewModel.homeCellViewModelsObservable
+            .bind(to: tableView.rx.items(dataSource: viewModel.dataSource))
+            .disposed(by: disposeBag)
+
+        viewModel.newTaleDriver
+            .drive(rx.presentViewController)
+            .disposed(by: disposeBag)
     }
 }
 

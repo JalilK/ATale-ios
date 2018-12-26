@@ -7,6 +7,7 @@ target 'ATaleIos' do
 pod 'RxSwift',    '~> 4.0'
 pod 'RxCocoa',    '~> 4.0'
 pod 'RxDataSources', '~> 3.0'
+pod 'RxGesture', :git => 'https://github.com/RxSwiftCommunity/RxGesture', branch: 'master'
 pod 'Action'
 pod 'FacebookLogin'
 

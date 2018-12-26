@@ -8,6 +8,8 @@
 
 import UIKit
 import Foundation
+import RxSwift
+import RxCocoa
 
 class HomeNavigationBar: UIView {
     @IBOutlet var contentView: UIView!
@@ -15,6 +17,8 @@ class HomeNavigationBar: UIView {
     @IBOutlet weak var completedButton: UIButton!
     @IBOutlet weak var newTaleButton: UIButton!
     @IBOutlet weak var selectionIndicatorView: UIView!
+
+    let disposeBag = DisposeBag()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +28,12 @@ class HomeNavigationBar: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+    }
+
+    func bind(viewModel: HomeNavigationBarViewModel) {
+        newTaleButton.rx.tap
+            .bind(to: viewModel.newFableButtonPublishRelay)
+            .disposed(by: disposeBag)
     }
 
     private func commonInit() {

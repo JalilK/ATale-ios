@@ -21,15 +21,20 @@ PODS:
     - Bolts (~> 1.9)
   - FBSDKLoginKit (4.38.1):
     - FBSDKCoreKit
+  - RxAtomic (4.4.0)
   - RxBlocking (4.3.1):
     - RxSwift (~> 4.0)
-  - RxCocoa (4.3.1):
+  - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
   - RxDataSources (3.1.0):
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxSwift (4.3.1)
+  - RxGesture (2.1.0):
+    - RxCocoa (~> 4.4.0)
+    - RxSwift (~> 4.4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
   - RxTest (4.3.1):
     - RxSwift (~> 4.0)
 
@@ -39,6 +44,7 @@ DEPENDENCIES:
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
   - RxDataSources (~> 3.0)
+  - RxGesture (from `https://github.com/RxSwiftCommunity/RxGesture`, branch `master`)
   - RxSwift (~> 4.0)
   - RxTest (~> 4.0)
 
@@ -51,11 +57,22 @@ SPEC REPOS:
     - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - RxAtomic
     - RxBlocking
     - RxCocoa
     - RxDataSources
     - RxSwift
     - RxTest
+
+EXTERNAL SOURCES:
+  RxGesture:
+    :branch: master
+    :git: https://github.com/RxSwiftCommunity/RxGesture
+
+CHECKOUT OPTIONS:
+  RxGesture:
+    :commit: bb5484a9183e67bfbce0df3720859bbd73e05527
+    :git: https://github.com/RxSwiftCommunity/RxGesture
 
 SPEC CHECKSUMS:
   Action: 2f461c203c480b17aa99b3bb166e4329ecff6908
@@ -65,12 +82,14 @@ SPEC CHECKSUMS:
   FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
   FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
   FBSDKLoginKit: 4621c690d9dd8628031a4791497062183ea34b0d
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxBlocking: 64c051285261ca2339481e91b5f70eb06b03660a
-  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
+  RxGesture: 7f6dfb45dbde06e618c24442d38493e3144f2c95
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   RxTest: ea97a208826906f3904c0debdd09575ebcbfe216
 
-PODFILE CHECKSUM: 12211ee05ab51b3f6e167f875b33c8323d28039e
+PODFILE CHECKSUM: e2e423c46597979ae9f3e7c0fdf5df19c635ae48
 
 COCOAPODS: 1.5.3
