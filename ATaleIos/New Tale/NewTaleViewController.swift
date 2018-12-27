@@ -16,6 +16,9 @@ class NewTaleViewController: UIViewController {
     @IBOutlet var selectColorViews: [SelectColorView]!
     @IBOutlet weak var currentUserPlayerImageView: UIImageView!
     @IBOutlet var playerImageViews: [UIImageView]!
+    @IBOutlet weak var characterCountLabel: UILabel!
+    
+    private let continueBarButton: UIBarButtonItem = UIBarButtonItem(title: "Continue", style: .done, target: nil, action: nil)
     
     let disposeBag = DisposeBag()
     let viewModel = NewTaleViewModel()
@@ -31,8 +34,10 @@ class NewTaleViewController: UIViewController {
             NSAttributedString.Key.backgroundColor: UIColor.cream,
             NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 16)!
         ]
+        navigationController?.navigationItem.rightBarButtonItem = continueBarButton
 
         selectedColorView.backgroundColor = UIColor.darkTeal
+        characterCountLabel.textColor = UIColor.gray
 
         currentUserPlayerImageView.layer.cornerRadius = currentUserPlayerImageView.frame.height / 2
         currentUserPlayerImageView.layer.masksToBounds = false
@@ -56,8 +61,25 @@ class NewTaleViewController: UIViewController {
                     .disposed(by: disposeBag)
         }
 
+        titleTextField.rx.text
+            .map { $0 ?? "" }
+            .bind(to: viewModel.titleTextFieldTextPublishRelay)
+            .disposed(by: disposeBag)
+
+        continueBarButton.rx.tap
+            .bind(to: viewModel.continueButtonTappedPublishRelay)
+            .disposed(by: disposeBag)
+
         viewModel.currentUserImageDriver
             .drive(currentUserPlayerImageView.rx.image)
+            .disposed(by: disposeBag)
+
+        viewModel.characterCountTextDriver
+            .drive(characterCountLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.titleTextFieldTextDriver
+            .drive(titleTextField.rx.text)
             .disposed(by: disposeBag)
     }
 }

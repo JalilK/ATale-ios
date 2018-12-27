@@ -16,6 +16,11 @@ import RxOptional
 class NewTaleViewModel {
     private let currentFirebaseUserBehaviorRelay: BehaviorRelay<User?>
     private let firebaseAuth = Auth.auth()
+    private let maxCharacters = 50
+
+    let disposeBag = DisposeBag()
+
+    private let titleTextBehaviorRelay = BehaviorRelay<String>(value: "")
 
     let selectColorViewModels = [
         SelectColorViewModel(color: UIColor.darkTeal),
@@ -27,6 +32,9 @@ class NewTaleViewModel {
         SelectColorViewModel(color: UIColor.purple),
         SelectColorViewModel(color: UIColor.navy)
     ]
+
+    let continueButtonTappedPublishRelay = PublishRelay<Void>()
+    let titleTextFieldTextPublishRelay = PublishRelay<String>()
 
     lazy var currentUserImageDriver: Driver<UIImage> = {
         currentFirebaseUserBehaviorRelay
@@ -43,7 +51,27 @@ class NewTaleViewModel {
             .asDriver(onErrorJustReturn: UIImage())
     }()
 
+    lazy var characterCountTextDriver: Driver<String> = {
+        titleTextBehaviorRelay
+            .map { "\($0.count)/\(self.maxCharacters)" }
+            .asDriver(onErrorJustReturn: "")
+    }()
+
+    lazy var titleTextFieldTextDriver: Driver<String> = {
+        titleTextBehaviorRelay.asDriver(onErrorJustReturn: "")
+    }()
+
     init() {
         currentFirebaseUserBehaviorRelay = BehaviorRelay<User?>(value: firebaseAuth.currentUser)
+        setupBindings()
+    }
+
+    private func setupBindings() {
+        titleTextFieldTextPublishRelay
+            .map { [unowned self] in
+                return $0.count > self.maxCharacters ? String($0[...$0.index($0.startIndex, offsetBy: self.maxCharacters)]) : $0
+            }
+            .bind(to: titleTextBehaviorRelay)
+            .disposed(by: disposeBag)
     }
 }
