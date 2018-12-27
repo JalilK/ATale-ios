@@ -17,6 +17,7 @@ pod 'RxFirebase/Database'
 pod 'RxFirebase/Storage'
 pod 'RxFirebase/Auth'
 pod 'RxFirebase/Functions'
+pod 'IHKeyboardAvoiding'
 
   # Pods for ATaleIos
 

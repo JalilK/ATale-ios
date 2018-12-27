@@ -69,7 +69,7 @@ class NewTaleViewModel {
     private func setupBindings() {
         titleTextFieldTextPublishRelay
             .map { [unowned self] in
-                return $0.count > self.maxCharacters ? String($0[...$0.index($0.startIndex, offsetBy: self.maxCharacters)]) : $0
+                return $0.count > self.maxCharacters ? String($0[..<$0.index($0.startIndex, offsetBy: self.maxCharacters)]) : $0
             }
             .bind(to: titleTextBehaviorRelay)
             .disposed(by: disposeBag)

@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import IHKeyboardAvoiding
 
 class NewTaleViewController: UIViewController {
     @IBOutlet weak var selectedColorView: UIView!
@@ -30,11 +31,13 @@ class NewTaleViewController: UIViewController {
     }
 
     private func setupViews() {
+        KeyboardAvoiding.avoidingView = characterCountLabel
+
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.backgroundColor: UIColor.cream,
             NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 16)!
         ]
-        navigationController?.navigationItem.rightBarButtonItem = continueBarButton
+        navigationItem.setRightBarButton(continueBarButton, animated: false)
 
         selectedColorView.backgroundColor = UIColor.darkTeal
         characterCountLabel.textColor = UIColor.gray
