@@ -185,6 +185,7 @@
                         <viewLayoutGuide key="safeArea" id="tep-yx-2wC"/>
                     </view>
                     <connections>
+                        <outlet property="currentUserPlayerImageView" destination="WHc-g7-xKU" id="PK3-fe-xky"/>
                         <outlet property="selectedColorView" destination="rAT-xP-tKz" id="4OW-vn-gCw"/>
                         <outlet property="titleTextField" destination="VXQ-Ii-h7f" id="c7N-Hw-yU3"/>
                         <outletCollection property="selectColorViews" destination="fI1-yS-NXg" collectionClass="NSMutableArray" id="UEd-vd-Zn6"/>
@@ -195,6 +196,11 @@
                         <outletCollection property="selectColorViews" destination="Twh-Nj-pDW" collectionClass="NSMutableArray" id="FaO-MO-Htc"/>
                         <outletCollection property="selectColorViews" destination="zz5-Ln-Vb8" collectionClass="NSMutableArray" id="dyG-6i-j3O"/>
                         <outletCollection property="selectColorViews" destination="tZZ-R1-VxW" collectionClass="NSMutableArray" id="TXq-Hc-OEs"/>
+                        <outletCollection property="playerImageViews" destination="kqX-8g-eCp" collectionClass="NSMutableArray" id="sI9-uH-Zyd"/>
+                        <outletCollection property="playerImageViews" destination="M8b-YY-qKi" collectionClass="NSMutableArray" id="lKa-VU-5rM"/>
+                        <outletCollection property="playerImageViews" destination="Fv2-9c-gKu" collectionClass="NSMutableArray" id="2kH-dv-9BR"/>
+                        <outletCollection property="playerImageViews" destination="p3q-Vw-h4w" collectionClass="NSMutableArray" id="FcX-D0-Yhp"/>
+                        <outletCollection property="playerImageViews" destination="taq-pI-yNm" collectionClass="NSMutableArray" id="hyk-Kj-FSg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMy-1K-CbU" userLabel="First Responder" sceneMemberID="firstResponder"/>

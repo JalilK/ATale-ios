@@ -12,6 +12,7 @@ import RxCocoa
 import FacebookLogin
 import FacebookCore
 import Action
+import FirebaseAuth
 
 class SignUpViewModel {
     lazy var titleTextDriver: Driver<NSAttributedString> = {
@@ -27,7 +28,7 @@ class SignUpViewModel {
             .asDriver(onErrorJustReturn: UIViewController())
     }()
 
-    let facebookButtonAction: Action<Void, AccessToken> = Action<Void, AccessToken> {
+    let facebookButtonAction: Action<Void, AuthCredential> = Action<Void, AuthCredential> {
         return FacebookLoginService.login()
     }
 

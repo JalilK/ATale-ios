@@ -8,8 +8,15 @@ pod 'RxSwift',    '~> 4.0'
 pod 'RxCocoa',    '~> 4.0'
 pod 'RxDataSources', '~> 3.0'
 pod 'RxGesture', :git => 'https://github.com/RxSwiftCommunity/RxGesture', branch: 'master'
+pod 'RxOptional'
 pod 'Action'
 pod 'FacebookLogin'
+pod 'RxFirebase/Firestore'
+pod 'RxFirebase/RemoteConfig'
+pod 'RxFirebase/Database'
+pod 'RxFirebase/Storage'
+pod 'RxFirebase/Auth'
+pod 'RxFirebase/Functions'
 
   # Pods for ATaleIos
 

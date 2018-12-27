@@ -73,8 +73,5 @@ class HomeScreenViewModel {
                 return UITableViewCell()
             }
         })
-    }
-
-    // Mark: - HomeNavigationBar Observables
-    
+    }    
 }

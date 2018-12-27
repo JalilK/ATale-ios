@@ -11,6 +11,10 @@
 		AD319869D8D53DB2065044C9 /* Pods_ATaleIos_ATaleIosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C6B073C08441370C846127 /* Pods_ATaleIos_ATaleIosTests.framework */; };
 		B12CF89C21B7672000CC5932 /* FacebookLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12CF89B21B7672000CC5932 /* FacebookLoginService.swift */; };
 		B146BC3521D35D32009647CA /* NewTaleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC3421D35D32009647CA /* NewTaleViewModel.swift */; };
+		B146BC3721D41C3D009647CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B146BC3621D41C3D009647CA /* GoogleService-Info.plist */; };
+		B146BC3821D41C3D009647CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B146BC3621D41C3D009647CA /* GoogleService-Info.plist */; };
+		B146BC3A21D525B0009647CA /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC3921D525B0009647CA /* FirebaseService.swift */; };
+		B146BC3D21D52619009647CA /* FirebaseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC3C21D52619009647CA /* FirebaseModelProtocol.swift */; };
 		B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E98521AB14BE00DB467F /* AppDelegate.swift */; };
 		B1D8E98D21AB14C000DB467F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D8E98C21AB14C000DB467F /* Assets.xcassets */; };
 		B1D8E99021AB14C000DB467F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D8E98E21AB14C000DB467F /* LaunchScreen.storyboard */; };
@@ -69,6 +73,9 @@
 		A34165484DBAD7578D495C36 /* Pods_ATaleIosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATaleIosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12CF89B21B7672000CC5932 /* FacebookLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginService.swift; sourceTree = "<group>"; };
 		B146BC3421D35D32009647CA /* NewTaleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaleViewModel.swift; sourceTree = "<group>"; };
+		B146BC3621D41C3D009647CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B146BC3921D525B0009647CA /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		B146BC3C21D52619009647CA /* FirebaseModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModelProtocol.swift; sourceTree = "<group>"; };
 		B1D8E98221AB14BE00DB467F /* ATaleIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATaleIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D8E98521AB14BE00DB467F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D8E98C21AB14C000DB467F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,8 +166,17 @@
 			isa = PBXGroup;
 			children = (
 				B12CF89B21B7672000CC5932 /* FacebookLoginService.swift */,
+				B146BC3921D525B0009647CA /* FirebaseService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B146BC3B21D52607009647CA /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B146BC3C21D52619009647CA /* FirebaseModelProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		B1D8E97921AB14BE00DB467F = {
@@ -190,12 +206,14 @@
 				B1FCB2D921CEBE100078906D /* Home */,
 				B1FCB31C21D34B360078906D /* Views */,
 				B12CF89A21B7670800CC5932 /* Services */,
+				B146BC3B21D52607009647CA /* Protocol */,
 				B1D8E9A821AB15AE00DB467F /* Extensions */,
 				B1D8E9A521AB14CC00DB467F /* SignUp */,
 				B1D8E98521AB14BE00DB467F /* AppDelegate.swift */,
 				B1D8E98C21AB14C000DB467F /* Assets.xcassets */,
 				B1D8E98E21AB14C000DB467F /* LaunchScreen.storyboard */,
 				B1D8E99121AB14C000DB467F /* Info.plist */,
+				B146BC3621D41C3D009647CA /* GoogleService-Info.plist */,
 			);
 			path = ATaleIos;
 			sourceTree = "<group>";
@@ -320,6 +338,7 @@
 				B1D8E97F21AB14BE00DB467F /* Frameworks */,
 				B1D8E98021AB14BE00DB467F /* Resources */,
 				47DC94BB82DB13AC941C3D04 /* [CP] Embed Pods Frameworks */,
+				2C316DFE0D78FE958999C87E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,6 +358,7 @@
 				B1D8E99321AB14C000DB467F /* Frameworks */,
 				B1D8E99421AB14C000DB467F /* Resources */,
 				E583B39057DCCEAF8FF21216 /* [CP] Embed Pods Frameworks */,
+				67ED295C44AE434D3BFE0078 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -402,6 +422,7 @@
 				B1D8E9A721AB14E900DB467F /* SignUp.storyboard in Resources */,
 				B1FCB2F121CF06D60078906D /* PendingCollectionViewCell.xib in Resources */,
 				B1FCB2E621CEBF6D0078906D /* HomeNavigationBar.xib in Resources */,
+				B146BC3721D41C3D009647CA /* GoogleService-Info.plist in Resources */,
 				B1FCB2DD21CEBE370078906D /* HomeScreenViewController.storyboard in Resources */,
 				B1D8E98D21AB14C000DB467F /* Assets.xcassets in Resources */,
 			);
@@ -411,12 +432,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B146BC3821D41C3D009647CA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2C316DFE0D78FE958999C87E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos/Pods-ATaleIos-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos/Pods-ATaleIos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		47DC94BB82DB13AC941C3D04 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,16 +472,25 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos/Pods-ATaleIos-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -445,20 +498,51 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos/Pods-ATaleIos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67ED295C44AE434D3BFE0078 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos-ATaleIosTests/Pods-ATaleIos-ATaleIosTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos-ATaleIosTests/Pods-ATaleIos-ATaleIosTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		77B9286FB242414791044B2B /* [CP] Check Pods Manifest.lock */ = {
@@ -516,16 +600,25 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ATaleIos-ATaleIosTests/Pods-ATaleIos-ATaleIosTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
@@ -535,16 +628,25 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 			);
@@ -574,12 +676,14 @@
 				B1FCB2DF21CEBE420078906D /* HomeScreenViewModel.swift in Sources */,
 				B1FCB2E821CEF2AC0078906D /* Reactive+UIViewController.swift in Sources */,
 				B12CF89C21B7672000CC5932 /* FacebookLoginService.swift in Sources */,
+				B146BC3D21D52619009647CA /* FirebaseModelProtocol.swift in Sources */,
 				B1FCB31921D2D6520078906D /* NewTaleViewController.swift in Sources */,
 				B1FCB2F921CF328E0078906D /* HomePendingViewModel.swift in Sources */,
 				B1D8E9AE21AB179F00DB467F /* SignUpViewModel.swift in Sources */,
 				B1FCB32421D34D2A0078906D /* SelectColorViewModel.swift in Sources */,
 				B1FCB31421D1FF7B0078906D /* HomeSectionHeaderCell.swift in Sources */,
 				B1FCB30C21D1DEB80078906D /* TurnTableViewCellViewModel.swift in Sources */,
+				B146BC3A21D525B0009647CA /* FirebaseService.swift in Sources */,
 				B1FCB2FB21D01ADD0078906D /* PendingTaleModel.swift in Sources */,
 				B1FCB32221D34D1A0078906D /* SelectColorView.swift in Sources */,
 				B1D8E9AA21AB15CC00DB467F /* UIColor+Extensions.swift in Sources */,
