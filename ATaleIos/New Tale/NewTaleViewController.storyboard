@@ -198,6 +198,7 @@
                     <connections>
                         <outlet property="characterCountLabel" destination="5bv-n5-6tB" id="3Jk-IJ-7yL"/>
                         <outlet property="currentUserPlayerImageView" destination="WHc-g7-xKU" id="PK3-fe-xky"/>
+                        <outlet property="playerImageViewsContainerStackView" destination="02T-EV-MZ1" id="1Fw-6c-mWG"/>
                         <outlet property="selectedColorView" destination="rAT-xP-tKz" id="4OW-vn-gCw"/>
                         <outlet property="titleTextField" destination="VXQ-Ii-h7f" id="c7N-Hw-yU3"/>
                         <outletCollection property="selectColorViews" destination="fI1-yS-NXg" collectionClass="NSMutableArray" id="UEd-vd-Zn6"/>
