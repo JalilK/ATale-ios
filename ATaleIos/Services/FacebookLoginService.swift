@@ -16,7 +16,7 @@ import FirebaseAuth
 final class FacebookLoginService {
     private static let loginManager: LoginManager = LoginManager()
 
-    static func login(with readPermissions: [ReadPermission] = [.publicProfile]) -> Observable<AuthCredential> {
+    static func login(with readPermissions: [ReadPermission] = [.publicProfile, .userFriends]) -> Observable<AuthCredential> {
         return Observable<AuthCredential>.create { observer in
             self.loginManager.logIn(readPermissions: readPermissions, viewController: nil) { result in
                 switch result {

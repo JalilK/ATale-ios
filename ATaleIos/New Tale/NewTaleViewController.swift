@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 import IHKeyboardAvoiding
 
 class NewTaleViewController: UIViewController {
@@ -16,6 +17,7 @@ class NewTaleViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet var selectColorViews: [SelectColorView]!
     @IBOutlet weak var currentUserPlayerImageView: UIImageView!
+    @IBOutlet weak var playerImageViewsContainerStackView: UIStackView!
     @IBOutlet var playerImageViews: [UIImageView]!
     @IBOutlet weak var characterCountLabel: UILabel!
     
@@ -64,6 +66,11 @@ class NewTaleViewController: UIViewController {
                     .disposed(by: disposeBag)
         }
 
+        playerImageViewsContainerStackView.rx.tapGesture()
+            .when(.ended)
+            .bind(to: viewModel.playerImageViewsContainerStackViewTappedPublishRelay)
+            .disposed(by: disposeBag)
+
         titleTextField.rx.text
             .map { $0 ?? "" }
             .bind(to: viewModel.titleTextFieldTextPublishRelay)
@@ -83,6 +90,10 @@ class NewTaleViewController: UIViewController {
 
         viewModel.titleTextFieldTextDriver
             .drive(titleTextField.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.invitePlayersDriver
+            .drive(rx.pushToNavigationController)
             .disposed(by: disposeBag)
     }
 }

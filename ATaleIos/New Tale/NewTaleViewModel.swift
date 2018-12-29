@@ -35,6 +35,7 @@ class NewTaleViewModel {
 
     let continueButtonTappedPublishRelay = PublishRelay<Void>()
     let titleTextFieldTextPublishRelay = PublishRelay<String>()
+    let playerImageViewsContainerStackViewTappedPublishRelay = PublishRelay<UITapGestureRecognizer>()
 
     lazy var currentUserImageDriver: Driver<UIImage> = {
         currentFirebaseUserBehaviorRelay
@@ -59,6 +60,13 @@ class NewTaleViewModel {
 
     lazy var titleTextFieldTextDriver: Driver<String> = {
         titleTextBehaviorRelay.asDriver(onErrorJustReturn: "")
+    }()
+
+    lazy var invitePlayersDriver: Driver<UIViewController> = {
+        playerImageViewsContainerStackViewTappedPublishRelay.map { _ in
+            UIStoryboard(name: "InvitePlayersViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController()
+        }
+        .asDriver(onErrorJustReturn: UIViewController())
     }()
 
     init() {
