@@ -13,7 +13,6 @@
 		B146BC3521D35D32009647CA /* NewTaleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC3421D35D32009647CA /* NewTaleViewModel.swift */; };
 		B146BC3721D41C3D009647CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B146BC3621D41C3D009647CA /* GoogleService-Info.plist */; };
 		B146BC3821D41C3D009647CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B146BC3621D41C3D009647CA /* GoogleService-Info.plist */; };
-		B146BC3A21D525B0009647CA /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC3921D525B0009647CA /* FirebaseService.swift */; };
 		B146BC3D21D52619009647CA /* FirebaseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC3C21D52619009647CA /* FirebaseModelProtocol.swift */; };
 		B146BC4221D54A06009647CA /* InvitePlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4121D54A06009647CA /* InvitePlayersViewController.swift */; };
 		B146BC4421D54A13009647CA /* InvitePlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4321D54A13009647CA /* InvitePlayersViewModel.swift */; };
@@ -23,6 +22,15 @@
 		B146BC4E21D571F2009647CA /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4D21D571F2009647CA /* PlayerViewModel.swift */; };
 		B146BC5121D573AD009647CA /* InvitePlayersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4F21D573AC009647CA /* InvitePlayersTableViewCell.swift */; };
 		B146BC5221D573AD009647CA /* InvitePlayersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B146BC5021D573AC009647CA /* InvitePlayersTableViewCell.xib */; };
+		B1A8812521D93E650014288D /* NewTaleFirstLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8812421D93E650014288D /* NewTaleFirstLineViewController.swift */; };
+		B1A8812721D93E720014288D /* NewTaleFirstLineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A8812621D93E720014288D /* NewTaleFirstLineViewController.storyboard */; };
+		B1A8812A21D942D20014288D /* NewLineAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8812921D942D20014288D /* NewLineAccessoryView.swift */; };
+		B1A8812C21D942E50014288D /* NewLineAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1A8812B21D942E50014288D /* NewLineAccessoryView.xib */; };
+		B1A8812E21D945DA0014288D /* NewLineAccessoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8812D21D945DA0014288D /* NewLineAccessoryViewModel.swift */; };
+		B1A8813021D955580014288D /* NewTaleFirstLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8812F21D955580014288D /* NewTaleFirstLineViewModel.swift */; };
+		B1AF540821DBE59F00365C17 /* FirebaseFirestoreSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF540721DBE59F00365C17 /* FirebaseFirestoreSevice.swift */; };
+		B1AF540B21DBE9D800365C17 /* TaleFirestoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF540A21DBE9D800365C17 /* TaleFirestoreModel.swift */; };
+		B1AF540D21DBF68A00365C17 /* TaleFirestoreParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF540C21DBF68A00365C17 /* TaleFirestoreParagraph.swift */; };
 		B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E98521AB14BE00DB467F /* AppDelegate.swift */; };
 		B1D8E98D21AB14C000DB467F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D8E98C21AB14C000DB467F /* Assets.xcassets */; };
 		B1D8E99021AB14C000DB467F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D8E98E21AB14C000DB467F /* LaunchScreen.storyboard */; };
@@ -82,7 +90,6 @@
 		B12CF89B21B7672000CC5932 /* FacebookLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginService.swift; sourceTree = "<group>"; };
 		B146BC3421D35D32009647CA /* NewTaleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaleViewModel.swift; sourceTree = "<group>"; };
 		B146BC3621D41C3D009647CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B146BC3921D525B0009647CA /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		B146BC3C21D52619009647CA /* FirebaseModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModelProtocol.swift; sourceTree = "<group>"; };
 		B146BC4121D54A06009647CA /* InvitePlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayersViewController.swift; sourceTree = "<group>"; };
 		B146BC4321D54A13009647CA /* InvitePlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayersViewModel.swift; sourceTree = "<group>"; };
@@ -92,6 +99,15 @@
 		B146BC4D21D571F2009647CA /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		B146BC4F21D573AC009647CA /* InvitePlayersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayersTableViewCell.swift; sourceTree = "<group>"; };
 		B146BC5021D573AC009647CA /* InvitePlayersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitePlayersTableViewCell.xib; sourceTree = "<group>"; };
+		B1A8812421D93E650014288D /* NewTaleFirstLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaleFirstLineViewController.swift; sourceTree = "<group>"; };
+		B1A8812621D93E720014288D /* NewTaleFirstLineViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewTaleFirstLineViewController.storyboard; sourceTree = "<group>"; };
+		B1A8812921D942D20014288D /* NewLineAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLineAccessoryView.swift; sourceTree = "<group>"; };
+		B1A8812B21D942E50014288D /* NewLineAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewLineAccessoryView.xib; sourceTree = "<group>"; };
+		B1A8812D21D945DA0014288D /* NewLineAccessoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLineAccessoryViewModel.swift; sourceTree = "<group>"; };
+		B1A8812F21D955580014288D /* NewTaleFirstLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaleFirstLineViewModel.swift; sourceTree = "<group>"; };
+		B1AF540721DBE59F00365C17 /* FirebaseFirestoreSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreSevice.swift; sourceTree = "<group>"; };
+		B1AF540A21DBE9D800365C17 /* TaleFirestoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaleFirestoreModel.swift; sourceTree = "<group>"; };
+		B1AF540C21DBF68A00365C17 /* TaleFirestoreParagraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaleFirestoreParagraph.swift; sourceTree = "<group>"; };
 		B1D8E98221AB14BE00DB467F /* ATaleIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATaleIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D8E98521AB14BE00DB467F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D8E98C21AB14C000DB467F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,8 +197,8 @@
 		B12CF89A21B7670800CC5932 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B1AF540921DBE99700365C17 /* FirebaseFirestoreService */,
 				B12CF89B21B7672000CC5932 /* FacebookLoginService.swift */,
-				B146BC3921D525B0009647CA /* FirebaseService.swift */,
 				B146BC4721D55191009647CA /* FacebookAPIService.swift */,
 			);
 			path = Services;
@@ -210,6 +226,36 @@
 			path = "Invite Players";
 			sourceTree = "<group>";
 		};
+		B1A8812321D93E450014288D /* New Tale First Line */ = {
+			isa = PBXGroup;
+			children = (
+				B1A8812421D93E650014288D /* NewTaleFirstLineViewController.swift */,
+				B1A8812621D93E720014288D /* NewTaleFirstLineViewController.storyboard */,
+				B1A8812F21D955580014288D /* NewTaleFirstLineViewModel.swift */,
+			);
+			path = "New Tale First Line";
+			sourceTree = "<group>";
+		};
+		B1A8812821D942B80014288D /* NewLineAccessoryView */ = {
+			isa = PBXGroup;
+			children = (
+				B1A8812921D942D20014288D /* NewLineAccessoryView.swift */,
+				B1A8812B21D942E50014288D /* NewLineAccessoryView.xib */,
+				B1A8812D21D945DA0014288D /* NewLineAccessoryViewModel.swift */,
+			);
+			path = NewLineAccessoryView;
+			sourceTree = "<group>";
+		};
+		B1AF540921DBE99700365C17 /* FirebaseFirestoreService */ = {
+			isa = PBXGroup;
+			children = (
+				B1AF540721DBE59F00365C17 /* FirebaseFirestoreSevice.swift */,
+				B1AF540A21DBE9D800365C17 /* TaleFirestoreModel.swift */,
+				B1AF540C21DBF68A00365C17 /* TaleFirestoreParagraph.swift */,
+			);
+			path = FirebaseFirestoreService;
+			sourceTree = "<group>";
+		};
 		B1D8E97921AB14BE00DB467F = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +279,7 @@
 		B1D8E98421AB14BE00DB467F /* ATaleIos */ = {
 			isa = PBXGroup;
 			children = (
+				B1A8812321D93E450014288D /* New Tale First Line */,
 				B146BC4021D549EF009647CA /* Invite Players */,
 				B1FCB31721D2D62D0078906D /* New Tale */,
 				B1FCB2D921CEBE100078906D /* Home */,
@@ -343,6 +390,7 @@
 		B1FCB31C21D34B360078906D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B1A8812821D942B80014288D /* NewLineAccessoryView */,
 				B1FCB32021D34CF90078906D /* SelectColorView */,
 				B1FCB2E021CEBEC20078906D /* HomeNavigationBar */,
 			);
@@ -453,10 +501,12 @@
 				B1FCB30A21D1DB5B0078906D /* TurnTableViewCell.xib in Resources */,
 				B1FCB31621D1FF8F0078906D /* HomeSectionHeaderCell.xib in Resources */,
 				B1D8E9A721AB14E900DB467F /* SignUp.storyboard in Resources */,
+				B1A8812721D93E720014288D /* NewTaleFirstLineViewController.storyboard in Resources */,
 				B1FCB2F121CF06D60078906D /* PendingCollectionViewCell.xib in Resources */,
 				B1FCB2E621CEBF6D0078906D /* HomeNavigationBar.xib in Resources */,
 				B146BC3721D41C3D009647CA /* GoogleService-Info.plist in Resources */,
 				B1FCB2DD21CEBE370078906D /* HomeScreenViewController.storyboard in Resources */,
+				B1A8812C21D942E50014288D /* NewLineAccessoryView.xib in Resources */,
 				B146BC5221D573AD009647CA /* InvitePlayersTableViewCell.xib in Resources */,
 				B1D8E98D21AB14C000DB467F /* Assets.xcassets in Resources */,
 			);
@@ -701,6 +751,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1FCB2F321CF0B640078906D /* PendingCollectionCellViewModel.swift in Sources */,
+				B1AF540B21DBE9D800365C17 /* TaleFirestoreModel.swift in Sources */,
+				B1AF540821DBE59F00365C17 /* FirebaseFirestoreSevice.swift in Sources */,
 				B146BC3521D35D32009647CA /* NewTaleViewModel.swift in Sources */,
 				B1FCB30E21D1DF610078906D /* TaleModel.swift in Sources */,
 				B1FCB2F721CF2E880078906D /* HomeCellViewModelType.swift in Sources */,
@@ -712,8 +764,11 @@
 				B146BC4E21D571F2009647CA /* PlayerViewModel.swift in Sources */,
 				B1FCB2E221CEBEDE0078906D /* HomeNavigationBarViewModel.swift in Sources */,
 				B1FCB2E421CEBF080078906D /* HomeNavigationBar.swift in Sources */,
+				B1A8812A21D942D20014288D /* NewLineAccessoryView.swift in Sources */,
+				B1A8812521D93E650014288D /* NewTaleFirstLineViewController.swift in Sources */,
 				B1FCB2DF21CEBE420078906D /* HomeScreenViewModel.swift in Sources */,
 				B1FCB2E821CEF2AC0078906D /* Reactive+UIViewController.swift in Sources */,
+				B1A8812E21D945DA0014288D /* NewLineAccessoryViewModel.swift in Sources */,
 				B146BC5121D573AD009647CA /* InvitePlayersTableViewCell.swift in Sources */,
 				B12CF89C21B7672000CC5932 /* FacebookLoginService.swift in Sources */,
 				B146BC3D21D52619009647CA /* FirebaseModelProtocol.swift in Sources */,
@@ -723,14 +778,15 @@
 				B1FCB32421D34D2A0078906D /* SelectColorViewModel.swift in Sources */,
 				B1FCB31421D1FF7B0078906D /* HomeSectionHeaderCell.swift in Sources */,
 				B1FCB30C21D1DEB80078906D /* TurnTableViewCellViewModel.swift in Sources */,
-				B146BC3A21D525B0009647CA /* FirebaseService.swift in Sources */,
 				B146BC4C21D56F4F009647CA /* PlayerModel.swift in Sources */,
 				B146BC4421D54A13009647CA /* InvitePlayersViewModel.swift in Sources */,
 				B146BC4221D54A06009647CA /* InvitePlayersViewController.swift in Sources */,
 				B146BC4821D55191009647CA /* FacebookAPIService.swift in Sources */,
+				B1A8813021D955580014288D /* NewTaleFirstLineViewModel.swift in Sources */,
 				B1FCB2FB21D01ADD0078906D /* PendingTaleModel.swift in Sources */,
 				B1FCB32221D34D1A0078906D /* SelectColorView.swift in Sources */,
 				B1D8E9AA21AB15CC00DB467F /* UIColor+Extensions.swift in Sources */,
+				B1AF540D21DBF68A00365C17 /* TaleFirestoreParagraph.swift in Sources */,
 				B1FCB2FD21D066350078906D /* Reactive+UIView.swift in Sources */,
 				B1FCB2DB21CEBE230078906D /* HomeViewController.swift in Sources */,
 			);

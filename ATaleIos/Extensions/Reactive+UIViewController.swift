@@ -22,4 +22,16 @@ extension Reactive where Base: UIViewController {
             parent.navigationController?.pushViewController(viewController, animated: true)
         }
     }
+
+    var popFromNavigationController: Binder<Void> {
+        return Binder(self.base) { parent, _ in
+            parent.navigationController?.popViewController(animated: true)
+        }
+    }
+
+    var goToHomeViewController: Binder<Void> {
+        return Binder(self.base) { parent, _ in
+            parent.navigationController?.popToRootViewController(animated: true)
+        }
+    }
 }

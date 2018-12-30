@@ -17,14 +17,14 @@ class InvitePlayersViewController: UIViewController {
     @IBOutlet var playersImageViews: [UIImageView]!
     @IBOutlet weak var tableView: UITableView!
 
-    private let doneBarButton = UIBarButtonItem(title: "Done", style: .done, target: nil, action: nil)
+    private let backBarButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backChevron") ?? UIImage(), style: .done, target: nil, action: nil)
 
     let disposeBag = DisposeBag()
-    let viewModel = InvitePlayersViewModel()
+    var viewModel = InvitePlayersViewModel()
 
     private lazy var searchTextFieldRightView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 31, height: 15))
+        let imageView = UIImageView(frame: CGRect(x: 16, y: 0, width: 15, height: 15))
         imageView.image = UIImage(named: "searchIcon") ?? UIImage()
         imageView.center = view.center
 
@@ -40,23 +40,42 @@ class InvitePlayersViewController: UIViewController {
     }
 
     private func setupViews() {
+        navigationController?.navigationBar.barTintColor = UIColor.cream
         navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.backgroundColor: UIColor.cream,
+            NSAttributedString.Key.foregroundColor: UIColor.greyishBrown,
             NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 16)!
         ]
-        navigationItem.setRightBarButton(doneBarButton, animated: false)
+
+        navigationItem.setLeftBarButton(backBarButton, animated: false)
 
         view.backgroundColor = UIColor.cream
+        searchContainerView.backgroundColor = UIColor.cream
+        tableView.backgroundColor = UIColor.cream
 
         tableView.register(UINib(nibName: "InvitePlayersTableViewCell", bundle: nil), forCellReuseIdentifier: "InvitePlayersTableViewCell")
 
         searchTextField.clipsToBounds = true
-        searchTextField.rightView = searchTextFieldRightView
+        searchTextField.leftView = searchTextFieldRightView
+        searchTextField.leftViewMode = .always
+
+        currentUserPlayerImageView.layer.cornerRadius = currentUserPlayerImageView.frame.height / 2
+        currentUserPlayerImageView.layer.masksToBounds = false
+        currentUserPlayerImageView.clipsToBounds = true
+
+        playersImageViews.forEach {
+            $0.layer.cornerRadius = $0.frame.height / 2
+            $0.layer.masksToBounds = false
+            $0.clipsToBounds = true
+        }
     }
 
     private func setupBindings() {
         tableView.rx.modelSelected(PlayerViewModel.self)
             .bind(to: viewModel.playerViewModelSelectedPublishRelay)
+            .disposed(by: disposeBag)
+
+        backBarButton.rx.tap
+            .bind(to: rx.popFromNavigationController)
             .disposed(by: disposeBag)
 
         viewModel.playViewModelsObservable.bind(to: tableView.rx.items(cellIdentifier: "InvitePlayersTableViewCell", cellType: InvitePlayersTableViewCell.self))(viewModel.cellConfiguration).disposed(by: disposeBag)

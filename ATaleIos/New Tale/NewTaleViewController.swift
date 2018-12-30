@@ -20,7 +20,8 @@ class NewTaleViewController: UIViewController {
     @IBOutlet weak var playerImageViewsContainerStackView: UIStackView!
     @IBOutlet var playerImageViews: [UIImageView]!
     @IBOutlet weak var characterCountLabel: UILabel!
-    
+
+    private let backBarButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "backChevron") ?? UIImage(), style: .done, target: nil, action: nil)
     private let continueBarButton: UIBarButtonItem = UIBarButtonItem(title: "Continue", style: .done, target: nil, action: nil)
     
     let disposeBag = DisposeBag()
@@ -35,11 +36,25 @@ class NewTaleViewController: UIViewController {
     private func setupViews() {
         KeyboardAvoiding.avoidingView = characterCountLabel
 
+        view.backgroundColor = UIColor.cream
+
+        navigationController?.navigationBar.barTintColor = UIColor.cream
         navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.backgroundColor: UIColor.cream,
+            NSAttributedString.Key.foregroundColor: UIColor.greyishBrown,
             NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 16)!
         ]
+
+        continueBarButton.setTitleTextAttributes([
+            NSAttributedString.Key.foregroundColor: UIColor.teal,
+            NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 16)!
+        ], for: .normal)
+        continueBarButton.setTitleTextAttributes([
+            NSAttributedString.Key.foregroundColor: UIColor.lightGray,
+            NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 16)!
+        ], for: .disabled)
+
         navigationItem.setRightBarButton(continueBarButton, animated: false)
+        navigationItem.setLeftBarButton(backBarButton, animated: false)
 
         selectedColorView.backgroundColor = UIColor.darkTeal
         characterCountLabel.textColor = UIColor.gray
@@ -61,8 +76,13 @@ class NewTaleViewController: UIViewController {
             .forEach {
                 $0.element.bind(viewModel.selectColorViewModels[$0.offset])
 
-                viewModel.selectColorViewModels[$0.offset].viewTappedDriver
+                viewModel.selectColorViewModels[$0.offset].viewTappedColorDriver
                     .drive(selectedColorView.rx.backgroundColor)
+                    .disposed(by: disposeBag)
+
+                viewModel.selectColorViewModels[$0.offset].viewTappedViewModelDriver
+                    .asObservable()
+                    .bind(to: viewModel.colorViewModelSelectedPublishRelay)
                     .disposed(by: disposeBag)
         }
 
@@ -80,6 +100,22 @@ class NewTaleViewController: UIViewController {
             .bind(to: viewModel.continueButtonTappedPublishRelay)
             .disposed(by: disposeBag)
 
+        backBarButton.rx.tap
+            .bind(to: rx.popFromNavigationController)
+            .disposed(by: disposeBag)
+
+        viewModel.firstLineDriver
+            .drive(rx.pushToNavigationController)
+            .disposed(by: disposeBag)
+
+        viewModel.selectedPlayersDriver
+            .drive(rx.selectedPlayers)
+            .disposed(by: disposeBag)
+
+        viewModel.continueButtonEnabledDriver
+            .drive(continueBarButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
         viewModel.currentUserImageDriver
             .drive(currentUserPlayerImageView.rx.image)
             .disposed(by: disposeBag)
@@ -95,5 +131,21 @@ class NewTaleViewController: UIViewController {
         viewModel.invitePlayersDriver
             .drive(rx.pushToNavigationController)
             .disposed(by: disposeBag)
+    }
+}
+
+extension Reactive where Base: NewTaleViewController {
+    var selectedPlayers: Binder<[PlayerViewModel]> {
+        return Binder(self.base) { viewController, viewModels in
+            viewModels.enumerated().forEach {
+                $0.element.playerSharedImageDriver
+                    .drive(viewController.playerImageViews[$0.offset].rx.image)
+                    .disposed(by: $0.element.disposeBag)
+            }
+
+            for i in viewModels.count..<viewController.playerImageViews.count {
+                viewController.playerImageViews[i].image = i < 2 ? UIImage(named: "friend") ?? UIImage() : UIImage(named: "friend-1") ?? UIImage()
+            }
+        }
     }
 }

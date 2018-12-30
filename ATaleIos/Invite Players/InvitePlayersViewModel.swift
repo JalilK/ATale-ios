@@ -25,7 +25,6 @@ class InvitePlayersViewModel {
         cell.bind(viewModel: viewModel)
     }
 
-
     lazy var playViewModelsObservable: Observable<[PlayerViewModel]> = {
         playerViewModelsBehaviorRelay.asObservable()
     }()
@@ -50,6 +49,7 @@ class InvitePlayersViewModel {
     }()
 
     let playerViewModelSelectedPublishRelay = PublishRelay<PlayerViewModel>()
+    let selectedPlayerViewModelsPublishRelay = PublishRelay<[PlayerViewModel]>()
 
     init() {
         currentFirebaseUserBehaviorRelay = BehaviorRelay<User?>(value: firebaseAuth.currentUser)
@@ -63,6 +63,10 @@ class InvitePlayersViewModel {
             .flatMap { [unowned self] in self.facebookAPIService.getFriendList(userId: $0.uid) }
             .map { $0.map { PlayerViewModel(playerModel: $0) } }
             .bind(to: playerViewModelsBehaviorRelay)
+            .disposed(by: disposeBag)
+
+        selectedPlayerViewModelsPublishRelay
+            .bind(to: selectedPlayersBehaviorRelay)
             .disposed(by: disposeBag)
 
         playerViewModelSelectedPublishRelay

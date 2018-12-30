@@ -17,7 +17,15 @@ class PlayerViewModel {
 
     lazy var playerSharedImageDriver: Driver<UIImage> = {
         playerModelBehaviorRelay
-            .map { $0.profilePicture }
+            .map { $0.profilePictureURL }
+            .filterNil()
+            .map { URLRequest(url: $0) }
+            .flatMap {
+                URLSession.shared.rx
+                    .data(request: $0)
+                    .subscribeOn(MainScheduler.instance)
+            }
+            .map { UIImage(data: $0) ?? UIImage() }
             .asDriver(onErrorJustReturn: UIImage())
             .asSharedSequence()
     }()

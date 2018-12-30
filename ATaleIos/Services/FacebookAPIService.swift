@@ -23,25 +23,22 @@ struct FriendListRequest: GraphRequestProtocol {
                 guard
                     let userId = $0["id"] as? String,
                     let name = $0["name"] as? String,
-                    let picture = $0["picture"] as? Data
+                    let picture = $0["picture"] as? Dictionary<String, Any>,
+                    let pictureNode = picture["data"] as? Dictionary<String, Any>,
+                    let pictureUrl = pictureNode["url"] as? String
                     else { return }
 
-
-                let playerModel = PlayerModel(id: userId, name: name, profilePicture: UIImage(named: "friend") ?? UIImage())
+                let playerModel = PlayerModel(id: userId, name: name, profilePictureURL: URL(string: pictureUrl))
 
                 self.playerModels.append(playerModel)
             }
         }
 
-        var playerModels: [PlayerModel] = [
-            PlayerModel(id: UUID().uuidString, name: "Jeff", profilePicture: UIImage(named: "addFriend") ?? UIImage()),
-            PlayerModel(id: UUID().uuidString, name: "John", profilePicture: UIImage(named: "addFriend") ?? UIImage()),
-            PlayerModel(id: UUID().uuidString, name: "Jesse", profilePicture: UIImage(named: "addFriend") ?? UIImage())
-        ]
+        var playerModels: [PlayerModel] = []
     }
 
     init(userId: String) {
-        self.graphPath = "me/friendlists"
+        self.graphPath = "me/friends"
     }
 
     var graphPath = ""

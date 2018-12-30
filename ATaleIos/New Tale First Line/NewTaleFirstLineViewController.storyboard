@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fa5-WH-gTi">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Tale First Line View Controller-->
+        <scene sceneID="7SW-A8-Nty">
+            <objects>
+                <viewController id="fa5-WH-gTi" customClass="NewTaleFirstLineViewController" customModule="ATaleIos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gkP-zE-Yxo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-qU-g1j">
+                                <rect key="frame" x="0.0" y="20" width="375" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="184" id="Pwx-IV-t57"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJf-zl-6PI">
+                                <rect key="frame" x="16" y="220" width="29" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6w-rJ-vSB">
+                                <rect key="frame" x="16" y="255.5" width="312" height="33"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write the first line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuY-Um-g5I">
+                                <rect key="frame" x="0.0" y="329.5" width="375" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="8Sm-ZX-15A"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mga-SG-r9j">
+                                <rect key="frame" x="0.0" y="328.5" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="NvS-wI-FW6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LuY-Um-g5I" firstAttribute="top" secondItem="mga-SG-r9j" secondAttribute="bottom" id="8b1-4h-09p"/>
+                            <constraint firstItem="jJf-zl-6PI" firstAttribute="top" secondItem="SGD-qU-g1j" secondAttribute="bottom" constant="16" id="CO8-6X-ose"/>
+                            <constraint firstItem="mga-SG-r9j" firstAttribute="leading" secondItem="aZy-PV-4by" secondAttribute="leading" id="Gpq-tb-Lsg"/>
+                            <constraint firstItem="H6w-rJ-vSB" firstAttribute="leading" secondItem="aZy-PV-4by" secondAttribute="leading" constant="16" id="Gwr-4k-e0Z"/>
+                            <constraint firstItem="aZy-PV-4by" firstAttribute="trailing" secondItem="H6w-rJ-vSB" secondAttribute="trailing" constant="47" id="QZW-Jo-Tee"/>
+                            <constraint firstItem="SGD-qU-g1j" firstAttribute="leading" secondItem="aZy-PV-4by" secondAttribute="leading" id="RY4-Ng-le1"/>
+                            <constraint firstItem="jJf-zl-6PI" firstAttribute="leading" secondItem="aZy-PV-4by" secondAttribute="leading" constant="16" id="TXc-93-Bwe"/>
+                            <constraint firstItem="SGD-qU-g1j" firstAttribute="top" secondItem="aZy-PV-4by" secondAttribute="top" id="fyO-oB-YWQ"/>
+                            <constraint firstItem="aZy-PV-4by" firstAttribute="trailing" secondItem="LuY-Um-g5I" secondAttribute="trailing" id="h44-ez-dTM"/>
+                            <constraint firstItem="mga-SG-r9j" firstAttribute="top" secondItem="H6w-rJ-vSB" secondAttribute="bottom" constant="40" id="kHF-zV-Wnm"/>
+                            <constraint firstItem="aZy-PV-4by" firstAttribute="trailing" secondItem="mga-SG-r9j" secondAttribute="trailing" id="lRW-aA-oBd"/>
+                            <constraint firstItem="aZy-PV-4by" firstAttribute="trailing" secondItem="SGD-qU-g1j" secondAttribute="trailing" id="pfu-E7-mx6"/>
+                            <constraint firstItem="LuY-Um-g5I" firstAttribute="leading" secondItem="aZy-PV-4by" secondAttribute="leading" id="qh3-Z7-4jb"/>
+                            <constraint firstItem="H6w-rJ-vSB" firstAttribute="top" secondItem="jJf-zl-6PI" secondAttribute="bottom" constant="16" id="xFo-tg-meN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aZy-PV-4by"/>
+                    </view>
+                    <connections>
+                        <outlet property="firstLineTextField" destination="LuY-Um-g5I" id="MZ3-Kp-Pfk"/>
+                        <outlet property="selectedColorView" destination="SGD-qU-g1j" id="VBr-Th-7Wq"/>
+                        <outlet property="taleTitleLabel" destination="H6w-rJ-vSB" id="IGU-fX-M2r"/>
+                        <outlet property="titleLabel" destination="jJf-zl-6PI" id="lZn-1l-COj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mJl-4C-eiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57" y="113"/>
+        </scene>
+    </scenes>
+</document>

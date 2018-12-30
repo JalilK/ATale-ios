@@ -12,5 +12,5 @@ import UIKit
 struct PlayerModel {
     var id: String
     var name: String
-    var profilePicture: UIImage
+    var profilePictureURL: URL?
 }

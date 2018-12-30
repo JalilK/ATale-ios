@@ -37,6 +37,7 @@ class InvitePlayersTableViewCell: UITableViewCell {
     }
 
     private func setupViews() {
+        contentView.backgroundColor = UIColor.cream
         separatorView.backgroundColor = UIColor.lightGray
 
         playerImageView.layer.cornerRadius = playerImageView.frame.height / 2

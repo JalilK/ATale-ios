@@ -11,21 +11,67 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+public enum TaleColor: String {
+    case darkTeal = "dark-teal"
+    case orange = "orange"
+    case green = "green"
+    case purple = "purple"
+    case mustard = "mustard"
+    case pink = "pink"
+    case violet = "violet"
+    case navy = "navy"
+
+    var color: UIColor {
+        switch self {
+        case .darkTeal:
+            return UIColor.darkTeal
+        case .orange:
+            return UIColor.orange
+        case .green:
+            return UIColor.green
+        case .purple:
+            return UIColor.purple
+        case .mustard:
+            return UIColor.mustard
+        case .pink:
+            return UIColor.pink
+        case .violet:
+            return UIColor.violet
+        case .navy:
+            return UIColor.navy
+        }
+    }
+}
+
 class SelectColorViewModel {
-    private var colorBehaviorRelay: BehaviorRelay<UIColor>!
+    private var taleColorBehaviorRelay: BehaviorRelay<TaleColor>!
+
+    lazy var taleColorObservable: Observable<TaleColor> = {
+        taleColorBehaviorRelay.asObservable()
+    }()
 
     lazy var selectedColorDriver: Driver<UIColor> = {
-        colorBehaviorRelay.asDriver()
-    }()
-    lazy var viewTappedDriver: Driver<UIColor> = {
-        viewTappedPublishRelay
-            .map { [unowned self] _ in return self.colorBehaviorRelay.value }
+        taleColorBehaviorRelay
+            .map { $0.color }
             .asDriver(onErrorJustReturn: UIColor.clear)
+    }()
+
+    lazy var viewTappedColorDriver: Driver<UIColor> = {
+        viewTappedPublishRelay
+            .flatMapLatest { _ in self.taleColorObservable.take(1) }
+            .map { $0.color }
+            .asDriver(onErrorJustReturn: UIColor.clear)
+    }()
+
+    lazy var viewTappedViewModelDriver: Driver<SelectColorViewModel> = {
+        viewTappedPublishRelay
+            .map { _ in return self }
+            .asDriver(onErrorJustReturn: self)
     }()
 
     let viewTappedPublishRelay = PublishRelay<UITapGestureRecognizer>()
 
-    init(color: UIColor) {
-        colorBehaviorRelay = BehaviorRelay<UIColor>(value: color)
+    init(color: TaleColor) {
+        taleColorBehaviorRelay = BehaviorRelay<TaleColor>(value: color)
     }
 }
