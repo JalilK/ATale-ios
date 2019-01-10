@@ -26,6 +26,11 @@ class PendingTableViewCell: UITableViewCell {
     }
 
     func bind(_ viewModel: HomePendingViewModel) {
+        collectionView.rx
+            .modelSelected(PendingCollectionCellViewModel.self)
+            .bind(to: viewModel.viewModelSelectedPublishRelay)
+            .disposed(by: disposeBag)
+
         viewModel.pendingCellViewModelsObservable.bind(to: collectionView.rx.items) { (collectionView, row, element) in
             let indexPath = IndexPath(row: row, section: 0)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PendingCollectionViewCell", for: indexPath) as! PendingCollectionViewCell

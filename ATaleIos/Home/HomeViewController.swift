@@ -58,6 +58,10 @@ class HomeViewController: UIViewController {
         viewModel.newTaleDriver
             .drive(rx.pushToNavigationController)
             .disposed(by: disposeBag)
+
+        viewModel.pendingGameViewDriver
+            .drive(rx.pushToNavigationController)
+            .disposed(by: disposeBag)
     }
 }
 
