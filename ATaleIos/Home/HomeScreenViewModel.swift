@@ -54,9 +54,14 @@ class HomeScreenViewModel {
 
     lazy var pendingGameViewDriver: Driver<UIViewController> = {
         pendingViewModelSelectedPublishRelay
-            .map { _ in
-                (UIStoryboard(name: "GameViewPendingViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController())
+            .flatMapLatest { $0.pendingModelObservable.take(1) }
+            .map { viewModel -> UIViewController? in
+                guard let vc = UIStoryboard(name: "GameViewPendingViewController", bundle: nil).instantiateInitialViewController() as? GameViewPendingViewController else { return nil }
+
+                vc.viewModel = GameViewPendingViewModel(taleModel: viewModel)
+                return vc
             }
+            .filterNil()
             .asDriver(onErrorJustReturn: UIViewController())
     }()
 
