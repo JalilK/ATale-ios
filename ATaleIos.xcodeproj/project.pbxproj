@@ -22,6 +22,9 @@
 		B146BC4E21D571F2009647CA /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4D21D571F2009647CA /* PlayerViewModel.swift */; };
 		B146BC5121D573AD009647CA /* InvitePlayersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4F21D573AC009647CA /* InvitePlayersTableViewCell.swift */; };
 		B146BC5221D573AD009647CA /* InvitePlayersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B146BC5021D573AC009647CA /* InvitePlayersTableViewCell.xib */; };
+		B181411521E6D2D3007BC4E1 /* GameViewPendingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B181411421E6D2D3007BC4E1 /* GameViewPendingViewController.storyboard */; };
+		B181411721E6D2EB007BC4E1 /* GameViewPendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181411621E6D2EB007BC4E1 /* GameViewPendingViewController.swift */; };
+		B181411921E6D2FE007BC4E1 /* GameViewPendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181411821E6D2FE007BC4E1 /* GameViewPendingViewModel.swift */; };
 		B1A8812521D93E650014288D /* NewTaleFirstLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8812421D93E650014288D /* NewTaleFirstLineViewController.swift */; };
 		B1A8812721D93E720014288D /* NewTaleFirstLineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A8812621D93E720014288D /* NewTaleFirstLineViewController.storyboard */; };
 		B1A8812A21D942D20014288D /* NewLineAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8812921D942D20014288D /* NewLineAccessoryView.swift */; };
@@ -99,6 +102,9 @@
 		B146BC4D21D571F2009647CA /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		B146BC4F21D573AC009647CA /* InvitePlayersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayersTableViewCell.swift; sourceTree = "<group>"; };
 		B146BC5021D573AC009647CA /* InvitePlayersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitePlayersTableViewCell.xib; sourceTree = "<group>"; };
+		B181411421E6D2D3007BC4E1 /* GameViewPendingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameViewPendingViewController.storyboard; sourceTree = "<group>"; };
+		B181411621E6D2EB007BC4E1 /* GameViewPendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPendingViewController.swift; sourceTree = "<group>"; };
+		B181411821E6D2FE007BC4E1 /* GameViewPendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPendingViewModel.swift; sourceTree = "<group>"; };
 		B1A8812421D93E650014288D /* NewTaleFirstLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaleFirstLineViewController.swift; sourceTree = "<group>"; };
 		B1A8812621D93E720014288D /* NewTaleFirstLineViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewTaleFirstLineViewController.storyboard; sourceTree = "<group>"; };
 		B1A8812921D942D20014288D /* NewLineAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLineAccessoryView.swift; sourceTree = "<group>"; };
@@ -226,6 +232,24 @@
 			path = "Invite Players";
 			sourceTree = "<group>";
 		};
+		B181411221E6D2B9007BC4E1 /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				B181411321E6D2BF007BC4E1 /* GameViewPending */,
+			);
+			path = GameView;
+			sourceTree = "<group>";
+		};
+		B181411321E6D2BF007BC4E1 /* GameViewPending */ = {
+			isa = PBXGroup;
+			children = (
+				B181411421E6D2D3007BC4E1 /* GameViewPendingViewController.storyboard */,
+				B181411621E6D2EB007BC4E1 /* GameViewPendingViewController.swift */,
+				B181411821E6D2FE007BC4E1 /* GameViewPendingViewModel.swift */,
+			);
+			path = GameViewPending;
+			sourceTree = "<group>";
+		};
 		B1A8812321D93E450014288D /* New Tale First Line */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +303,7 @@
 		B1D8E98421AB14BE00DB467F /* ATaleIos */ = {
 			isa = PBXGroup;
 			children = (
+				B181411221E6D2B9007BC4E1 /* GameView */,
 				B1A8812321D93E450014288D /* New Tale First Line */,
 				B146BC4021D549EF009647CA /* Invite Players */,
 				B1FCB31721D2D62D0078906D /* New Tale */,
@@ -502,6 +527,7 @@
 				B1FCB31621D1FF8F0078906D /* HomeSectionHeaderCell.xib in Resources */,
 				B1D8E9A721AB14E900DB467F /* SignUp.storyboard in Resources */,
 				B1A8812721D93E720014288D /* NewTaleFirstLineViewController.storyboard in Resources */,
+				B181411521E6D2D3007BC4E1 /* GameViewPendingViewController.storyboard in Resources */,
 				B1FCB2F121CF06D60078906D /* PendingCollectionViewCell.xib in Resources */,
 				B1FCB2E621CEBF6D0078906D /* HomeNavigationBar.xib in Resources */,
 				B146BC3721D41C3D009647CA /* GoogleService-Info.plist in Resources */,
@@ -754,6 +780,7 @@
 				B1AF540B21DBE9D800365C17 /* TaleFirestoreModel.swift in Sources */,
 				B1AF540821DBE59F00365C17 /* FirebaseFirestoreSevice.swift in Sources */,
 				B146BC3521D35D32009647CA /* NewTaleViewModel.swift in Sources */,
+				B181411921E6D2FE007BC4E1 /* GameViewPendingViewModel.swift in Sources */,
 				B1FCB30E21D1DF610078906D /* TaleModel.swift in Sources */,
 				B1FCB2F721CF2E880078906D /* HomeCellViewModelType.swift in Sources */,
 				B1D8E9AC21AB179600DB467F /* SignUpViewController.swift in Sources */,
@@ -781,6 +808,7 @@
 				B146BC4C21D56F4F009647CA /* PlayerModel.swift in Sources */,
 				B146BC4421D54A13009647CA /* InvitePlayersViewModel.swift in Sources */,
 				B146BC4221D54A06009647CA /* InvitePlayersViewController.swift in Sources */,
+				B181411721E6D2EB007BC4E1 /* GameViewPendingViewController.swift in Sources */,
 				B146BC4821D55191009647CA /* FacebookAPIService.swift in Sources */,
 				B1A8813021D955580014288D /* NewTaleFirstLineViewModel.swift in Sources */,
 				B1FCB2FB21D01ADD0078906D /* PendingTaleModel.swift in Sources */,

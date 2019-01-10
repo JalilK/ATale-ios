@@ -31,16 +31,33 @@ class HomeScreenViewModel {
 //        HomeSectionModel(header: "Your Turn", items: [TurnTableViewCellViewModel]())
 //    ]
     private let firestStoreServiceBehaviorRelay = BehaviorRelay<FirebaseFirestoreSevice>(value: FirebaseFirestoreSevice())
+    private let pendingViewModelSelectedPublishRelay = PublishRelay<PendingCollectionCellViewModel>()
+
     private lazy var pendingTalesObservable: Observable<HomeSectionModel> = {
         viewDidAppearPublishRelay
             .map { [unowned self] _ in self.firestStoreServiceBehaviorRelay.value }
             .flatMapLatest { $0.getPendingTales().take(1) }
             .filterEmpty()
-            .map { HomeSectionModel(header: "Pending", items: [HomePendingViewModel(pendingTales: $0)]) }
+            .map {
+                let homePendingViewModel = HomePendingViewModel(pendingTales: $0)
+                homePendingViewModel.viewModelSelectedPublishRelay
+                    .bind(to: self.pendingViewModelSelectedPublishRelay)
+                    .disposed(by: homePendingViewModel.disposeBag)
+
+                return HomeSectionModel(header: "Pending", items: [homePendingViewModel])
+            }
     }()
 
     lazy var homeCellViewModelsObservable: Observable<[HomeSectionModel]> = {
         Observable.combineLatest([pendingTalesObservable])
+    }()
+
+    lazy var pendingGameViewDriver: Driver<UIViewController> = {
+        pendingViewModelSelectedPublishRelay
+            .map { _ in
+                (UIStoryboard(name: "GameViewPendingViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController())
+            }
+            .asDriver(onErrorJustReturn: UIViewController())
     }()
 
     lazy var newTaleDriver: Driver<UIViewController> = {

@@ -15,9 +15,13 @@ import RxDataSources
 class HomePendingViewModel: HomeCellViewModelType {
     private let pendingCellViewModelsBehaviorRelay: BehaviorRelay<[PendingCollectionCellViewModel]>!
 
+    let disposeBag = DisposeBag()
+
     lazy var pendingCellViewModelsObservable: Observable<[PendingCollectionCellViewModel]> = {
         pendingCellViewModelsBehaviorRelay.asObservable()
     }()
+
+    let viewModelSelectedPublishRelay = PublishRelay<PendingCollectionCellViewModel>()
 
     init(pendingTales: [TaleFirestoreModel]) {
         pendingCellViewModelsBehaviorRelay = BehaviorRelay<[PendingCollectionCellViewModel]>(value: pendingTales.map { PendingCollectionCellViewModel(pendingTaleModel: $0) })
