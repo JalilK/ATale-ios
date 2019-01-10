@@ -11,5 +11,41 @@ import RxSwift
 import RxCocoa
 
 class GameViewPendingViewModel {
+    private let taleModelBehaviorRelay: BehaviorRelay<TaleFirestoreModel>
 
+    lazy var selectedColorDriver: Driver<UIColor> = {
+        taleModelBehaviorRelay
+            .map { $0.taleColor.color }
+            .asDriver(onErrorJustReturn: UIColor.white)
+    }()
+
+    lazy var taleTitleDriver: Driver<String> = {
+        taleModelBehaviorRelay
+            .map { $0.taleTitle }
+            .asDriver(onErrorJustReturn: "")
+    }()
+
+    lazy var taleCreatorImageDriver: Driver<UIImage> = {
+        taleModelBehaviorRelay
+            .map { $0.creatorImageURL }
+            .filterNil()
+            .map { URLRequest(url: $0) }
+            .flatMap {
+                URLSession.shared.rx
+                    .data(request: $0)
+                    .subscribeOn(MainScheduler.instance)
+            }
+            .map { UIImage(data: $0) ?? UIImage() }
+            .asDriver(onErrorJustReturn: UIImage())
+    }()
+
+    lazy var taleInviteTextDriver: Driver<String> = {
+        taleModelBehaviorRelay
+            .map { "\($0.creatorUsername) invited you."}
+            .asDriver(onErrorJustReturn: "")
+    }()
+
+    init(taleModel: TaleFirestoreModel) {
+        taleModelBehaviorRelay = BehaviorRelay<TaleFirestoreModel>(value: taleModel)
+    }
 }

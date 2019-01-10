@@ -14,6 +14,10 @@ import RxDataSources
 class PendingCollectionCellViewModel {
     private let pendingModelBehaviorRelay: BehaviorRelay<TaleFirestoreModel>
 
+    lazy var pendingModelObservable: Observable<TaleFirestoreModel> = {
+        pendingModelBehaviorRelay.asObservable()
+    }()
+
     lazy var selectedColorDriver: Driver<UIColor> = {
         pendingModelBehaviorRelay
             .map { $0.taleColor.color }
