@@ -15,6 +15,7 @@ public enum TaleState: Int {
 }
 
 struct TaleFirestoreModel: FirebaseModelProtocol {
+    var creatorId: String
     var taleColor: TaleColor
     var taleTitle: String
     var creatorUsername: String
@@ -23,11 +24,23 @@ struct TaleFirestoreModel: FirebaseModelProtocol {
 
     func toDictionary() -> [String : Any] {
         return [
+            "creatorId" : creatorId,
             "taleColor" : taleColor.rawValue,
             "taleTitle" : taleTitle,
             "creatorUsername" : creatorUsername,
             "creatorImageURL" : creatorImageURL?.absoluteString ?? "",
             "taleParagraphs" : taleParagraphs.map { $0.toDictionary() }
         ]
+    }
+}
+
+extension TaleFirestoreModel {
+    init(from dictionary: [String: Any]) {
+        self.creatorId = dictionary["creatorId"] as? String ?? ""
+        self.taleColor = TaleColor(rawValue: dictionary["taleColor"] as? String ?? "")
+        self.taleTitle = dictionary["taleTitle"] as? String ?? ""
+        self.creatorUsername = dictionary["creatorUsername"] as? String ?? ""
+        self.creatorImageURL = URL(string: dictionary["creatorImageURL"] as? String ?? "")
+        self.taleParagraphs = (dictionary["taleParagraphs"] as? [[String: Any]] ?? []).map { TaleFirestoreParagraph(from: $0) }
     }
 }

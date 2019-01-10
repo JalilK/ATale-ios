@@ -38,8 +38,8 @@
                             <constraint firstAttribute="height" constant="16" id="X6l-Lv-4Vq"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2J-nd-dM0">
-                        <rect key="frame" x="40" y="168" width="29.5" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2J-nd-dM0">
+                        <rect key="frame" x="40" y="168" width="29.5" height="16.5"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -67,6 +67,7 @@
                 <constraint firstItem="a2J-nd-dM0" firstAttribute="centerY" secondItem="Qby-av-wmA" secondAttribute="centerY" id="2Az-ow-KpV"/>
                 <constraint firstItem="TdY-PG-Ml0" firstAttribute="top" secondItem="Qby-av-wmA" secondAttribute="bottom" constant="30" id="2Px-Ul-YnA"/>
                 <constraint firstItem="Qby-av-wmA" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="16" id="BHe-iD-Is7"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a2J-nd-dM0" secondAttribute="trailing" constant="8" id="E70-Gd-4c9"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="bfq-9e-kZE" secondAttribute="trailing" id="FP4-Ho-FcW"/>
                 <constraint firstItem="TdY-PG-Ml0" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="16" id="FUf-JS-Spz"/>
                 <constraint firstItem="Qby-av-wmA" firstAttribute="top" secondItem="Lkm-b3-iwb" secondAttribute="bottom" constant="14.5" id="Ip2-xU-xtc"/>

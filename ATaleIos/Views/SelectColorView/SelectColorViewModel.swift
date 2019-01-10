@@ -21,6 +21,29 @@ public enum TaleColor: String {
     case violet = "violet"
     case navy = "navy"
 
+    public init (rawValue: String) {
+        switch rawValue {
+        case "dark-teal":
+            self = .darkTeal
+        case "orange":
+            self = .orange
+        case "green":
+            self = .green
+        case "purple":
+            self = .purple
+        case "mustard":
+            self = .mustard
+        case "pink":
+            self = .pink
+        case "violet":
+            self = .violet
+        case "navy":
+            self = .navy
+        default:
+            self = .darkTeal
+        }
+    }
+
     var color: UIColor {
         switch self {
         case .darkTeal:

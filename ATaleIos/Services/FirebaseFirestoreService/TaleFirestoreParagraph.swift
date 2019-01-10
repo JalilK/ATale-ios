@@ -23,3 +23,12 @@ struct TaleFirestoreParagraph: FirebaseModelProtocol {
         ]
     }
 }
+
+extension TaleFirestoreParagraph {
+    init(from dictionary: [String: Any]) {
+        self.creatorId = dictionary["creatorId"] as? String ?? ""
+        self.creatorUsername = dictionary["creatorUsername"] as? String ?? ""
+        self.creatorImageURL = URL(string: dictionary["creatorImageURL"] as? String ?? "")
+        self.paragraphText = dictionary["paragraphText"] as? String ?? ""
+    }
+}

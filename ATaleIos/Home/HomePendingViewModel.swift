@@ -13,8 +13,13 @@ import RxCocoa
 import RxDataSources
 
 class HomePendingViewModel: HomeCellViewModelType {
-    let pendingCellViewModels = [
-        PendingCollectionCellViewModel(pendingTaleModel: PendingTaleModel(selectedColor: UIColor.teal, title: "A tale of two cities", userImage: UIImage(), senderUsername: "Rex Raptor")),
-        PendingCollectionCellViewModel(pendingTaleModel: PendingTaleModel(selectedColor: UIColor.greyishBrown, title: "The Forlorn", userImage: UIImage(), senderUsername: "Trent"))
-    ]
+    private let pendingCellViewModelsBehaviorRelay: BehaviorRelay<[PendingCollectionCellViewModel]>!
+
+    lazy var pendingCellViewModelsObservable: Observable<[PendingCollectionCellViewModel]> = {
+        pendingCellViewModelsBehaviorRelay.asObservable()
+    }()
+
+    init(pendingTales: [TaleFirestoreModel]) {
+        pendingCellViewModelsBehaviorRelay = BehaviorRelay<[PendingCollectionCellViewModel]>(value: pendingTales.map { PendingCollectionCellViewModel(pendingTaleModel: $0) })
+    }
 }

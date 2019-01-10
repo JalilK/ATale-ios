@@ -46,6 +46,11 @@ class HomeViewController: UIViewController {
     private func setupBindings() {
         homeNavigationBar.bind(viewModel: viewModel.homeNavigationBarViewModel)
 
+        rx.viewDidAppear
+            .map { _ in return () }
+            .bind(to: viewModel.viewDidAppearPublishRelay)
+            .disposed(by: disposeBag)
+
         viewModel.homeCellViewModelsObservable
             .bind(to: tableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)

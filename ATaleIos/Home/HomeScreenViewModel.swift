@@ -26,20 +26,23 @@ extension HomeSectionModel: SectionModelType {
 }
 
 class HomeScreenViewModel {
-    let homeNavigationBarViewModel = HomeNavigationBarViewModel()
-    var dataSource: RxTableViewSectionedReloadDataSource<HomeSectionModel>!
-
-    private let sections = [
-        HomeSectionModel(header: "Pending", items: [HomePendingViewModel()]),
-        HomeSectionModel(header: "Your Turn", items: [
-            TurnTableViewCellViewModel(taleModel: TaleModel(selectedColor: UIColor.gray, title: "Game of Thrones", userImage: UIImage(), creatorUsername: "Steve")),
-            TurnTableViewCellViewModel(taleModel: TaleModel(selectedColor: UIColor.gray, title: "DragonStone", userImage: UIImage(), creatorUsername: "Bob"))
-            ])
-    ]
+//    private let sections = [
+//        HomeSectionModel(header: "Pending", items: [HomePendingViewModel()]),
+//        HomeSectionModel(header: "Your Turn", items: [TurnTableViewCellViewModel]())
+//    ]
+    private let firestStoreServiceBehaviorRelay = BehaviorRelay<FirebaseFirestoreSevice>(value: FirebaseFirestoreSevice())
+    private lazy var pendingTalesObservable: Observable<HomeSectionModel> = {
+        viewDidAppearPublishRelay
+            .map { [unowned self] _ in self.firestStoreServiceBehaviorRelay.value }
+            .flatMapLatest { $0.getPendingTales().take(1) }
+            .filterEmpty()
+            .map { HomeSectionModel(header: "Pending", items: [HomePendingViewModel(pendingTales: $0)]) }
+    }()
 
     lazy var homeCellViewModelsObservable: Observable<[HomeSectionModel]> = {
-        Observable.just(sections)
+        Observable.combineLatest([pendingTalesObservable])
     }()
+
     lazy var newTaleDriver: Driver<UIViewController> = {
         homeNavigationBarViewModel.newFableButtonPublishRelay.map {
             let vc = (UIStoryboard(name: "NewTaleViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController())
@@ -49,6 +52,11 @@ class HomeScreenViewModel {
         }
         .asDriver(onErrorJustReturn: UIViewController())
     }()
+
+    let viewDidAppearPublishRelay = PublishRelay<Void>()
+
+    let homeNavigationBarViewModel = HomeNavigationBarViewModel()
+    var dataSource: RxTableViewSectionedReloadDataSource<HomeSectionModel>!
 
     init() {
         setupDataSource()

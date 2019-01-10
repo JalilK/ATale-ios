@@ -14,14 +14,33 @@ import FirebaseFirestore
 
 public enum FireStoreCollection: String {
     case tales = "tales"
+    case items = "items"
+}
+
+public enum FireStoreDocument: String {
+    case pending = "pending"
+    case active = "active"
+    case completed = "completed"
 }
 
 class FirebaseFirestoreSevice {
     private let fireStoreDatabase = Firestore.firestore()
 
+    func getPendingTales() -> Observable<[TaleFirestoreModel]> {
+        return fireStoreDatabase
+            .collection(FireStoreCollection.tales.rawValue)
+            .document(FireStoreDocument.pending.rawValue)
+            .collection(FireStoreCollection.items.rawValue)
+            .rx
+            .getDocuments()
+            .map { $0.documents.map { TaleFirestoreModel(from: $0.data()) }}
+    }
+
     func create(_ tale: TaleFirestoreModel) -> Observable<Void> {
         return fireStoreDatabase
             .collection(FireStoreCollection.tales.rawValue)
+            .document(FireStoreDocument.pending.rawValue)
+            .collection(FireStoreCollection.items.rawValue)
             .rx
             .addDocument(data: tale.toDictionary())
             .map { print("Document added with ID: \($0.documentID)") }

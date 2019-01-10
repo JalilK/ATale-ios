@@ -24,6 +24,7 @@ class NewTaleFirstLineViewModel {
                 guard let currentUser = self.firebaseAuthBehaviorRelay.value.currentUser else { return nil }
 
                 return TaleFirestoreModel(
+                    creatorId: currentUser.uid,
                     taleColor: self.selectedColorBehaviorRelay.value,
                     taleTitle: self.taleTitleBehaviorRelay.value,
                     creatorUsername: currentUser.displayName ?? "",
