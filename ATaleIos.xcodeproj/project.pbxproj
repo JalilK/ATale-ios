@@ -18,13 +18,13 @@
 		B146BC4421D54A13009647CA /* InvitePlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4321D54A13009647CA /* InvitePlayersViewModel.swift */; };
 		B146BC4621D54A2C009647CA /* InvitePlayersViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B146BC4521D54A2C009647CA /* InvitePlayersViewController.storyboard */; };
 		B146BC4821D55191009647CA /* FacebookAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4721D55191009647CA /* FacebookAPIService.swift */; };
-		B146BC4C21D56F4F009647CA /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4B21D56F4F009647CA /* PlayerModel.swift */; };
 		B146BC4E21D571F2009647CA /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4D21D571F2009647CA /* PlayerViewModel.swift */; };
 		B146BC5121D573AD009647CA /* InvitePlayersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146BC4F21D573AC009647CA /* InvitePlayersTableViewCell.swift */; };
 		B146BC5221D573AD009647CA /* InvitePlayersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B146BC5021D573AC009647CA /* InvitePlayersTableViewCell.xib */; };
 		B181411521E6D2D3007BC4E1 /* GameViewPendingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B181411421E6D2D3007BC4E1 /* GameViewPendingViewController.storyboard */; };
 		B181411721E6D2EB007BC4E1 /* GameViewPendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181411621E6D2EB007BC4E1 /* GameViewPendingViewController.swift */; };
 		B181411921E6D2FE007BC4E1 /* GameViewPendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181411821E6D2FE007BC4E1 /* GameViewPendingViewModel.swift */; };
+		B181411B21E7BDA6007BC4E1 /* PlayerFirestoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181411A21E7BDA6007BC4E1 /* PlayerFirestoreModel.swift */; };
 		B1A8812521D93E650014288D /* NewTaleFirstLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8812421D93E650014288D /* NewTaleFirstLineViewController.swift */; };
 		B1A8812721D93E720014288D /* NewTaleFirstLineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A8812621D93E720014288D /* NewTaleFirstLineViewController.storyboard */; };
 		B1A8812A21D942D20014288D /* NewLineAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8812921D942D20014288D /* NewLineAccessoryView.swift */; };
@@ -34,6 +34,8 @@
 		B1AF540821DBE59F00365C17 /* FirebaseFirestoreSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF540721DBE59F00365C17 /* FirebaseFirestoreSevice.swift */; };
 		B1AF540B21DBE9D800365C17 /* TaleFirestoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF540A21DBE9D800365C17 /* TaleFirestoreModel.swift */; };
 		B1AF540D21DBF68A00365C17 /* TaleFirestoreParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF540C21DBF68A00365C17 /* TaleFirestoreParagraph.swift */; };
+		B1CBA26121EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */; };
+		B1CBA26221EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */; };
 		B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E98521AB14BE00DB467F /* AppDelegate.swift */; };
 		B1D8E98D21AB14C000DB467F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D8E98C21AB14C000DB467F /* Assets.xcassets */; };
 		B1D8E99021AB14C000DB467F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D8E98E21AB14C000DB467F /* LaunchScreen.storyboard */; };
@@ -98,13 +100,13 @@
 		B146BC4321D54A13009647CA /* InvitePlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayersViewModel.swift; sourceTree = "<group>"; };
 		B146BC4521D54A2C009647CA /* InvitePlayersViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InvitePlayersViewController.storyboard; sourceTree = "<group>"; };
 		B146BC4721D55191009647CA /* FacebookAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAPIService.swift; sourceTree = "<group>"; };
-		B146BC4B21D56F4F009647CA /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		B146BC4D21D571F2009647CA /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		B146BC4F21D573AC009647CA /* InvitePlayersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePlayersTableViewCell.swift; sourceTree = "<group>"; };
 		B146BC5021D573AC009647CA /* InvitePlayersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitePlayersTableViewCell.xib; sourceTree = "<group>"; };
 		B181411421E6D2D3007BC4E1 /* GameViewPendingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameViewPendingViewController.storyboard; sourceTree = "<group>"; };
 		B181411621E6D2EB007BC4E1 /* GameViewPendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPendingViewController.swift; sourceTree = "<group>"; };
 		B181411821E6D2FE007BC4E1 /* GameViewPendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPendingViewModel.swift; sourceTree = "<group>"; };
+		B181411A21E7BDA6007BC4E1 /* PlayerFirestoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerFirestoreModel.swift; sourceTree = "<group>"; };
 		B1A8812421D93E650014288D /* NewTaleFirstLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaleFirstLineViewController.swift; sourceTree = "<group>"; };
 		B1A8812621D93E720014288D /* NewTaleFirstLineViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewTaleFirstLineViewController.storyboard; sourceTree = "<group>"; };
 		B1A8812921D942D20014288D /* NewLineAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLineAccessoryView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,8 @@
 		B1AF540721DBE59F00365C17 /* FirebaseFirestoreSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreSevice.swift; sourceTree = "<group>"; };
 		B1AF540A21DBE9D800365C17 /* TaleFirestoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaleFirestoreModel.swift; sourceTree = "<group>"; };
 		B1AF540C21DBF68A00365C17 /* TaleFirestoreParagraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaleFirestoreParagraph.swift; sourceTree = "<group>"; };
+		B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPendingSectionHeaderCell.swift; sourceTree = "<group>"; };
+		B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewPendingSectionHeaderCell.xib; sourceTree = "<group>"; };
 		B1D8E98221AB14BE00DB467F /* ATaleIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATaleIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D8E98521AB14BE00DB467F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D8E98C21AB14C000DB467F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -224,7 +228,6 @@
 				B146BC4121D54A06009647CA /* InvitePlayersViewController.swift */,
 				B146BC4321D54A13009647CA /* InvitePlayersViewModel.swift */,
 				B146BC4521D54A2C009647CA /* InvitePlayersViewController.storyboard */,
-				B146BC4B21D56F4F009647CA /* PlayerModel.swift */,
 				B146BC4D21D571F2009647CA /* PlayerViewModel.swift */,
 				B146BC4F21D573AC009647CA /* InvitePlayersTableViewCell.swift */,
 				B146BC5021D573AC009647CA /* InvitePlayersTableViewCell.xib */,
@@ -276,8 +279,27 @@
 				B1AF540721DBE59F00365C17 /* FirebaseFirestoreSevice.swift */,
 				B1AF540A21DBE9D800365C17 /* TaleFirestoreModel.swift */,
 				B1AF540C21DBF68A00365C17 /* TaleFirestoreParagraph.swift */,
+				B181411A21E7BDA6007BC4E1 /* PlayerFirestoreModel.swift */,
 			);
 			path = FirebaseFirestoreService;
+			sourceTree = "<group>";
+		};
+		B1CBA25D21EA10AD0081C91D /* HomeSectionHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				B1FCB31321D1FF7B0078906D /* HomeSectionHeaderCell.swift */,
+				B1FCB31521D1FF8F0078906D /* HomeSectionHeaderCell.xib */,
+			);
+			path = HomeSectionHeaderCell;
+			sourceTree = "<group>";
+		};
+		B1CBA25E21EA10C80081C91D /* GameViewPendingSectionHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */,
+				B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */,
+			);
+			path = GameViewPendingSectionHeaderCell;
 			sourceTree = "<group>";
 		};
 		B1D8E97921AB14BE00DB467F = {
@@ -362,8 +384,6 @@
 				B1FCB2DE21CEBE420078906D /* HomeScreenViewModel.swift */,
 				B1FCB2F621CF2E880078906D /* HomeCellViewModelType.swift */,
 				B1FCB2F821CF328E0078906D /* HomePendingViewModel.swift */,
-				B1FCB31321D1FF7B0078906D /* HomeSectionHeaderCell.swift */,
-				B1FCB31521D1FF8F0078906D /* HomeSectionHeaderCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -415,6 +435,8 @@
 		B1FCB31C21D34B360078906D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B1CBA25E21EA10C80081C91D /* GameViewPendingSectionHeaderCell */,
+				B1CBA25D21EA10AD0081C91D /* HomeSectionHeaderCell */,
 				B1A8812821D942B80014288D /* NewLineAccessoryView */,
 				B1FCB32021D34CF90078906D /* SelectColorView */,
 				B1FCB2E021CEBEC20078906D /* HomeNavigationBar */,
@@ -534,6 +556,7 @@
 				B1FCB2DD21CEBE370078906D /* HomeScreenViewController.storyboard in Resources */,
 				B1A8812C21D942E50014288D /* NewLineAccessoryView.xib in Resources */,
 				B146BC5221D573AD009647CA /* InvitePlayersTableViewCell.xib in Resources */,
+				B1CBA26221EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib in Resources */,
 				B1D8E98D21AB14C000DB467F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -781,9 +804,11 @@
 				B1AF540821DBE59F00365C17 /* FirebaseFirestoreSevice.swift in Sources */,
 				B146BC3521D35D32009647CA /* NewTaleViewModel.swift in Sources */,
 				B181411921E6D2FE007BC4E1 /* GameViewPendingViewModel.swift in Sources */,
+				B1CBA26121EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift in Sources */,
 				B1FCB30E21D1DF610078906D /* TaleModel.swift in Sources */,
 				B1FCB2F721CF2E880078906D /* HomeCellViewModelType.swift in Sources */,
 				B1D8E9AC21AB179600DB467F /* SignUpViewController.swift in Sources */,
+				B181411B21E7BDA6007BC4E1 /* PlayerFirestoreModel.swift in Sources */,
 				B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */,
 				B1FCB30921D1DB5B0078906D /* TurnTableViewCell.swift in Sources */,
 				B1FCB2F021CF06D60078906D /* PendingCollectionViewCell.swift in Sources */,
@@ -805,7 +830,6 @@
 				B1FCB32421D34D2A0078906D /* SelectColorViewModel.swift in Sources */,
 				B1FCB31421D1FF7B0078906D /* HomeSectionHeaderCell.swift in Sources */,
 				B1FCB30C21D1DEB80078906D /* TurnTableViewCellViewModel.swift in Sources */,
-				B146BC4C21D56F4F009647CA /* PlayerModel.swift in Sources */,
 				B146BC4421D54A13009647CA /* InvitePlayersViewModel.swift in Sources */,
 				B146BC4221D54A06009647CA /* InvitePlayersViewController.swift in Sources */,
 				B181411721E6D2EB007BC4E1 /* GameViewPendingViewController.swift in Sources */,

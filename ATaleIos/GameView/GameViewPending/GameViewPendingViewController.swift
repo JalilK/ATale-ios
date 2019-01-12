@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 class GameViewPendingViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedColorView: UIView!
     @IBOutlet weak var taleTitleLabel: UILabel!
     @IBOutlet weak var creatorImageView: UIImageView!
@@ -24,11 +25,20 @@ class GameViewPendingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setupBindings()
     }
 
     private func setupViews() {
         view.backgroundColor = UIColor.cream
+
+        tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        tableView.register(UINib(nibName: "GameViewPendingSectionHeaderCell", bundle: nil), forCellReuseIdentifier: "GameViewPendingSectionHeaderCell")
+        tableView.register(UINib(nibName: "InvitePlayersTableViewCell", bundle: nil), forCellReuseIdentifier: "InvitePlayersTableViewCell")
+        tableView.backgroundColor = UIColor.cream
 
         declineButton.backgroundColor = UIColor.white
         declineButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
@@ -67,5 +77,32 @@ class GameViewPendingViewController: UIViewController {
         viewModel?.taleInviteTextDriver
             .drive(creatorInviteLabel.rx.text)
             .disposed(by: disposeBag)
+
+        guard let viewModel = viewModel else { return }
+
+        viewModel.tableViewDatasourceObservable
+            .bind(to: tableView.rx.items(dataSource: viewModel.dataSource))
+            .disposed(by: disposeBag)
+    }
+}
+
+extension GameViewPendingViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40.0
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard
+            let headerView = tableView.dequeueReusableCell(withIdentifier: "GameViewPendingSectionHeaderCell") as? GameViewPendingSectionHeaderCell,
+            let viewModel = viewModel,
+            viewModel.dataSource.sectionModels.count > 0
+            else { return UIView() }
+
+        let view = UIView()
+        view.addSubview(headerView)
+
+        headerView.titleLabel.text = viewModel.dataSource.sectionModels[section].header
+
+        return view
     }
 }

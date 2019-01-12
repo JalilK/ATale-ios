@@ -59,25 +59,43 @@
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDn-Zf-ECH">
+                                <rect key="frame" x="16" y="373.5" width="343" height="2"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="0UU-AI-1i2"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Dg-0V-alj">
+                                <rect key="frame" x="0.0" y="395.5" width="375" height="271.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dDn-Zf-ECH" firstAttribute="top" secondItem="aEX-qV-DJE" secondAttribute="bottom" constant="20" id="14P-ws-R7H"/>
                             <constraint firstItem="4PH-MC-lyR" firstAttribute="leading" secondItem="aEX-qV-DJE" secondAttribute="trailing" constant="8" id="5Ar-Mg-gl8"/>
                             <constraint firstItem="hjS-zy-gtR" firstAttribute="top" secondItem="ak5-IQ-Je5" secondAttribute="top" id="7di-PL-uwk"/>
+                            <constraint firstItem="dDn-Zf-ECH" firstAttribute="leading" secondItem="ysI-fK-4pQ" secondAttribute="leading" constant="16" id="8ka-zk-CKC"/>
                             <constraint firstItem="EkH-eL-tRG" firstAttribute="leading" secondItem="ysI-fK-4pQ" secondAttribute="leading" id="9Kv-mc-RAr"/>
                             <constraint firstItem="hjS-zy-gtR" firstAttribute="leading" secondItem="ak5-IQ-Je5" secondAttribute="trailing" constant="8" id="9uv-TR-MP5"/>
+                            <constraint firstItem="ysI-fK-4pQ" firstAttribute="trailing" secondItem="dDn-Zf-ECH" secondAttribute="trailing" constant="16" id="DJv-dJ-7HJ"/>
                             <constraint firstItem="aEX-qV-DJE" firstAttribute="width" secondItem="4PH-MC-lyR" secondAttribute="width" constant="15" id="Fua-IV-55Z"/>
                             <constraint firstItem="yy4-vV-rjE" firstAttribute="leading" secondItem="ysI-fK-4pQ" secondAttribute="leading" constant="16" id="GQp-UA-dwl"/>
                             <constraint firstItem="aEX-qV-DJE" firstAttribute="top" secondItem="ak5-IQ-Je5" secondAttribute="bottom" constant="20" id="MLJ-uf-gfL"/>
                             <constraint firstItem="ysI-fK-4pQ" firstAttribute="trailing" secondItem="yy4-vV-rjE" secondAttribute="trailing" constant="16" id="MZm-ie-ank"/>
                             <constraint firstItem="aEX-qV-DJE" firstAttribute="leading" secondItem="ysI-fK-4pQ" secondAttribute="leading" constant="16" id="Maa-U7-3wo"/>
+                            <constraint firstItem="ysI-fK-4pQ" firstAttribute="trailing" secondItem="8Dg-0V-alj" secondAttribute="trailing" id="R3E-2a-dAK"/>
                             <constraint firstItem="4PH-MC-lyR" firstAttribute="top" secondItem="aEX-qV-DJE" secondAttribute="top" id="Za9-r2-SYI"/>
                             <constraint firstItem="ysI-fK-4pQ" firstAttribute="trailing" secondItem="EkH-eL-tRG" secondAttribute="trailing" id="dO4-cu-25a"/>
                             <constraint firstItem="ak5-IQ-Je5" firstAttribute="top" secondItem="yy4-vV-rjE" secondAttribute="bottom" constant="16" id="gHo-d6-ICI"/>
                             <constraint firstItem="ysI-fK-4pQ" firstAttribute="trailing" secondItem="4PH-MC-lyR" secondAttribute="trailing" constant="16" id="i26-7D-5xd"/>
+                            <constraint firstItem="8Dg-0V-alj" firstAttribute="top" secondItem="dDn-Zf-ECH" secondAttribute="bottom" constant="20" id="ldi-0d-R4e"/>
                             <constraint firstItem="ak5-IQ-Je5" firstAttribute="leading" secondItem="yy4-vV-rjE" secondAttribute="leading" id="nRb-Im-8YZ"/>
+                            <constraint firstItem="ysI-fK-4pQ" firstAttribute="bottom" secondItem="8Dg-0V-alj" secondAttribute="bottom" id="oQS-Pz-PIN"/>
                             <constraint firstItem="EkH-eL-tRG" firstAttribute="top" secondItem="ysI-fK-4pQ" secondAttribute="top" id="pkS-aS-MPY"/>
                             <constraint firstItem="ysI-fK-4pQ" firstAttribute="trailing" secondItem="hjS-zy-gtR" secondAttribute="trailing" constant="16" id="squ-Kt-e5D"/>
+                            <constraint firstItem="8Dg-0V-alj" firstAttribute="leading" secondItem="ysI-fK-4pQ" secondAttribute="leading" id="ufo-1X-JOs"/>
                             <constraint firstItem="yy4-vV-rjE" firstAttribute="top" secondItem="EkH-eL-tRG" secondAttribute="bottom" constant="16" id="zR6-Jb-0xU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ysI-fK-4pQ"/>
@@ -88,6 +106,7 @@
                         <outlet property="creatorInviteLabel" destination="hjS-zy-gtR" id="yRt-FO-g0k"/>
                         <outlet property="declineButton" destination="aEX-qV-DJE" id="7vB-az-3gU"/>
                         <outlet property="selectedColorView" destination="EkH-eL-tRG" id="4QA-Gf-syb"/>
+                        <outlet property="tableView" destination="8Dg-0V-alj" id="LrE-sY-377"/>
                         <outlet property="taleTitleLabel" destination="yy4-vV-rjE" id="OQ1-tf-5lJ"/>
                     </connections>
                 </viewController>
