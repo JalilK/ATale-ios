@@ -12,12 +12,16 @@ import RxSwift
 import RxCocoa
 
 class PlayerViewModel {
-    private let playerModelBehaviorRelay: BehaviorRelay<PlayerModel>!
+    private let playerModelBehaviorRelay: BehaviorRelay<PlayerFirestoreModel>!
     let disposeBag = DisposeBag()
+
+    var playerModel: PlayerFirestoreModel {
+        return playerModelBehaviorRelay.value
+    }
 
     lazy var playerSharedImageDriver: Driver<UIImage> = {
         playerModelBehaviorRelay
-            .map { $0.profilePictureURL }
+            .map { $0.imageURL }
             .filterNil()
             .map { URLRequest(url: $0) }
             .flatMap {
@@ -32,12 +36,12 @@ class PlayerViewModel {
 
     lazy var playerNameTextDriver: Driver<String> = {
         playerModelBehaviorRelay
-            .map { $0.name }
+            .map { $0.username }
             .asDriver(onErrorJustReturn: "")
     }()
 
-    init(playerModel: PlayerModel) {
-        playerModelBehaviorRelay = BehaviorRelay<PlayerModel>(value: playerModel)
+    init(playerModel: PlayerFirestoreModel) {
+        playerModelBehaviorRelay = BehaviorRelay<PlayerFirestoreModel>(value: playerModel)
     }
 }
 

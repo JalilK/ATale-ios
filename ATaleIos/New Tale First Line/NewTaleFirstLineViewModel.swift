@@ -18,6 +18,7 @@ class NewTaleFirstLineViewModel {
     private let firstLineTextBehaviorRelay = BehaviorRelay<String>(value: "")
     private let taleTitleBehaviorRelay = BehaviorRelay<String>(value: "")
     private let selectedColorBehaviorRelay = BehaviorRelay<TaleColor>(value: .darkTeal)
+    private let invitedPlayersBehaviorRelay = BehaviorRelay<[PlayerFirestoreModel]>(value: [])
     private lazy var createTaleSharedObservable: Observable<Void> = {
         newLineAccessoryViewModel.selectButtonTappedPublishRelay
             .map { _ -> TaleFirestoreModel? in
@@ -29,6 +30,9 @@ class NewTaleFirstLineViewModel {
                     taleTitle: self.taleTitleBehaviorRelay.value,
                     creatorUsername: currentUser.displayName ?? "",
                     creatorImageURL: currentUser.photoURL,
+                    acceptedUsers: [],
+                    declinedUsers: [],
+                    invitedUsers: self.invitedPlayersBehaviorRelay.value,
                     taleParagraphs: [
                         TaleFirestoreParagraph(creatorId: currentUser.uid, creatorUsername: currentUser.displayName ?? "", creatorImageURL: currentUser.photoURL, paragraphText: self.firstLineTextBehaviorRelay.value)
                     ])
@@ -63,6 +67,7 @@ class NewTaleFirstLineViewModel {
     let firstLineTextFieldTextPublishRelay = PublishRelay<String>()
     let selectedColorPublishRelay = PublishRelay<TaleColor>()
     let taleTitlePublishRelay = PublishRelay<String>()
+    let invitedPlayersPublishRelay = PublishRelay<[PlayerFirestoreModel]>()
 
     init() {
         setupObservers()
@@ -93,6 +98,10 @@ class NewTaleFirstLineViewModel {
 
         selectedColorPublishRelay
             .bind(to: selectedColorBehaviorRelay)
+            .disposed(by: disposeBag)
+
+        invitedPlayersPublishRelay
+            .bind(to: invitedPlayersBehaviorRelay)
             .disposed(by: disposeBag)
     }
 }

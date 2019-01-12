@@ -70,27 +70,30 @@ class NewTaleViewModel {
     }()
 
     lazy var firstLineDriver: Driver<UIViewController> = {
-        continueButtonTappedPublishRelay.map { [unowned self] _ in
-            let viewModel = NewTaleFirstLineViewModel()
-            let vc = UIStoryboard(name: "NewTaleFirstLineViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController()
-            vc.title = "New Tale"
+        continueButtonTappedPublishRelay
+            .map { [unowned self] in
+                let viewModel = NewTaleFirstLineViewModel()
+                let vc = UIStoryboard(name: "NewTaleFirstLineViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController()
+                vc.title = "New Tale"
 
-            guard let newTaleFirstLineViewController = vc as? NewTaleFirstLineViewController else { return vc }
+                guard let newTaleFirstLineViewController = vc as? NewTaleFirstLineViewController else { return vc }
 
-            self.selectedColorViewModelBehaviorRelay
-                .flatMap { $0.taleColorObservable.take(1) }
-                .bind(to: viewModel.selectedColorPublishRelay)
-                .disposed(by: viewModel.disposeBag)
+                viewModel.invitedPlayersPublishRelay.accept(self.selectedPlayersBehaviorRelay.value.map { $0.playerModel })
 
-            self.titleTextBehaviorRelay
-                .bind(to: viewModel.taleTitlePublishRelay)
-                .disposed(by: viewModel.disposeBag)
+                self.selectedColorViewModelBehaviorRelay
+                    .flatMap { $0.taleColorObservable.take(1) }
+                    .bind(to: viewModel.selectedColorPublishRelay)
+                    .disposed(by: viewModel.disposeBag)
 
-            newTaleFirstLineViewController.viewModel = viewModel
+                self.titleTextBehaviorRelay
+                    .bind(to: viewModel.taleTitlePublishRelay)
+                    .disposed(by: viewModel.disposeBag)
 
-            return newTaleFirstLineViewController
-        }
-        .asDriver(onErrorJustReturn: UIViewController())
+                newTaleFirstLineViewController.viewModel = viewModel
+
+                return newTaleFirstLineViewController
+            }
+            .asDriver(onErrorJustReturn: UIViewController())
     }()
 
     lazy var invitePlayersDriver: Driver<UIViewController> = {

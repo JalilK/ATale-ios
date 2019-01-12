@@ -103,5 +103,5 @@ class HomeScreenViewModel {
                 return UITableViewCell()
             }
         })
-    }    
+    }
 }

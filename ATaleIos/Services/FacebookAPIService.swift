@@ -28,13 +28,13 @@ struct FriendListRequest: GraphRequestProtocol {
                     let pictureUrl = pictureNode["url"] as? String
                     else { return }
 
-                let playerModel = PlayerModel(id: userId, name: name, profilePictureURL: URL(string: pictureUrl))
+                let playerModel = PlayerFirestoreModel(id: userId, username: name, imageURL: URL(string: pictureUrl))
 
                 self.playerModels.append(playerModel)
             }
         }
 
-        var playerModels: [PlayerModel] = []
+        var playerModels: [PlayerFirestoreModel] = []
     }
 
     init(userId: String) {
@@ -49,7 +49,7 @@ struct FriendListRequest: GraphRequestProtocol {
 }
 
 class FacebookAPIService {
-    func getFriendList(userId: String) -> Observable<[PlayerModel]> {
+    func getFriendList(userId: String) -> Observable<[PlayerFirestoreModel]> {
         let connection = GraphRequestConnection()
 
         return Observable.create { observer in
