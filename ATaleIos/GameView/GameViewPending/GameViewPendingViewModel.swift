@@ -90,7 +90,19 @@ class GameViewPendingViewModel {
             .asDriver(onErrorJustReturn: "")
     }()
 
+    lazy var acceptAlertSignal: Signal<Void> = {
+        acceptButtonTappedPublishRelay.asSignal()
+    }()
+
+    lazy var declineAlertSignal: Signal<Void> = {
+        declineButtonTappedPublishRelay.asSignal()
+    }()
+
     let disposeBag = DisposeBag()
+    let acceptButtonTappedPublishRelay = PublishRelay<Void>()
+    let declineButtonTappedPublishRelay = PublishRelay<Void>()
+    let acceptInviteAlertYesButtonPublishRelay = PublishRelay<Void>()
+    let declineInviteAlertYesButtonPublishRelay = PublishRelay<Void>()
 
     var dataSource: RxTableViewSectionedReloadDataSource<GamePendingSectionModel>!
 

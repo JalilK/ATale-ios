@@ -62,23 +62,41 @@ class GameViewPendingViewController: UIViewController {
     }
 
     private func setupBindings() {
-        viewModel?.selectedColorDriver
+        guard let viewModel = viewModel else { return }
+
+        acceptButton.rx
+            .tap
+            .bind(to: viewModel.acceptButtonTappedPublishRelay)
+            .disposed(by: disposeBag)
+
+        declineButton.rx
+            .tap
+            .bind(to: viewModel.declineButtonTappedPublishRelay)
+            .disposed(by: disposeBag)
+
+        viewModel.selectedColorDriver
             .drive(selectedColorView.rx.backgroundColor)
             .disposed(by: disposeBag)
 
-        viewModel?.taleTitleDriver
+        viewModel.taleTitleDriver
             .drive(taleTitleLabel.rx.text)
             .disposed(by: disposeBag)
 
-        viewModel?.taleCreatorImageDriver
+        viewModel.taleCreatorImageDriver
             .drive(creatorImageView.rx.image)
             .disposed(by: disposeBag)
 
-        viewModel?.taleInviteTextDriver
+        viewModel.taleInviteTextDriver
             .drive(creatorInviteLabel.rx.text)
             .disposed(by: disposeBag)
 
-        guard let viewModel = viewModel else { return }
+        viewModel.acceptAlertSignal
+            .emit(to: rx.showAcceptAlertController)
+            .disposed(by: disposeBag)
+
+        viewModel.declineAlertSignal
+            .emit(to: rx.showDeclineAlertController)
+            .disposed(by: disposeBag)
 
         viewModel.tableViewDatasourceObservable
             .bind(to: tableView.rx.items(dataSource: viewModel.dataSource))
@@ -104,5 +122,47 @@ extension GameViewPendingViewController: UITableViewDelegate {
         headerView.titleLabel.text = viewModel.dataSource.sectionModels[section].header
 
         return view
+    }
+}
+
+extension Reactive where Base: GameViewPendingViewController {
+    var showAcceptAlertController: Binder<Void> {
+        return Binder(self.base) { gameViewPendingViewController, _ in
+            guard let viewModel = gameViewPendingViewController.viewModel else { return }
+
+            let alert = UIAlertController(title: "Accept Invitation", message: "Are you sure you want to accept this invitation?", preferredStyle: .actionSheet)
+            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: nil)
+            let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+
+            yesAction.rx.action?.executionObservables
+                .flatMap { $0 }
+                .bind(to: viewModel.acceptInviteAlertYesButtonPublishRelay)
+                .disposed(by: gameViewPendingViewController.disposeBag)
+
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+
+            gameViewPendingViewController.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    var showDeclineAlertController: Binder<Void> {
+        return Binder(self.base) { gameViewPendingViewController, _ in
+            guard let viewModel = gameViewPendingViewController.viewModel else { return }
+
+            let alert = UIAlertController(title: "Decline Invitation", message: "Are you sure you want to decline this invitation?", preferredStyle: .actionSheet)
+            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: nil)
+            let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+
+            yesAction.rx.action?.executionObservables
+                .flatMap { $0 }
+                .bind(to: viewModel.declineInviteAlertYesButtonPublishRelay)
+                .disposed(by: gameViewPendingViewController.disposeBag)
+
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+
+            gameViewPendingViewController.present(alert, animated: true, completion: nil)
+        }
     }
 }
