@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import RxFirebase
 import FirebaseFirestore
+import FirebaseAuth
 
 public enum FireStoreCollection: String {
     case tales = "tales"
@@ -27,13 +28,25 @@ class FirebaseFirestoreSevice {
     private let fireStoreDatabase = Firestore.firestore()
 
     func getPendingTales() -> Observable<[TaleFirestoreModel]> {
+        guard
+            let currentUser = Auth.auth().currentUser,
+            let currentUserProvider = currentUser.providerData.first(where: { $0.providerID == "facebook.com" })
+            else { return Observable.empty() }
+
         return fireStoreDatabase
             .collection(FireStoreCollection.tales.rawValue)
             .document(FireStoreDocument.pending.rawValue)
             .collection(FireStoreCollection.items.rawValue)
             .rx
             .getDocuments()
-            .map { $0.documents.map { TaleFirestoreModel(from: $0.data()) }}
+            .map {
+                $0.documents
+                    .map { TaleFirestoreModel(from: $0.data()) }
+                    .filter { $0.creatorId != currentUser.uid
+                        && !$0.acceptedUsers.contains(where: { $0.id == currentUserProvider.uid })
+                        && !$0.declinedUsers.contains(where: { $0.id == currentUserProvider.uid })
+                }
+        }
     }
 
     func create(_ tale: TaleFirestoreModel) -> Observable<Void> {
