@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import FirebaseAuth
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Action
 
 struct GamePendingSectionModel {
     var header: String
@@ -26,6 +28,7 @@ extension GamePendingSectionModel: SectionModelType {
 }
 
 class GameViewPendingViewModel {
+    private let firebaseFirestoreServiceBehaviorRelay = BehaviorRelay<FirebaseFirestoreSevice>(value: FirebaseFirestoreSevice())
     private let taleModelBehaviorRelay: BehaviorRelay<TaleFirestoreModel>!
 
     private lazy var acceptedUsersObservable: Observable<GamePendingSectionModel> = {
@@ -98,17 +101,26 @@ class GameViewPendingViewModel {
         declineButtonTappedPublishRelay.asSignal()
     }()
 
+    lazy var completionSignal: Signal<Bool> = {
+        acceptInviteAlertYesButtonAction
+            .executionObservables
+            .flatMapLatest { $0.debug() }
+            .map { _ in true }
+            .asSignal(onErrorJustReturn: false)
+    }()
+
+    var acceptInviteAlertYesButtonAction: CocoaAction!
+
     let disposeBag = DisposeBag()
     let acceptButtonTappedPublishRelay = PublishRelay<Void>()
     let declineButtonTappedPublishRelay = PublishRelay<Void>()
-    let acceptInviteAlertYesButtonPublishRelay = PublishRelay<Void>()
-    let declineInviteAlertYesButtonPublishRelay = PublishRelay<Void>()
 
     var dataSource: RxTableViewSectionedReloadDataSource<GamePendingSectionModel>!
 
     init(taleModel: TaleFirestoreModel) {
         taleModelBehaviorRelay = BehaviorRelay<TaleFirestoreModel>(value: taleModel)
         setupDatasource()
+        setupActions()
     }
 
     private func setupDatasource() {
@@ -118,5 +130,42 @@ class GameViewPendingViewModel {
             cell.bind(viewModel: viewModel)
             return cell
         })
+    }
+
+    private func setupActions() {
+        acceptInviteAlertYesButtonAction = CocoaAction(workFactory: { [unowned self] in
+            self.taleModelBehaviorRelay
+                .map { [unowned self] in self.updateModelForInviteAcceptance(tale: $0) }
+                .filterNil()
+                .flatMapLatest { model in
+                    self.firebaseFirestoreServiceBehaviorRelay.flatMapLatest { $0.update(model) }
+            }
+        })
+    }
+}
+
+extension GameViewPendingViewModel {
+    private func updateModelForInviteAcceptance(tale: TaleFirestoreModel) -> TaleFirestoreModel? {
+        guard
+            let currentUser = Auth.auth().currentUser,
+            let currentUserProvider = currentUser.providerData.first(where: { $0.providerID == "facebook.com" }),
+            let currentUserPlayerModel = tale.invitedUsers.first(where: { $0.id == currentUserProvider.uid })
+            else { return nil }
+
+        var acceptedUsers = tale.acceptedUsers.filter { $0.id != currentUserProvider.uid }
+        acceptedUsers.append(currentUserPlayerModel)
+
+        return TaleFirestoreModel(
+            id: tale.id,
+            creatorId: tale.creatorId,
+            taleColor: tale.taleColor,
+            taleTitle: tale.taleTitle,
+            creatorUsername: tale.creatorUsername,
+            creatorImageURL: tale.creatorImageURL,
+            acceptedUsers: acceptedUsers,
+            declinedUsers: tale.declinedUsers.filter { $0.id != currentUserProvider.uid },
+            invitedUsers: tale.invitedUsers.filter { $0.id != currentUserProvider.uid },
+            taleParagraphs: tale.taleParagraphs
+        )
     }
 }

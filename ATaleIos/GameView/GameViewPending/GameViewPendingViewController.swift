@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Action
 
 class GameViewPendingViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -98,6 +99,16 @@ class GameViewPendingViewController: UIViewController {
             .emit(to: rx.showDeclineAlertController)
             .disposed(by: disposeBag)
 
+        viewModel.declineAlertSignal
+            .emit(to: rx.showUpdateErrorAlertController)
+            .disposed(by: disposeBag)
+
+        viewModel.completionSignal
+            .filter { $0 }
+            .map { _ in () }
+            .emit(to: rx.goToHomeViewController)
+            .disposed(by: disposeBag)
+
         viewModel.tableViewDatasourceObservable
             .bind(to: tableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
@@ -131,13 +142,9 @@ extension Reactive where Base: GameViewPendingViewController {
             guard let viewModel = gameViewPendingViewController.viewModel else { return }
 
             let alert = UIAlertController(title: "Accept Invitation", message: "Are you sure you want to accept this invitation?", preferredStyle: .actionSheet)
-            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: nil)
+            var yesAction = UIAlertAction(title: "Yes", style: .default, handler: { $0.rx.action?.execute(()) })
+            yesAction.rx.action = viewModel.acceptInviteAlertYesButtonAction
             let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-
-            yesAction.rx.action?.executionObservables
-                .flatMap { $0 }
-                .bind(to: viewModel.acceptInviteAlertYesButtonPublishRelay)
-                .disposed(by: gameViewPendingViewController.disposeBag)
 
             alert.addAction(yesAction)
             alert.addAction(noAction)
@@ -154,13 +161,21 @@ extension Reactive where Base: GameViewPendingViewController {
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: nil)
             let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
 
-            yesAction.rx.action?.executionObservables
-                .flatMap { $0 }
-                .bind(to: viewModel.declineInviteAlertYesButtonPublishRelay)
-                .disposed(by: gameViewPendingViewController.disposeBag)
-
             alert.addAction(yesAction)
             alert.addAction(noAction)
+
+            gameViewPendingViewController.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    var showUpdateErrorAlertController: Binder<Void> {
+        return Binder(self.base) { gameViewPendingViewController, _ in
+            guard let viewModel = gameViewPendingViewController.viewModel else { return }
+
+            let alert = UIAlertController(title: "Something went wrong.", message: "Please check your internet connection and try again.", preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+
+            alert.addAction(okAction)
 
             gameViewPendingViewController.present(alert, animated: true, completion: nil)
         }
