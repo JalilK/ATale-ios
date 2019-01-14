@@ -45,4 +45,24 @@ class FirebaseFirestoreSevice {
             .addDocument(data: tale.toDictionary())
             .map { print("Document added with ID: \($0.documentID)") }
     }
+
+    func update(_ tale: TaleFirestoreModel) -> Observable<Void> {
+        return fireStoreDatabase
+            .collection(FireStoreCollection.tales.rawValue)
+            .document(FireStoreDocument.pending.rawValue)
+            .collection(FireStoreCollection.items.rawValue)
+            .whereField("id", isEqualTo: tale.id)
+            .rx
+            .getFirstDocument()
+            .flatMapLatest { [unowned self] in
+                self.fireStoreDatabase
+                    .collection(FireStoreCollection.tales.rawValue)
+                    .document(FireStoreDocument.pending.rawValue)
+                    .collection(FireStoreCollection.items.rawValue)
+                    .document($0.documentID)
+                    .rx
+                    .updateData(tale.toDictionary())
+                    .take(1)
+        }
+    }
 }
