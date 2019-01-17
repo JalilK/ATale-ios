@@ -55,6 +55,12 @@ class HomeViewController: UIViewController {
             .bind(to: tableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
 
+        viewModel.homeCellViewModelsObservable
+            .take(1)
+            .map { _ in false }
+            .bind(to: tableView.rx.isHidden)
+            .disposed(by: disposeBag)
+
         viewModel.newTaleDriver
             .drive(rx.pushToNavigationController)
             .disposed(by: disposeBag)
