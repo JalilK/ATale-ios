@@ -50,6 +50,10 @@ class HomeScreenViewModel {
 
     lazy var homeCellViewModelsObservable: Observable<[HomeSectionModel]> = {
         Observable.combineLatest([pendingTalesObservable])
+            .map { $0.first }
+            .filterNil()
+            .filter { $0.items.count > 0 }
+            .map { [$0] }
     }()
 
     lazy var pendingGameViewDriver: Driver<UIViewController> = {
