@@ -49,10 +49,10 @@ class FirebaseFirestoreSevice {
         }
     }
 
-    func create(_ tale: TaleFirestoreModel) -> Observable<Void> {
+    func create(_ tale: TaleFirestoreModel, in document: FireStoreDocument = .pending) -> Observable<Void> {
         return fireStoreDatabase
             .collection(FireStoreCollection.tales.rawValue)
-            .document(FireStoreDocument.pending.rawValue)
+            .document(document.rawValue)
             .collection(FireStoreCollection.items.rawValue)
             .rx
             .addDocument(data: tale.toDictionary())

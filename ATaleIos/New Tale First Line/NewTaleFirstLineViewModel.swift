@@ -22,7 +22,10 @@ class NewTaleFirstLineViewModel {
     private lazy var createTaleSharedObservable: Observable<Void> = {
         newLineAccessoryViewModel.selectButtonTappedPublishRelay
             .map { _ -> TaleFirestoreModel? in
-                guard let currentUser = self.firebaseAuthBehaviorRelay.value.currentUser else { return nil }
+                guard
+                    let currentUser = self.firebaseAuthBehaviorRelay.value.currentUser,
+                    let currentUserProvider = currentUser.providerData.first(where: { $0.providerID == "facebook.com" })
+                    else { return nil }
 
                 return TaleFirestoreModel(
                     id: "",
@@ -31,7 +34,7 @@ class NewTaleFirstLineViewModel {
                     taleTitle: self.taleTitleBehaviorRelay.value,
                     creatorUsername: currentUser.displayName ?? "",
                     creatorImageURL: currentUser.photoURL,
-                    acceptedUsers: [],
+                    acceptedUsers: [PlayerFirestoreModel(id: currentUserProvider.uid, username: currentUserProvider.displayName ?? "", imageURL: currentUserProvider.photoURL)],
                     declinedUsers: [],
                     invitedUsers: self.invitedPlayersBehaviorRelay.value,
                     taleParagraphs: [

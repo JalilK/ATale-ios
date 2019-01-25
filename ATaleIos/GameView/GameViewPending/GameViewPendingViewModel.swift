@@ -104,7 +104,7 @@ class GameViewPendingViewModel {
     lazy var completionSignal: Signal<Bool> = {
         acceptInviteAlertYesButtonAction
             .executionObservables
-            .flatMapLatest { $0.debug() }
+            .flatMapLatest { $0 }
             .map { _ in true }
             .asSignal(onErrorJustReturn: false)
     }()
@@ -137,9 +137,17 @@ class GameViewPendingViewModel {
             self.taleModelBehaviorRelay
                 .map { [unowned self] in self.updateModelForInviteAcceptance(tale: $0) }
                 .filterNil()
-                .flatMapLatest { model in
-                    self.firebaseFirestoreServiceBehaviorRelay.flatMapLatest { $0.update(model) }
-            }
+                .withLatestFrom(self.firebaseFirestoreServiceBehaviorRelay) { tale, firestoreService -> Observable<Void> in
+                    if tale.invitedUsers.count == 0 {
+                        return firestoreService
+                            .update(tale)
+                            .concat(firestoreService.create(tale, in: .active))
+                    } else {
+                        return firestoreService
+                            .update(tale)
+                    }
+                }
+                .flatMapLatest { $0 }
         })
     }
 }
@@ -152,7 +160,10 @@ extension GameViewPendingViewModel {
             let currentUserPlayerModel = tale.invitedUsers.first(where: { $0.id == currentUserProvider.uid })
             else { return nil }
 
+        let invitedUsers = tale.invitedUsers.filter { $0.id != currentUserProvider.uid }
+        let declinedUsers = tale.declinedUsers.filter { $0.id != currentUserProvider.uid }
         var acceptedUsers = tale.acceptedUsers.filter { $0.id != currentUserProvider.uid }
+
         acceptedUsers.append(currentUserPlayerModel)
 
         return TaleFirestoreModel(
@@ -163,8 +174,8 @@ extension GameViewPendingViewModel {
             creatorUsername: tale.creatorUsername,
             creatorImageURL: tale.creatorImageURL,
             acceptedUsers: acceptedUsers,
-            declinedUsers: tale.declinedUsers.filter { $0.id != currentUserProvider.uid },
-            invitedUsers: tale.invitedUsers.filter { $0.id != currentUserProvider.uid },
+            declinedUsers: declinedUsers,
+            invitedUsers: invitedUsers,
             taleParagraphs: tale.taleParagraphs
         )
     }
