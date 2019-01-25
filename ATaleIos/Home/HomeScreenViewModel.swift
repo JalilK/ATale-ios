@@ -35,7 +35,7 @@ class HomeScreenViewModel {
 
     private lazy var pendingTalesObservable: Observable<HomeSectionModel> = {
         viewDidAppearPublishRelay
-            .map { [unowned self] _ in self.firestStoreServiceBehaviorRelay.value }
+            .withLatestFrom(firestStoreServiceBehaviorRelay)
             .flatMapLatest { $0.getPendingTales().take(1) }
             .filterEmpty()
             .map {
