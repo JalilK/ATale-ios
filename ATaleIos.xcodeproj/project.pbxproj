@@ -34,6 +34,9 @@
 		B1AF540821DBE59F00365C17 /* FirebaseFirestoreSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF540721DBE59F00365C17 /* FirebaseFirestoreSevice.swift */; };
 		B1AF540B21DBE9D800365C17 /* TaleFirestoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF540A21DBE9D800365C17 /* TaleFirestoreModel.swift */; };
 		B1AF540D21DBF68A00365C17 /* TaleFirestoreParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF540C21DBF68A00365C17 /* TaleFirestoreParagraph.swift */; };
+		B1C0324221FB9E92003DACED /* GameViewYourTurnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0324121FB9E92003DACED /* GameViewYourTurnViewController.swift */; };
+		B1C0324421FB9E9E003DACED /* GameViewYourTurnViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C0324321FB9E9E003DACED /* GameViewYourTurnViewController.storyboard */; };
+		B1C0324621FB9EAF003DACED /* GameViewYourTurnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0324521FB9EAF003DACED /* GameViewYourTurnViewModel.swift */; };
 		B1CBA26121EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */; };
 		B1CBA26221EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */; };
 		B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E98521AB14BE00DB467F /* AppDelegate.swift */; };
@@ -116,6 +119,9 @@
 		B1AF540721DBE59F00365C17 /* FirebaseFirestoreSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreSevice.swift; sourceTree = "<group>"; };
 		B1AF540A21DBE9D800365C17 /* TaleFirestoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaleFirestoreModel.swift; sourceTree = "<group>"; };
 		B1AF540C21DBF68A00365C17 /* TaleFirestoreParagraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaleFirestoreParagraph.swift; sourceTree = "<group>"; };
+		B1C0324121FB9E92003DACED /* GameViewYourTurnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewYourTurnViewController.swift; sourceTree = "<group>"; };
+		B1C0324321FB9E9E003DACED /* GameViewYourTurnViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameViewYourTurnViewController.storyboard; sourceTree = "<group>"; };
+		B1C0324521FB9EAF003DACED /* GameViewYourTurnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewYourTurnViewModel.swift; sourceTree = "<group>"; };
 		B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPendingSectionHeaderCell.swift; sourceTree = "<group>"; };
 		B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewPendingSectionHeaderCell.xib; sourceTree = "<group>"; };
 		B1D8E98221AB14BE00DB467F /* ATaleIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATaleIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +244,7 @@
 		B181411221E6D2B9007BC4E1 /* GameView */ = {
 			isa = PBXGroup;
 			children = (
+				B1C0324021FB9E78003DACED /* GameViewYourTurn */,
 				B181411321E6D2BF007BC4E1 /* GameViewPending */,
 			);
 			path = GameView;
@@ -282,6 +289,16 @@
 				B181411A21E7BDA6007BC4E1 /* PlayerFirestoreModel.swift */,
 			);
 			path = FirebaseFirestoreService;
+			sourceTree = "<group>";
+		};
+		B1C0324021FB9E78003DACED /* GameViewYourTurn */ = {
+			isa = PBXGroup;
+			children = (
+				B1C0324121FB9E92003DACED /* GameViewYourTurnViewController.swift */,
+				B1C0324321FB9E9E003DACED /* GameViewYourTurnViewController.storyboard */,
+				B1C0324521FB9EAF003DACED /* GameViewYourTurnViewModel.swift */,
+			);
+			path = GameViewYourTurn;
 			sourceTree = "<group>";
 		};
 		B1CBA25D21EA10AD0081C91D /* HomeSectionHeaderCell */ = {
@@ -557,6 +574,7 @@
 				B1A8812C21D942E50014288D /* NewLineAccessoryView.xib in Resources */,
 				B146BC5221D573AD009647CA /* InvitePlayersTableViewCell.xib in Resources */,
 				B1CBA26221EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib in Resources */,
+				B1C0324421FB9E9E003DACED /* GameViewYourTurnViewController.storyboard in Resources */,
 				B1D8E98D21AB14C000DB467F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -826,12 +844,14 @@
 				B146BC3D21D52619009647CA /* FirebaseModelProtocol.swift in Sources */,
 				B1FCB31921D2D6520078906D /* NewTaleViewController.swift in Sources */,
 				B1FCB2F921CF328E0078906D /* HomePendingViewModel.swift in Sources */,
+				B1C0324621FB9EAF003DACED /* GameViewYourTurnViewModel.swift in Sources */,
 				B1D8E9AE21AB179F00DB467F /* SignUpViewModel.swift in Sources */,
 				B1FCB32421D34D2A0078906D /* SelectColorViewModel.swift in Sources */,
 				B1FCB31421D1FF7B0078906D /* HomeSectionHeaderCell.swift in Sources */,
 				B1FCB30C21D1DEB80078906D /* TurnTableViewCellViewModel.swift in Sources */,
 				B146BC4421D54A13009647CA /* InvitePlayersViewModel.swift in Sources */,
 				B146BC4221D54A06009647CA /* InvitePlayersViewController.swift in Sources */,
+				B1C0324221FB9E92003DACED /* GameViewYourTurnViewController.swift in Sources */,
 				B181411721E6D2EB007BC4E1 /* GameViewPendingViewController.swift in Sources */,
 				B146BC4821D55191009647CA /* FacebookAPIService.swift in Sources */,
 				B1A8813021D955580014288D /* NewTaleFirstLineViewModel.swift in Sources */,
