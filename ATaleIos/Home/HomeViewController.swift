@@ -52,6 +52,10 @@ class HomeViewController: UIViewController {
             .bind(to: viewModel.viewDidAppearPublishRelay)
             .disposed(by: disposeBag)
 
+        tableView.rx.modelSelected(YourTurnCellViewModel.self)
+            .bind(to: viewModel.yourTurnModelSelectedPublishRelay)
+            .disposed(by: disposeBag)
+
         viewModel.homeCellViewModelsObservable
             .bind(to: tableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
@@ -63,6 +67,10 @@ class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
 
         viewModel.newTaleDriver
+            .drive(rx.pushToNavigationController)
+            .disposed(by: disposeBag)
+
+        viewModel.yourTurnGameViewDriver
             .drive(rx.pushToNavigationController)
             .disposed(by: disposeBag)
 

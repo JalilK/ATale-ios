@@ -11,4 +11,35 @@ import RxSwift
 import RxCocoa
 
 class GameViewYourTurnViewModel {
+    private let taleModelBehaviorRelay: BehaviorRelay<TaleFirestoreModel>!
+
+    lazy var taleColorDriver: Driver<UIColor> = {
+        taleModelBehaviorRelay
+            .map { $0.taleColor.color }
+            .asDriver(onErrorJustReturn: UIColor.white)
+    }()
+
+    lazy var taleTitleDriver: Driver<String> = {
+        taleModelBehaviorRelay
+            .map { $0.taleTitle }
+            .asDriver(onErrorJustReturn: "")
+    }()
+
+    lazy var playerImageDriver: Driver<UIImage> = {
+        taleModelBehaviorRelay
+            .map { $0.creatorImageURL }
+            .filterNil()
+            .map { URLRequest(url: $0) }
+            .flatMap {
+                URLSession.shared.rx
+                    .data(request: $0)
+                    .subscribeOn(MainScheduler.instance)
+            }
+            .map { UIImage(data: $0) ?? UIImage() }
+            .asDriver(onErrorJustReturn: UIImage())
+    }()
+
+    init(with tale: TaleFirestoreModel) {
+        taleModelBehaviorRelay = BehaviorRelay<TaleFirestoreModel>(value: tale)
+    }
 }
