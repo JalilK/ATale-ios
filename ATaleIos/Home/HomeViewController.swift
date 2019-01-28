@@ -35,9 +35,10 @@ class HomeViewController: UIViewController {
 
     private func setupViews() {
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor.cream
         tableView.register(UINib(nibName: "HomeSectionHeaderCell", bundle:  nil), forCellReuseIdentifier: "HomeSectionHeaderCell")
-        tableView.register(UINib(nibName: "TurnTableViewCell", bundle: nil), forCellReuseIdentifier: "TurnTableViewCell")
+        tableView.register(UINib(nibName: "YourTurnTableViewCell", bundle: nil), forCellReuseIdentifier: "YourTurnTableViewCell")
         tableView.register(UINib(nibName: "PendingTableViewCell", bundle: nil), forCellReuseIdentifier: "PendingTableViewCell")
 
         view.backgroundColor = UIColor.cream

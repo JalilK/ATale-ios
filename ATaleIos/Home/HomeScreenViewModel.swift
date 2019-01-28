@@ -36,24 +36,34 @@ class HomeScreenViewModel {
     private lazy var pendingTalesObservable: Observable<HomeSectionModel> = {
         viewDidAppearPublishRelay
             .withLatestFrom(firestStoreServiceBehaviorRelay)
-            .flatMapLatest { $0.getPendingTales().take(1) }
-            .filterEmpty()
+            .flatMapLatest { $0.getPendingTales() }
             .map {
                 let homePendingViewModel = HomePendingViewModel(pendingTales: $0)
                 homePendingViewModel.viewModelSelectedPublishRelay
                     .bind(to: self.pendingViewModelSelectedPublishRelay)
                     .disposed(by: homePendingViewModel.disposeBag)
 
-                return HomeSectionModel(header: "Pending", items: [homePendingViewModel])
+                return $0.count > 0 ? HomeSectionModel(header: "Pending", items: [homePendingViewModel]) : HomeSectionModel(header: "", items: [])
             }
     }()
 
+    private lazy var yourTurnTalesObservable: Observable<HomeSectionModel> = {
+        viewDidAppearPublishRelay
+            .withLatestFrom(firestStoreServiceBehaviorRelay)
+            .flatMapLatest { $0.getYourTurnTales() }
+            .map { $0.map { YourTurnCellViewModel(with: $0) }}
+            .map { HomeSectionModel(header: "Your Turn", items: $0) }
+    }()
+
     lazy var homeCellViewModelsObservable: Observable<[HomeSectionModel]> = {
-        Observable.combineLatest([pendingTalesObservable])
-            .map { $0.first }
-            .filterNil()
-            .filter { $0.items.count > 0 }
-            .map { [$0] }
+        Observable.combineLatest(pendingTalesObservable, yourTurnTalesObservable) { pendingTales, yourTurnTales in
+            var arr: [HomeSectionModel] = []
+
+            if pendingTales.items.count > 0 { arr.append(pendingTales) }
+            if yourTurnTales.items.count > 0 { arr.append(yourTurnTales) }
+
+            return arr
+        }
     }()
 
     lazy var pendingGameViewDriver: Driver<UIViewController> = {
@@ -97,10 +107,11 @@ class HomeScreenViewModel {
                 cell.bind(homePendingViewModel)
 
                 return cell
-            case let turnViewModel as TurnTableViewCellViewModel:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "TurnTableViewCell") as? TurnTableViewCell else { return UITableViewCell() }
 
-                cell.bind(turnViewModel)
+            case let yourTurnViewModel as YourTurnCellViewModel:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "YourTurnTableViewCell") as? YourTurnTableViewCell else { return UITableViewCell() }
+
+                cell.bind(yourTurnViewModel)
 
                 return cell
             default:

@@ -17,6 +17,7 @@ public enum TaleState: Int {
 struct TaleFirestoreModel: FirebaseModelProtocol {
     var id: String
     var creatorId: String
+    var currentUserTurnId: String
     var taleColor: TaleColor
     var taleTitle: String
     var creatorUsername: String
@@ -30,6 +31,7 @@ struct TaleFirestoreModel: FirebaseModelProtocol {
         return [
             "id" : id,
             "creatorId" : creatorId,
+            "currentUserTurnId" : currentUserTurnId,
             "taleColor" : taleColor .rawValue,
             "taleTitle" : taleTitle,
             "creatorUsername" : creatorUsername,
@@ -46,6 +48,7 @@ extension TaleFirestoreModel {
     init(from dictionary: [String: Any]) {
         self.id = dictionary["id"] as? String ?? ""
         self.creatorId = dictionary["creatorId"] as? String ?? ""
+        self.currentUserTurnId = dictionary["currentUserTurnId"] as? String ?? ""
         self.taleColor = TaleColor(rawValue: dictionary["taleColor"] as? String ?? "")
         self.taleTitle = dictionary["taleTitle"] as? String ?? ""
         self.creatorUsername = dictionary["creatorUsername"] as? String ?? ""

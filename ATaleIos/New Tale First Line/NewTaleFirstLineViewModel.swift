@@ -28,8 +28,9 @@ class NewTaleFirstLineViewModel {
                     else { return nil }
 
                 return TaleFirestoreModel(
-                    id: "",
+                    id: UUID().uuidString,
                     creatorId: currentUser.uid,
+                    currentUserTurnId: currentUserProvider.uid,
                     taleColor: self.selectedColorBehaviorRelay.value,
                     taleTitle: self.taleTitleBehaviorRelay.value,
                     creatorUsername: currentUser.displayName ?? "",

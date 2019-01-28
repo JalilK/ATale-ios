@@ -169,6 +169,7 @@ extension GameViewPendingViewModel {
         return TaleFirestoreModel(
             id: tale.id,
             creatorId: tale.creatorId,
+            currentUserTurnId: tale.creatorId,
             taleColor: tale.taleColor,
             taleTitle: tale.taleTitle,
             creatorUsername: tale.creatorUsername,
