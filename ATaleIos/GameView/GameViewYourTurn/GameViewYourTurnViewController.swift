@@ -17,11 +17,14 @@ class GameViewYourTurnViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
 
-    var viewModel = GameViewYourTurnViewModel()
+    private let disposeBag = DisposeBag()
+
+    var viewModel: GameViewYourTurnViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupBindings()
     }
 
     private func setupViews() {
@@ -29,5 +32,17 @@ class GameViewYourTurnViewController: UIViewController {
 
         taleTitleLabel.textColor = UIColor.greyishBrown
         textField.textColor = UIColor.greyishBrown
+    }
+
+    private func setupBindings() {
+        guard let viewModel = viewModel else { return }
+
+        viewModel.taleColorDriver
+            .drive(selectedColorView.rx.backgroundColor)
+            .disposed(by: disposeBag)
+
+        viewModel.taleTitleDriver
+            .drive(taleTitleLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 }

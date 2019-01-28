@@ -26,10 +26,6 @@ extension HomeSectionModel: SectionModelType {
 }
 
 class HomeScreenViewModel {
-//    private let sections = [
-//        HomeSectionModel(header: "Pending", items: [HomePendingViewModel()]),
-//        HomeSectionModel(header: "Your Turn", items: [TurnTableViewCellViewModel]())
-//    ]
     private let firestStoreServiceBehaviorRelay = BehaviorRelay<FirebaseFirestoreSevice>(value: FirebaseFirestoreSevice())
     private let pendingViewModelSelectedPublishRelay = PublishRelay<PendingCollectionCellViewModel>()
 
@@ -89,7 +85,22 @@ class HomeScreenViewModel {
         .asDriver(onErrorJustReturn: UIViewController())
     }()
 
+    lazy var yourTurnGameViewDriver: Driver<UIViewController> = {
+        yourTurnModelSelectedPublishRelay
+            .withLatestFrom(yourTurnModelSelectedPublishRelay.flatMapLatest { $0.taleModelObservable }) { ($0, $1) }
+            .map { tuple -> UIViewController in
+                guard let vc = UIStoryboard(name: "GameViewYourTurnViewController", bundle: nil).instantiateInitialViewController() as? GameViewYourTurnViewController else { return UIViewController() }
+
+                let viewModel = GameViewYourTurnViewModel(with: tuple.1)
+                vc.viewModel = viewModel
+
+                return vc
+            }
+            .asDriver(onErrorJustReturn: UIViewController())
+    }()
+
     let viewDidAppearPublishRelay = PublishRelay<Void>()
+    let yourTurnModelSelectedPublishRelay = PublishRelay<YourTurnCellViewModel>()
 
     let homeNavigationBarViewModel = HomeNavigationBarViewModel()
     var dataSource: RxTableViewSectionedReloadDataSource<HomeSectionModel>!

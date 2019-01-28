@@ -13,6 +13,10 @@ import RxCocoa
 class YourTurnCellViewModel: HomeCellViewModelType {
     private let taleModelBehaviorRelay: BehaviorRelay<TaleFirestoreModel>!
 
+    lazy var taleModelObservable: Observable<TaleFirestoreModel> = {
+        taleModelBehaviorRelay.asObservable()
+    }()
+
     lazy var taleColorDriver: Driver<UIColor> = {
         taleModelBehaviorRelay
             .map { $0.taleColor.color }
