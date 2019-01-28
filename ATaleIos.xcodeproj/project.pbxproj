@@ -37,6 +37,9 @@
 		B1C0324221FB9E92003DACED /* GameViewYourTurnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0324121FB9E92003DACED /* GameViewYourTurnViewController.swift */; };
 		B1C0324421FB9E9E003DACED /* GameViewYourTurnViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C0324321FB9E9E003DACED /* GameViewYourTurnViewController.storyboard */; };
 		B1C0324621FB9EAF003DACED /* GameViewYourTurnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0324521FB9EAF003DACED /* GameViewYourTurnViewModel.swift */; };
+		B1C0324A21FBA717003DACED /* YourTurnTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0324821FBA717003DACED /* YourTurnTableViewCell.swift */; };
+		B1C0324B21FBA717003DACED /* YourTurnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C0324921FBA717003DACED /* YourTurnTableViewCell.xib */; };
+		B1C0324D21FBA733003DACED /* YourTurnCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0324C21FBA733003DACED /* YourTurnCellViewModel.swift */; };
 		B1CBA26121EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */; };
 		B1CBA26221EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */; };
 		B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E98521AB14BE00DB467F /* AppDelegate.swift */; };
@@ -122,6 +125,9 @@
 		B1C0324121FB9E92003DACED /* GameViewYourTurnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewYourTurnViewController.swift; sourceTree = "<group>"; };
 		B1C0324321FB9E9E003DACED /* GameViewYourTurnViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameViewYourTurnViewController.storyboard; sourceTree = "<group>"; };
 		B1C0324521FB9EAF003DACED /* GameViewYourTurnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewYourTurnViewModel.swift; sourceTree = "<group>"; };
+		B1C0324821FBA717003DACED /* YourTurnTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTurnTableViewCell.swift; sourceTree = "<group>"; };
+		B1C0324921FBA717003DACED /* YourTurnTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourTurnTableViewCell.xib; sourceTree = "<group>"; };
+		B1C0324C21FBA733003DACED /* YourTurnCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTurnCellViewModel.swift; sourceTree = "<group>"; };
 		B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPendingSectionHeaderCell.swift; sourceTree = "<group>"; };
 		B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewPendingSectionHeaderCell.xib; sourceTree = "<group>"; };
 		B1D8E98221AB14BE00DB467F /* ATaleIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATaleIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,6 +307,16 @@
 			path = GameViewYourTurn;
 			sourceTree = "<group>";
 		};
+		B1C0324721FBA6FB003DACED /* YourTurnTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B1C0324821FBA717003DACED /* YourTurnTableViewCell.swift */,
+				B1C0324921FBA717003DACED /* YourTurnTableViewCell.xib */,
+				B1C0324C21FBA733003DACED /* YourTurnCellViewModel.swift */,
+			);
+			path = YourTurnTableViewCell;
+			sourceTree = "<group>";
+		};
 		B1CBA25D21EA10AD0081C91D /* HomeSectionHeaderCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +410,7 @@
 		B1FCB2D921CEBE100078906D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B1C0324721FBA6FB003DACED /* YourTurnTableViewCell */,
 				B1FCB30621D1DB3D0078906D /* TurnTableViewCell */,
 				B1FCB2ED21CF05BD0078906D /* PendingTableViewCell */,
 				B1FCB2DA21CEBE230078906D /* HomeViewController.swift */,
@@ -558,6 +575,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C0324B21FBA717003DACED /* YourTurnTableViewCell.xib in Resources */,
 				B1D8E99021AB14C000DB467F /* LaunchScreen.storyboard in Resources */,
 				B1FCB2EC21CF05BB0078906D /* PendingTableViewCell.xib in Resources */,
 				B1FCB31B21D2D65E0078906D /* NewTaleViewController.storyboard in Resources */,
@@ -833,6 +851,7 @@
 				B1FCB2EB21CF05BB0078906D /* PendingTableViewCell.swift in Sources */,
 				B146BC4E21D571F2009647CA /* PlayerViewModel.swift in Sources */,
 				B1FCB2E221CEBEDE0078906D /* HomeNavigationBarViewModel.swift in Sources */,
+				B1C0324D21FBA733003DACED /* YourTurnCellViewModel.swift in Sources */,
 				B1FCB2E421CEBF080078906D /* HomeNavigationBar.swift in Sources */,
 				B1A8812A21D942D20014288D /* NewLineAccessoryView.swift in Sources */,
 				B1A8812521D93E650014288D /* NewTaleFirstLineViewController.swift in Sources */,
@@ -853,6 +872,7 @@
 				B146BC4221D54A06009647CA /* InvitePlayersViewController.swift in Sources */,
 				B1C0324221FB9E92003DACED /* GameViewYourTurnViewController.swift in Sources */,
 				B181411721E6D2EB007BC4E1 /* GameViewPendingViewController.swift in Sources */,
+				B1C0324A21FBA717003DACED /* YourTurnTableViewCell.swift in Sources */,
 				B146BC4821D55191009647CA /* FacebookAPIService.swift in Sources */,
 				B1A8813021D955580014288D /* NewTaleFirstLineViewModel.swift in Sources */,
 				B1FCB2FB21D01ADD0078906D /* PendingTaleModel.swift in Sources */,
