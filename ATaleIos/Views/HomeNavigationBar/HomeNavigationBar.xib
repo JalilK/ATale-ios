@@ -15,6 +15,8 @@
                 <outlet property="completedButton" destination="rW1-WV-kSQ" id="Hbs-FH-dZA"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="BgV-vM-ZKK"/>
                 <outlet property="newTaleButton" destination="rDs-ED-uja" id="FtK-cW-6xA"/>
+                <outlet property="selectionIndicatorActiveTrailingConstraint" destination="mSU-AE-1J4" id="doP-4L-Pv5"/>
+                <outlet property="selectionIndicatorCompletedTrailingConstraint" destination="NYM-wc-Psy" id="LxZ-3b-iQd"/>
                 <outlet property="selectionIndicatorView" destination="zhl-Oz-guJ" id="qm0-TC-bw1"/>
             </connections>
         </placeholder>
@@ -39,7 +41,7 @@
                     <state key="normal" title="+ New Tale"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhl-Oz-guJ">
-                    <rect key="frame" x="0.0" y="42" width="108.5" height="2"/>
+                    <rect key="frame" x="16" y="42" width="108.5" height="2"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="g00-NK-kUL"/>
@@ -49,6 +51,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="rW1-WV-kSQ" firstAttribute="leading" secondItem="rnh-vI-ihI" secondAttribute="trailing" id="5dg-K1-vYN"/>
+                <constraint firstItem="zhl-Oz-guJ" firstAttribute="leading" secondItem="rW1-WV-kSQ" secondAttribute="leading" priority="999" id="NYM-wc-Psy"/>
                 <constraint firstItem="rnh-vI-ihI" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="R2c-FA-xCl"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rDs-ED-uja" secondAttribute="trailing" constant="16" id="TeP-be-zfH"/>
                 <constraint firstItem="rnh-vI-ihI" firstAttribute="width" secondItem="rW1-WV-kSQ" secondAttribute="width" id="Tvr-Pi-4A3"/>
@@ -57,7 +60,7 @@
                 <constraint firstItem="zhl-Oz-guJ" firstAttribute="width" secondItem="rDs-ED-uja" secondAttribute="width" id="beu-wP-Ezv"/>
                 <constraint firstItem="rDs-ED-uja" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="eSm-l3-rYc"/>
                 <constraint firstItem="rW1-WV-kSQ" firstAttribute="width" secondItem="rDs-ED-uja" secondAttribute="width" id="fTv-NJ-q6R"/>
-                <constraint firstItem="zhl-Oz-guJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ljI-7o-P7a"/>
+                <constraint firstItem="zhl-Oz-guJ" firstAttribute="trailing" secondItem="rnh-vI-ihI" secondAttribute="trailing" id="mSU-AE-1J4"/>
                 <constraint firstItem="rDs-ED-uja" firstAttribute="leading" secondItem="rW1-WV-kSQ" secondAttribute="trailing" constant="18" id="vVr-Qv-IYa"/>
                 <constraint firstItem="rnh-vI-ihI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zMT-0m-g6Z"/>
             </constraints>
