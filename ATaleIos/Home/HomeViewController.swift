@@ -39,6 +39,7 @@ class HomeViewController: UIViewController {
         tableView.backgroundColor = UIColor.cream
         tableView.register(UINib(nibName: "HomeSectionHeaderCell", bundle:  nil), forCellReuseIdentifier: "HomeSectionHeaderCell")
         tableView.register(UINib(nibName: "YourTurnTableViewCell", bundle: nil), forCellReuseIdentifier: "YourTurnTableViewCell")
+        tableView.register(UINib(nibName: "CompletedTableViewCell", bundle: nil), forCellReuseIdentifier: "CompletedTableViewCell")
         tableView.register(UINib(nibName: "PendingTableViewCell", bundle: nil), forCellReuseIdentifier: "PendingTableViewCell")
 
         view.backgroundColor = UIColor.cream
@@ -52,8 +53,8 @@ class HomeViewController: UIViewController {
             .bind(to: viewModel.viewDidAppearPublishRelay)
             .disposed(by: disposeBag)
 
-        tableView.rx.modelSelected(YourTurnCellViewModel.self)
-            .bind(to: viewModel.yourTurnModelSelectedPublishRelay)
+        tableView.rx.modelSelected(HomeCellViewModelType.self)
+            .bind(to: viewModel.homeSectionViewModelSelectedPublishRelay)
             .disposed(by: disposeBag)
 
         viewModel.homeCellViewModelsObservable

@@ -17,7 +17,9 @@ class HomeNavigationBar: UIView {
     @IBOutlet weak var completedButton: UIButton!
     @IBOutlet weak var newTaleButton: UIButton!
     @IBOutlet weak var selectionIndicatorView: UIView!
-
+    @IBOutlet weak var selectionIndicatorActiveTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var selectionIndicatorCompletedTrailingConstraint: NSLayoutConstraint!
+    
     let disposeBag = DisposeBag()
 
     override init(frame: CGRect) {
@@ -33,6 +35,18 @@ class HomeNavigationBar: UIView {
     func bind(viewModel: HomeNavigationBarViewModel) {
         newTaleButton.rx.tap
             .bind(to: viewModel.newFableButtonPublishRelay)
+            .disposed(by: disposeBag)
+
+        activeButton.rx.tap
+            .bind(to: viewModel.activeButtonTappedPublishRelay)
+            .disposed(by: disposeBag)
+
+        completedButton.rx.tap
+            .bind(to: viewModel.completedButtonTappedPublishRelay)
+            .disposed(by: disposeBag)
+
+        viewModel.taleFilterStateDriver
+            .drive(rx.filterState)
             .disposed(by: disposeBag)
     }
 
@@ -54,5 +68,25 @@ class HomeNavigationBar: UIView {
 
         selectionIndicatorView.backgroundColor = UIColor.teal
         selectionIndicatorView.layer.cornerRadius = selectionIndicatorView.frame.height / 2
+    }
+}
+
+extension Reactive where Base: HomeNavigationBar {
+    fileprivate var filterState: Binder<TaleFilterState> {
+        return Binder(self.base) { navigationBar, filterState in
+            switch filterState {
+            case .active:
+                navigationBar.selectionIndicatorActiveTrailingConstraint.priority = UILayoutPriority.defaultHigh
+                navigationBar.selectionIndicatorCompletedTrailingConstraint.priority = UILayoutPriority.defaultLow
+
+            case .completed:
+                navigationBar.selectionIndicatorActiveTrailingConstraint.priority = UILayoutPriority.defaultLow
+                navigationBar.selectionIndicatorCompletedTrailingConstraint.priority = UILayoutPriority.defaultHigh
+            }
+
+            UIView.animate(withDuration: 0.3) {
+                navigationBar.layoutIfNeeded()
+            }
+        }
     }
 }

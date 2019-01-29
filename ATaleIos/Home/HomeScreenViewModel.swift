@@ -51,12 +51,26 @@ class HomeScreenViewModel {
             .map { HomeSectionModel(header: "Your Turn", items: $0) }
     }()
 
+    private lazy var completedTalesObservable: Observable<HomeSectionModel> = {
+        viewDidAppearPublishRelay
+            .withLatestFrom(firestStoreServiceBehaviorRelay)
+            .flatMapLatest { $0.getCompletedTales() }
+            .map { $0.map { CompletedCellViewModel(with: $0) }}
+            .map { HomeSectionModel(header: "Completed", items: $0) }
+    }()
+
     lazy var homeCellViewModelsObservable: Observable<[HomeSectionModel]> = {
-        Observable.combineLatest(pendingTalesObservable, yourTurnTalesObservable) { pendingTales, yourTurnTales in
+        Observable.combineLatest(homeNavigationBarViewModel.taleFilterStateDriver.asObservable(), pendingTalesObservable, yourTurnTalesObservable, completedTalesObservable) { filterState, pendingTales, yourTurnTales, completedTales in
             var arr: [HomeSectionModel] = []
 
-            if pendingTales.items.count > 0 { arr.append(pendingTales) }
-            if yourTurnTales.items.count > 0 { arr.append(yourTurnTales) }
+            switch filterState {
+            case .active:
+                if pendingTales.items.count > 0 { arr.append(pendingTales) }
+                if yourTurnTales.items.count > 0 { arr.append(yourTurnTales) }
+
+            case .completed:
+                if completedTales.items.count > 0 { arr.append(completedTales) }
+            }
 
             return arr
         }
@@ -86,8 +100,13 @@ class HomeScreenViewModel {
     }()
 
     lazy var yourTurnGameViewDriver: Driver<UIViewController> = {
-        yourTurnModelSelectedPublishRelay
-            .withLatestFrom(yourTurnModelSelectedPublishRelay.flatMapLatest { $0.taleModelObservable }) { ($0, $1) }
+        homeSectionViewModelSelectedPublishRelay
+            .map { $0 as? YourTurnCellViewModel }
+            .filterNil()
+            .withLatestFrom(homeSectionViewModelSelectedPublishRelay
+                .map { $0 as? YourTurnCellViewModel }
+                .filterNil()
+                .flatMapLatest { $0.taleModelObservable }) { ($0, $1) }
             .map { tuple -> UIViewController in
                 guard let vc = UIStoryboard(name: "GameViewYourTurnViewController", bundle: nil).instantiateInitialViewController() as? GameViewYourTurnViewController else { return UIViewController() }
 
@@ -100,7 +119,7 @@ class HomeScreenViewModel {
     }()
 
     let viewDidAppearPublishRelay = PublishRelay<Void>()
-    let yourTurnModelSelectedPublishRelay = PublishRelay<YourTurnCellViewModel>()
+    let homeSectionViewModelSelectedPublishRelay = PublishRelay<HomeCellViewModelType>()
 
     let homeNavigationBarViewModel = HomeNavigationBarViewModel()
     var dataSource: RxTableViewSectionedReloadDataSource<HomeSectionModel>!
@@ -123,6 +142,13 @@ class HomeScreenViewModel {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "YourTurnTableViewCell") as? YourTurnTableViewCell else { return UITableViewCell() }
 
                 cell.bind(yourTurnViewModel)
+
+                return cell
+
+            case let completedViewModel as CompletedCellViewModel:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompletedTableViewCell") as? CompletedTableViewCell else { return UITableViewCell() }
+
+                cell.bind(completedViewModel)
 
                 return cell
             default:

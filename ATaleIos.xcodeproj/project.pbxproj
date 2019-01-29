@@ -44,6 +44,9 @@
 		B1C0325221FFB1E7003DACED /* ParagraphTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C0325021FFB1E7003DACED /* ParagraphTableViewCell.xib */; };
 		B1C0325421FFB215003DACED /* ParagraphCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0325321FFB215003DACED /* ParagraphCellViewModel.swift */; };
 		B1C032562200BBD0003DACED /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C032552200BBD0003DACED /* Date+Extensions.swift */; };
+		B1C0325A2200EF6A003DACED /* CompletedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C032582200EF6A003DACED /* CompletedTableViewCell.swift */; };
+		B1C0325B2200EF6A003DACED /* CompletedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C032592200EF6A003DACED /* CompletedTableViewCell.xib */; };
+		B1C0325D2200EF7B003DACED /* CompletedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0325C2200EF7B003DACED /* CompletedCellViewModel.swift */; };
 		B1CBA26121EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */; };
 		B1CBA26221EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */; };
 		B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E98521AB14BE00DB467F /* AppDelegate.swift */; };
@@ -136,6 +139,9 @@
 		B1C0325021FFB1E7003DACED /* ParagraphTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParagraphTableViewCell.xib; sourceTree = "<group>"; };
 		B1C0325321FFB215003DACED /* ParagraphCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphCellViewModel.swift; sourceTree = "<group>"; };
 		B1C032552200BBD0003DACED /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		B1C032582200EF6A003DACED /* CompletedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTableViewCell.swift; sourceTree = "<group>"; };
+		B1C032592200EF6A003DACED /* CompletedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedTableViewCell.xib; sourceTree = "<group>"; };
+		B1C0325C2200EF7B003DACED /* CompletedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedCellViewModel.swift; sourceTree = "<group>"; };
 		B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPendingSectionHeaderCell.swift; sourceTree = "<group>"; };
 		B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewPendingSectionHeaderCell.xib; sourceTree = "<group>"; };
 		B1D8E98221AB14BE00DB467F /* ATaleIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATaleIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -336,6 +342,16 @@
 			path = ParagraphTableViewCell;
 			sourceTree = "<group>";
 		};
+		B1C032572200EF55003DACED /* CompletedTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B1C032582200EF6A003DACED /* CompletedTableViewCell.swift */,
+				B1C032592200EF6A003DACED /* CompletedTableViewCell.xib */,
+				B1C0325C2200EF7B003DACED /* CompletedCellViewModel.swift */,
+			);
+			path = CompletedTableViewCell;
+			sourceTree = "<group>";
+		};
 		B1CBA25D21EA10AD0081C91D /* HomeSectionHeaderCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +446,7 @@
 		B1FCB2D921CEBE100078906D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B1C032572200EF55003DACED /* CompletedTableViewCell */,
 				B1C0324721FBA6FB003DACED /* YourTurnTableViewCell */,
 				B1FCB30621D1DB3D0078906D /* TurnTableViewCell */,
 				B1FCB2ED21CF05BD0078906D /* PendingTableViewCell */,
@@ -605,6 +622,7 @@
 				B1FCB31621D1FF8F0078906D /* HomeSectionHeaderCell.xib in Resources */,
 				B1D8E9A721AB14E900DB467F /* SignUp.storyboard in Resources */,
 				B1A8812721D93E720014288D /* NewTaleFirstLineViewController.storyboard in Resources */,
+				B1C0325B2200EF6A003DACED /* CompletedTableViewCell.xib in Resources */,
 				B181411521E6D2D3007BC4E1 /* GameViewPendingViewController.storyboard in Resources */,
 				B1FCB2F121CF06D60078906D /* PendingCollectionViewCell.xib in Resources */,
 				B1FCB2E621CEBF6D0078906D /* HomeNavigationBar.xib in Resources */,
@@ -904,7 +922,9 @@
 				B1D8E9AA21AB15CC00DB467F /* UIColor+Extensions.swift in Sources */,
 				B1AF540D21DBF68A00365C17 /* TaleFirestoreParagraph.swift in Sources */,
 				B1FCB2FD21D066350078906D /* Reactive+UIView.swift in Sources */,
+				B1C0325D2200EF7B003DACED /* CompletedCellViewModel.swift in Sources */,
 				B1FCB2DB21CEBE230078906D /* HomeViewController.swift in Sources */,
+				B1C0325A2200EF6A003DACED /* CompletedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -69,6 +69,25 @@ class FirebaseFirestoreSevice {
             }
     }
 
+    func getCompletedTales() -> Observable<[TaleFirestoreModel]> {
+        guard
+            let currentUser = Auth.auth().currentUser,
+            let currentUserProvider = currentUser.providerData.first(where: { $0.providerID == "facebook.com" })
+            else { return Observable.empty() }
+
+        return fireStoreDatabase
+            .collection(FireStoreCollection.tales.rawValue)
+            .document(FireStoreDocument.active.rawValue)
+            .collection(FireStoreCollection.items.rawValue)
+            .rx
+            .getDocuments()
+            .map {
+                $0.documents
+                    .map { TaleFirestoreModel(from: $0.data()) }
+                    .filter { $0.currentRound > 3 && $0.acceptedUsers.contains(where: { $0.id == currentUserProvider.uid }) }
+        }
+    }
+
     func create(_ tale: TaleFirestoreModel, in document: FireStoreDocument = .pending) -> Observable<Void> {
         return fireStoreDatabase
             .collection(FireStoreCollection.tales.rawValue)
