@@ -10,6 +10,7 @@ import Foundation
 
 struct TaleFirestoreParagraph: FirebaseModelProtocol {
     var creatorId: String
+    var date: Date
     var creatorUsername: String
     var creatorImageURL: URL?
     var paragraphText: String
@@ -17,6 +18,7 @@ struct TaleFirestoreParagraph: FirebaseModelProtocol {
     func toDictionary() -> [String : Any] {
         return [
             "creatorId" : creatorId,
+            "date" : date.timeIntervalSince1970,
             "creatorUsername" : creatorUsername,
             "creatorImageURL" : creatorImageURL?.absoluteString ?? "",
             "paragraphText" : paragraphText
@@ -27,6 +29,7 @@ struct TaleFirestoreParagraph: FirebaseModelProtocol {
 extension TaleFirestoreParagraph {
     init(from dictionary: [String: Any]) {
         self.creatorId = dictionary["creatorId"] as? String ?? ""
+        self.date = Date(timeIntervalSince1970: dictionary["date"] as? TimeInterval ?? Date().timeIntervalSince1970)
         self.creatorUsername = dictionary["creatorUsername"] as? String ?? ""
         self.creatorImageURL = URL(string: dictionary["creatorImageURL"] as? String ?? "")
         self.paragraphText = dictionary["paragraphText"] as? String ?? ""

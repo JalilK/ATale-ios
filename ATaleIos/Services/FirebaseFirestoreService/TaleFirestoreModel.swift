@@ -18,6 +18,7 @@ struct TaleFirestoreModel: FirebaseModelProtocol {
     var id: String
     var creatorId: String
     var currentUserTurnId: String
+    var currentRound: Int
     var taleColor: TaleColor
     var taleTitle: String
     var creatorUsername: String
@@ -32,6 +33,7 @@ struct TaleFirestoreModel: FirebaseModelProtocol {
             "id" : id,
             "creatorId" : creatorId,
             "currentUserTurnId" : currentUserTurnId,
+            "currentRound" : currentRound,
             "taleColor" : taleColor .rawValue,
             "taleTitle" : taleTitle,
             "creatorUsername" : creatorUsername,
@@ -49,6 +51,7 @@ extension TaleFirestoreModel {
         self.id = dictionary["id"] as? String ?? ""
         self.creatorId = dictionary["creatorId"] as? String ?? ""
         self.currentUserTurnId = dictionary["currentUserTurnId"] as? String ?? ""
+        self.currentRound = dictionary["currentRound"] as? Int ?? 0
         self.taleColor = TaleColor(rawValue: dictionary["taleColor"] as? String ?? "")
         self.taleTitle = dictionary["taleTitle"] as? String ?? ""
         self.creatorUsername = dictionary["creatorUsername"] as? String ?? ""

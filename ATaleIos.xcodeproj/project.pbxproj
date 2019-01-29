@@ -40,6 +40,10 @@
 		B1C0324A21FBA717003DACED /* YourTurnTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0324821FBA717003DACED /* YourTurnTableViewCell.swift */; };
 		B1C0324B21FBA717003DACED /* YourTurnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C0324921FBA717003DACED /* YourTurnTableViewCell.xib */; };
 		B1C0324D21FBA733003DACED /* YourTurnCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0324C21FBA733003DACED /* YourTurnCellViewModel.swift */; };
+		B1C0325121FFB1E7003DACED /* ParagraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0324F21FFB1E7003DACED /* ParagraphTableViewCell.swift */; };
+		B1C0325221FFB1E7003DACED /* ParagraphTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C0325021FFB1E7003DACED /* ParagraphTableViewCell.xib */; };
+		B1C0325421FFB215003DACED /* ParagraphCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C0325321FFB215003DACED /* ParagraphCellViewModel.swift */; };
+		B1C032562200BBD0003DACED /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C032552200BBD0003DACED /* Date+Extensions.swift */; };
 		B1CBA26121EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */; };
 		B1CBA26221EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */; };
 		B1D8E98621AB14BE00DB467F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8E98521AB14BE00DB467F /* AppDelegate.swift */; };
@@ -128,6 +132,10 @@
 		B1C0324821FBA717003DACED /* YourTurnTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTurnTableViewCell.swift; sourceTree = "<group>"; };
 		B1C0324921FBA717003DACED /* YourTurnTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourTurnTableViewCell.xib; sourceTree = "<group>"; };
 		B1C0324C21FBA733003DACED /* YourTurnCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTurnCellViewModel.swift; sourceTree = "<group>"; };
+		B1C0324F21FFB1E7003DACED /* ParagraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphTableViewCell.swift; sourceTree = "<group>"; };
+		B1C0325021FFB1E7003DACED /* ParagraphTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParagraphTableViewCell.xib; sourceTree = "<group>"; };
+		B1C0325321FFB215003DACED /* ParagraphCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphCellViewModel.swift; sourceTree = "<group>"; };
+		B1C032552200BBD0003DACED /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		B1CBA25F21EA10E40081C91D /* GameViewPendingSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewPendingSectionHeaderCell.swift; sourceTree = "<group>"; };
 		B1CBA26021EA10E40081C91D /* GameViewPendingSectionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewPendingSectionHeaderCell.xib; sourceTree = "<group>"; };
 		B1D8E98221AB14BE00DB467F /* ATaleIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATaleIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,6 +308,7 @@
 		B1C0324021FB9E78003DACED /* GameViewYourTurn */ = {
 			isa = PBXGroup;
 			children = (
+				B1C0324E21FFB1D2003DACED /* ParagraphTableViewCell */,
 				B1C0324121FB9E92003DACED /* GameViewYourTurnViewController.swift */,
 				B1C0324321FB9E9E003DACED /* GameViewYourTurnViewController.storyboard */,
 				B1C0324521FB9EAF003DACED /* GameViewYourTurnViewModel.swift */,
@@ -315,6 +324,16 @@
 				B1C0324C21FBA733003DACED /* YourTurnCellViewModel.swift */,
 			);
 			path = YourTurnTableViewCell;
+			sourceTree = "<group>";
+		};
+		B1C0324E21FFB1D2003DACED /* ParagraphTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B1C0324F21FFB1E7003DACED /* ParagraphTableViewCell.swift */,
+				B1C0325021FFB1E7003DACED /* ParagraphTableViewCell.xib */,
+				B1C0325321FFB215003DACED /* ParagraphCellViewModel.swift */,
+			);
+			path = ParagraphTableViewCell;
 			sourceTree = "<group>";
 		};
 		B1CBA25D21EA10AD0081C91D /* HomeSectionHeaderCell */ = {
@@ -403,6 +422,7 @@
 				B1D8E9A921AB15CC00DB467F /* UIColor+Extensions.swift */,
 				B1FCB2E721CEF2AC0078906D /* Reactive+UIViewController.swift */,
 				B1FCB2FC21D066350078906D /* Reactive+UIView.swift */,
+				B1C032552200BBD0003DACED /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -579,6 +599,7 @@
 				B1D8E99021AB14C000DB467F /* LaunchScreen.storyboard in Resources */,
 				B1FCB2EC21CF05BB0078906D /* PendingTableViewCell.xib in Resources */,
 				B1FCB31B21D2D65E0078906D /* NewTaleViewController.storyboard in Resources */,
+				B1C0325221FFB1E7003DACED /* ParagraphTableViewCell.xib in Resources */,
 				B146BC4621D54A2C009647CA /* InvitePlayersViewController.storyboard in Resources */,
 				B1FCB30A21D1DB5B0078906D /* TurnTableViewCell.xib in Resources */,
 				B1FCB31621D1FF8F0078906D /* HomeSectionHeaderCell.xib in Resources */,
@@ -837,6 +858,7 @@
 			files = (
 				B1FCB2F321CF0B640078906D /* PendingCollectionCellViewModel.swift in Sources */,
 				B1AF540B21DBE9D800365C17 /* TaleFirestoreModel.swift in Sources */,
+				B1C032562200BBD0003DACED /* Date+Extensions.swift in Sources */,
 				B1AF540821DBE59F00365C17 /* FirebaseFirestoreSevice.swift in Sources */,
 				B146BC3521D35D32009647CA /* NewTaleViewModel.swift in Sources */,
 				B181411921E6D2FE007BC4E1 /* GameViewPendingViewModel.swift in Sources */,
@@ -849,6 +871,7 @@
 				B1FCB30921D1DB5B0078906D /* TurnTableViewCell.swift in Sources */,
 				B1FCB2F021CF06D60078906D /* PendingCollectionViewCell.swift in Sources */,
 				B1FCB2EB21CF05BB0078906D /* PendingTableViewCell.swift in Sources */,
+				B1C0325121FFB1E7003DACED /* ParagraphTableViewCell.swift in Sources */,
 				B146BC4E21D571F2009647CA /* PlayerViewModel.swift in Sources */,
 				B1FCB2E221CEBEDE0078906D /* HomeNavigationBarViewModel.swift in Sources */,
 				B1C0324D21FBA733003DACED /* YourTurnCellViewModel.swift in Sources */,
@@ -875,6 +898,7 @@
 				B1C0324A21FBA717003DACED /* YourTurnTableViewCell.swift in Sources */,
 				B146BC4821D55191009647CA /* FacebookAPIService.swift in Sources */,
 				B1A8813021D955580014288D /* NewTaleFirstLineViewModel.swift in Sources */,
+				B1C0325421FFB215003DACED /* ParagraphCellViewModel.swift in Sources */,
 				B1FCB2FB21D01ADD0078906D /* PendingTaleModel.swift in Sources */,
 				B1FCB32221D34D1A0078906D /* SelectColorView.swift in Sources */,
 				B1D8E9AA21AB15CC00DB467F /* UIColor+Extensions.swift in Sources */,
