@@ -170,6 +170,7 @@ extension GameViewPendingViewModel {
             id: tale.id,
             creatorId: tale.creatorId,
             currentUserTurnId: tale.creatorId,
+            currentRound: tale.currentRound,
             taleColor: tale.taleColor,
             taleTitle: tale.taleTitle,
             creatorUsername: tale.creatorUsername,

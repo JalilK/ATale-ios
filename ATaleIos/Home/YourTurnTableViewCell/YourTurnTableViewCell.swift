@@ -20,10 +20,16 @@ class YourTurnTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupViews()
     }
 
     override func prepareForReuse() {
         disposeBag = DisposeBag()
+    }
+
+    private func setupViews() {
+        backgroundColor = UIColor.cream
+        contentView.backgroundColor = UIColor.cream
     }
 
     func bind(_ viewModel: YourTurnCellViewModel) {

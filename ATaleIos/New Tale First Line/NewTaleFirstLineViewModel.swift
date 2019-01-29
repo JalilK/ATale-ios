@@ -29,8 +29,9 @@ class NewTaleFirstLineViewModel {
 
                 return TaleFirestoreModel(
                     id: UUID().uuidString,
-                    creatorId: currentUser.uid,
+                    creatorId: currentUserProvider.uid,
                     currentUserTurnId: currentUserProvider.uid,
+                    currentRound: 1,
                     taleColor: self.selectedColorBehaviorRelay.value,
                     taleTitle: self.taleTitleBehaviorRelay.value,
                     creatorUsername: currentUser.displayName ?? "",
@@ -39,7 +40,7 @@ class NewTaleFirstLineViewModel {
                     declinedUsers: [],
                     invitedUsers: self.invitedPlayersBehaviorRelay.value,
                     taleParagraphs: [
-                        TaleFirestoreParagraph(creatorId: currentUser.uid, creatorUsername: currentUser.displayName ?? "", creatorImageURL: currentUser.photoURL, paragraphText: self.firstLineTextBehaviorRelay.value)
+                        TaleFirestoreParagraph(creatorId: currentUserProvider.uid, date: Date(), creatorUsername: currentUser.displayName ?? "", creatorImageURL: currentUser.photoURL, paragraphText: self.firstLineTextBehaviorRelay.value)
                     ])
                 }
                 .filterNil()

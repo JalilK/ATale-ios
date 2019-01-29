@@ -65,7 +65,7 @@ class FirebaseFirestoreSevice {
             .map {
                 $0.documents
                     .map { TaleFirestoreModel(from: $0.data()) }
-                    .filter { $0.currentUserTurnId == currentUser.uid }
+                    .filter { $0.currentUserTurnId == currentUserProvider.uid && $0.currentRound <= 3 }
             }
     }
 
@@ -79,10 +79,10 @@ class FirebaseFirestoreSevice {
             .map { print("Document added with ID: \($0.documentID)") }
     }
 
-    func update(_ tale: TaleFirestoreModel) -> Observable<Void> {
+    func update(_ tale: TaleFirestoreModel, in document: FireStoreDocument = .pending) -> Observable<Void> {
         return fireStoreDatabase
             .collection(FireStoreCollection.tales.rawValue)
-            .document(FireStoreDocument.pending.rawValue)
+            .document(document.rawValue)
             .collection(FireStoreCollection.items.rawValue)
             .whereField("id", isEqualTo: tale.id)
             .rx
@@ -90,7 +90,7 @@ class FirebaseFirestoreSevice {
             .flatMapLatest { [unowned self] in
                 self.fireStoreDatabase
                     .collection(FireStoreCollection.tales.rawValue)
-                    .document(FireStoreDocument.pending.rawValue)
+                    .document(document.rawValue)
                     .collection(FireStoreCollection.items.rawValue)
                     .document($0.documentID)
                     .rx
