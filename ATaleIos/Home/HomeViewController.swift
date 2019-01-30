@@ -78,6 +78,10 @@ class HomeViewController: UIViewController {
         viewModel.pendingGameViewDriver
             .drive(rx.pushToNavigationController)
             .disposed(by: disposeBag)
+
+        viewModel.completedGameViewDriver
+            .drive(rx.pushToNavigationController)
+            .disposed(by: disposeBag)
     }
 }
 

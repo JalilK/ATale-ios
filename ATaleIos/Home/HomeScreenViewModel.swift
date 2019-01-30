@@ -118,6 +118,25 @@ class HomeScreenViewModel {
             .asDriver(onErrorJustReturn: UIViewController())
     }()
 
+    lazy var completedGameViewDriver: Driver<UIViewController> = {
+        homeSectionViewModelSelectedPublishRelay
+            .map { $0 as? CompletedCellViewModel }
+            .filterNil()
+            .withLatestFrom(homeSectionViewModelSelectedPublishRelay
+                .map { $0 as? CompletedCellViewModel }
+                .filterNil()
+                .flatMapLatest { $0.taleModelObservable }) { ($0, $1) }
+            .map { tuple -> UIViewController in
+                guard let vc = UIStoryboard(name: "GameViewEndGameViewController", bundle: nil).instantiateInitialViewController() as? GameViewEndGameViewController else { return UIViewController() }
+
+                let viewModel = GameViewEndGameViewModel(with: tuple.1)
+                vc.viewModel = viewModel
+
+                return vc
+            }
+            .asDriver(onErrorJustReturn: UIViewController())
+    }()
+
     let viewDidAppearPublishRelay = PublishRelay<Void>()
     let homeSectionViewModelSelectedPublishRelay = PublishRelay<HomeCellViewModelType>()
 
