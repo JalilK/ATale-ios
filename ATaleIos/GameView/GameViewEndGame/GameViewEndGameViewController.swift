@@ -29,6 +29,16 @@ class GameViewEndGameViewController: UIViewController {
         setupBindings()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        playerImageViews.forEach {
+            $0.layer.cornerRadius = $0.frame.height / 2
+            $0.layer.masksToBounds = false
+            $0.clipsToBounds = true
+        }
+    }
+
     private func setupViews() {
         view.backgroundColor = UIColor.cream
         scrollView.backgroundColor = UIColor.cream
@@ -50,6 +60,10 @@ class GameViewEndGameViewController: UIViewController {
             .drive(rx.playerImages)
             .disposed(by: disposeBag)
 
+        viewModel.playerColorsDriver
+            .drive(rx.playerColors)
+            .disposed(by: disposeBag)
+
         viewModel.taleParagraphsDriver
             .drive(rx.paragraphs)
             .disposed(by: disposeBag)
@@ -65,15 +79,29 @@ extension Reactive where Base: GameViewEndGameViewController {
         }
     }
 
-    fileprivate var paragraphs: Binder<[TaleFirestoreParagraph]> {
-        return Binder<[TaleFirestoreParagraph]>(self.base) { viewController, paragraphs in
+    fileprivate var playerColors: Binder<[UIColor]> {
+        return Binder(self.base) { viewController, colors in
+            colors.enumerated().forEach {
+                viewController.playerImageViews[$0.offset].layer.borderWidth = 5
+                viewController.playerImageViews[$0.offset].layer.borderColor = $0.element.cgColor
+            }
+        }
+    }
+
+    fileprivate var paragraphs: Binder<[(TaleFirestoreParagraph, UIColor)]> {
+        return Binder(self.base) { viewController, paragraphWithColorTuples in
             var text = ""
 
-            paragraphs.forEach {
-                text += $0.paragraphText + " "
+            paragraphWithColorTuples.forEach { text += $0.0.paragraphText + " " }
+
+            let attributedString = NSMutableAttributedString(string: text)
+
+            paragraphWithColorTuples.forEach {
+                let range = (text as NSString).range(of: $0.0.paragraphText)
+                attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: $0.1, range: range)
             }
 
-            viewController.taleParagraphsLabel.text = text
+            viewController.taleParagraphsLabel.attributedText = attributedString
         }
     }
 }
